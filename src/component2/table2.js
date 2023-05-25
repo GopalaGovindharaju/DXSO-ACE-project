@@ -1,8 +1,8 @@
 import React from "react";
-import './App.css';
+import './table2.css';
 import JobDetailsForm from './jobd.js';
-
-function App() {
+import { useState } from "react";
+function Table() {
     const [showJobDetails, setShowJobDetails] = useState(false);
   
     const handleJobDetailsButtonClick = () => {
@@ -144,5 +144,5 @@ function App() {
     );
   }
   
-  export default App;
+  export default Table;
   
