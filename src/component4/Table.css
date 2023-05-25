@@ -1,0 +1,61 @@
+.custom-lbox{
+    background: whitesmoke;
+    font-family: verdana;
+    font-weight: bold;
+}
+
+.customcol{
+    width: 100px;
+    margin-right: 3px;
+}
+
+.customtable {
+    border-collapse: collapse;
+}
+
+.select {
+    width: 100%;
+    padding: 4px;
+}
+
+.submit-button {
+    background-color: burlywood;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    align-items: center;
+}
+
+.tb1{
+    margin:none;
+    padding: 5px 10px;
+    border: none;
+    width: 80px;
+    height: 400px;
+}
+
+.custom-tab{
+    height: 20px;
+}
+
+.custom-card-color{
+    background-color: grey;
+}
+
+.custom-table{
+    background-color: rgb(215, 232, 200);
+}
+
+.custom-tb{
+    border-width: 2px;
+    border-color: black;
+}
+.table th, table tr, table td{
+    border-color: black;
+}
+
+.custom-tb2{
+    border-color: black;
+}

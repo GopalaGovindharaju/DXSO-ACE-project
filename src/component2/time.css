@@ -1,0 +1,40 @@
+.current-time-container {
+    text-align: right;
+  }
+  
+  .current-time-heading {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+ 
+  #urgent{
+    margin-left: 40px;
+  }
+
+  #balance{
+    margin-left: 70px;
+  }
+  .current-time-text {
+    font-size: 18px;
+    color: #830640;
+  }
+  .custom-bg {
+    background-color: #4b4a4a; /* Replace with your desired background color */
+  }
+
+  .custom-bg1 {
+    background-color: #808080; /* Replace with your desired background color */
+  }
+  .custom-bg3
+  {
+    background-color: #db6505;
+  }
+  #bb1 
+{
+  background-color: rgba(8, 233, 8, 0.719);
+}
+
+#bb2{
+  background-color: rgba(8, 233, 8, 0.719);
+}
