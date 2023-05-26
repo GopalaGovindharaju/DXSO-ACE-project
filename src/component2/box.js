@@ -26,7 +26,7 @@ function Box()
             <div class="form-group row">  
             <label htmlFor="machine" class="col-md-6">Machine:</label>
             <div class="col-md-4">
-            <input type="text" id="" name="machine" className="input-field  form-control" style={{ width: '150px' }} required/><br></br>
+            <input type="text" placeholder="Machine" id="" name="machine" className="input-field  form-control" style={{ width: '150px' }} required/><br></br>
             </div>
             </div>
         </div>
@@ -35,7 +35,7 @@ function Box()
             <div class="form-group row">  
             <label htmlFor="cus" class="col-md-6">Operator:</label>
             <div class="col-md-4">
-            <input type="text" id="operator" name="operator" className="input-field form-control" style={{ width: '150px' }} required/><br></br>
+            <input type="text" placeholder="Operator" id="operator" name="operator" className="input-field form-control" style={{ width: '150px' }} required/><br></br>
             </div>
             </div>
         </div>
@@ -51,7 +51,7 @@ function Box()
             <div class="form-group row">  
             <label htmlFor="cus" class="col-md-6">Batch ctrl:</label>
             <div class="col-md-4">
-            <input type="text" id="batch" name="batch" className="input-field form-control" style={{ width: '150px' }} required/><br></br>
+            <input type="text" placeholder="Batch" id="batch" name="batch" className="input-field form-control" style={{ width: '150px' }} required/><br></br>
             </div>
             </div>
         </div>
@@ -67,7 +67,7 @@ function Box()
             <div class="form-group row">  
             <label htmlFor="cus" class="col-md-6">Shift:</label>
             <div class="col-md-4">
-            <select name="shift" id="shift form-control" className="shift" required>
+            <select name="shift" id="shift form-control" className="shift rounded" required>
             <option value="morning">morning</option>
             <option value="evening">evening</option>
              <option value="night">night</option>

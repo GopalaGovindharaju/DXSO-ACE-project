@@ -2,6 +2,7 @@ import React from "react";
 import './table2.css';
 import JobDetailsForm from './jobd.js';
 import { useState } from "react";
+import Box from "./box";
 function Table() {
     const [showJobDetails, setShowJobDetails] = useState(false);
   
@@ -15,6 +16,7 @@ function Table() {
   
     return (
       <div className="App">
+        <div><Box/></div>
         <header className="Empty"></header>
   
         <header className="tab">

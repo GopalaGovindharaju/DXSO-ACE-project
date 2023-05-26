@@ -3,8 +3,11 @@ import MoreInputForm from './BOMMorespecs';
 import './CustomStyles.css';
 import {Row,Col,container} from "react-bootstrap";
 import ToggleButton  from './shiftbtn';
+import { useNavigate } from 'react-router-dom';
+
 
 function Gridlay(){
+    const navigate = useNavigate()
     return(
         <div class="container-fluid">
             <div class="row">
@@ -94,7 +97,7 @@ function Gridlay(){
                         </div>
                     </div>
 
-                    <div class="row input-group input-group-sm">
+                    <div class="row input-group input-group-sm p-2">
                         <label for="inputPassword" class="col-sm-5 col-form-label"><h4 class="custom-font">Available Lead Time</h4></label>
                                 <div class="col-sm-5">
                                     <input type="time" class="form-control" id="inputPassword" placeholder="00:00 "/>
@@ -178,14 +181,14 @@ function Gridlay(){
                         </div><br></br>
                         <center>
                         <div class="row-md">
-                        <button type="submit" className="btn btn-primary btn-sm btn-block" style={{ width: '200px' }}>Submit Allocation</button>
+                        <button type="submit" onClick={() => navigate('operator')} className="btn btn-primary btn-sm btn-block" style={{ width: '200px' }}>Submit Allocation</button>
 
                         </div>
                         </center>
                         <br></br>
                         <center>
                         <div class="row-md">
-                        <button type="submit" className="btn btn-primary btn-sm btn-block" style={{ width: '200px' }}>Edit Allocation</button>
+                        <button type="button" className="btn btn-primary btn-sm btn-block" style={{ width: '200px' }}>Edit Allocation</button>
 
                         </div>
                         </center>
