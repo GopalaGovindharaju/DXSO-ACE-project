@@ -30,11 +30,11 @@ table tr:nth-child(even) {
 }
 
 .custom-card-color{
-    background-color: rgb(223, 196, 231);
+    background-color: rgb(196, 231, 204);
 }
 
 .custom-table{
-    background-color:#c384cf;
+    background-color:#517e3ce0;
 }
 
 .custom-tb{
