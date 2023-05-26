@@ -13,21 +13,6 @@
     border-collapse: collapse;
 }
 
-.select {
-    width: 100%;
-    padding: 4px;
-}
-
-.submit-button {
-    background-color: burlywood;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    align-items: center;
-}
-
 .tb1{
     margin:none;
     padding: 5px 10px;
@@ -36,16 +21,20 @@
     height: 400px;
 }
 
+table tr:nth-child(even) {
+    background-color: rgb(255, 255, 255);
+}
+
 .custom-tab{
     height: 20px;
 }
 
 .custom-card-color{
-    background-color: rgb(206, 210, 238);
+    background-color: rgb(223, 196, 231);
 }
 
 .custom-table{
-    background-color: rgb(216, 222, 246);
+    background-color:#c384cf;
 }
 
 .custom-tb{
@@ -54,6 +43,7 @@
 }
 .table th, table tr, table td{
     border-color: black;
+
 }
 
 .custom-tb2{

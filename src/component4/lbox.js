@@ -6,11 +6,10 @@ import ToggleButton from "./toggle";
 import Table from "./Table";
 
 function Lbox() {
-
     
-
     return (
         <div class="container-fluid">
+            <div class="p-2 mb-2 text-dark bg-gradient text-center fs-4 fw-bold custom-font" style={{ backgroundColor: '#C9B0D6' }}><h1>Bending Inspection Form - Inspector</h1></div>
             <div class="row">
                 <div class="col-sm-2">
                     <div class="card p-1 border border-dark">

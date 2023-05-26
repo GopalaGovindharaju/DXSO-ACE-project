@@ -17,7 +17,7 @@ function Table(){
         <div class="container">
           
           <table class="table table-bordered table-sm">
-                <thead class="custom-table">
+                <thead class="custom-table text-dark">
                 <tr>
                     <th scope="col">Serial No</th>
                     <th scope="col">BOM Specification</th>
