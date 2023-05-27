@@ -1,51 +1,48 @@
-.custom-lbox{
+.custom-lbox {
     background: whitesmoke;
     font-family: verdana;
     font-weight: bold;
-}
-
-.customcol{
-    width: 100px;
-    margin-right: 3px;
-}
-
-.customtable {
-    border-collapse: collapse;
-}
-
-.tb1{
-    margin:none;
-    padding: 5px 10px;
+  }
+  
+  #gg {
+    width: 1070px;
+    table-layout: fixed; 
+  }
+  #commentstext{
+    width: auto;
+  }
+  .custom-table {
+    background-color: #517e3ce0;
+  }
+  
+  .tb1 {
+    margin: none;
     border: none;
-    width: 80px;
-    height: 400px;
-}
-
-table tr:nth-child(even) {
+    height: 300px;
+    width: 100%; 
+    text-align: center; 
+  }
+  
+  #finalsubmit {
+    margin-left: 500px;
+  }
+  
+  table tr:nth-child(even) {
     background-color: rgb(255, 255, 255);
-}
-
-.custom-tab{
-    height: 20px;
-}
-
-.custom-card-color{
+  }
+  
+  .custom-card-color {
     background-color: rgb(196, 231, 204);
-}
-
-.custom-table{
-    background-color:#517e3ce0;
-}
-
-.custom-tb{
-    border-width: 2px;
+  }
+  
+  .custom-tb,
+  .custom-tb2 {
     border-color: black;
-}
-.table th, table tr, table td{
+  }
+  
+  .table th,
+  table tr,
+  table td {
     border-color: black;
-
-}
-
-.custom-tb2{
-    border-color: black;
-}
+  }
+  

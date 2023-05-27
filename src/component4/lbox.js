@@ -21,12 +21,10 @@ function Lbox() {
                             <label>Date</label>
                             <b><DateComponent/></b>
                         </div>
-
                         <div class="form-group">    
                             <label>Machine Number</label>
                             <input placeholder='0' type="number" id="pieces" class="form-control border-dark" required/>   
                         </div><br></br>
-
                         <div class="form-input-group">    
                             <label class="form-label">Machine Operator</label><br></br>
                             <select name="operator" id="shift form-control" required>
@@ -91,15 +89,9 @@ function Lbox() {
                     
                 </div>
             </div>
-
-
             <div class="col-sm-4">
-            <div class="row">
                 <Table />
-            </div>
-            </div>
-
-            
+            </div> 
         </div>
         </div>
     );
