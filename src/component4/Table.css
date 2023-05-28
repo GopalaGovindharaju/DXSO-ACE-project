@@ -5,16 +5,20 @@
   }
   
   #gg {
-    width: 1070px;
+    width: 1000px;
     table-layout: fixed; 
   }
+
   #commentstext{
-    width: auto;
+    width: 70px;
+    height: 300px;
+    border: none;
   }
+
   .custom-table {
     background-color: #517e3ce0;
   }
-  
+
   .tb1 {
     margin: none;
     border: none;

@@ -4,7 +4,7 @@ import './Table.css';
 import ToggleButton from "./toggle";
 import CheckboxExample from "./check";
 
-function Table(){
+function Table() {
 
     const [showAnotherTab, setshowAnotherTab] = useState(false);
 
@@ -51,7 +51,7 @@ function Table(){
                     <td contentEditable="true">3</td>
                     <td contentEditable="true"><CheckboxExample/></td>
                     <td rowSpan={5}><ToggleButton/></td>
-                    <td rowSpan={5}><input type="text" id="commentstext"></input></td>
+                    <td rowSpan={5}><input type="text" class="tb2" id="commentstext"></input></td>
                     <td contentEditable="true"></td>
                 </tr>
 

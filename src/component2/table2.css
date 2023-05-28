@@ -32,23 +32,16 @@
     height: 28px ;
     font-size: calc(1px + 2vmin);
   }
-  #bb{
-    background-color: blue;
-    width:150px;
-    height:30px ;
-    margin-top: -1px;
-    color: white;
-    margin-left: 170px;
   
+  #bb{
+    margin-left: 160px;
   }
+
   #bl{
     background-color: #085febba;
   }
   
-  .shift{
-    height: 40px;
-    width: 150px;
-  }
+  
   .choice{
     margin-top: 20px;
     height: 150px;
