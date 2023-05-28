@@ -1,0 +1,28 @@
+.table-container {
+    border-collapse: collapse;
+  }
+  
+  .table-container th,
+  .table-container td {
+    border: 1px solid black;
+    padding: 8px;
+  }
+  .but{
+    padding: 20px;
+  }
+
+  .custom-browse{
+    margin-top: 100px;
+    padding-top: 100px;
+    text-align: center;
+  }
+
+  .custom-done{
+    margin-left: 10px;
+  }
+
+  .custom-edit{
+    margin-left: 10px;
+  }
+
+  
