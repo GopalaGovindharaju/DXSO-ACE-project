@@ -65,7 +65,7 @@ function Browse() {
 
   const handleDone = () => {
     <br></br>
-    window.location.href = "http://localhost:3000/req";
+    window.location.href = "http://localhost:3000/planner";
   };
 
   return (
