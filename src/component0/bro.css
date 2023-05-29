@@ -1,14 +1,17 @@
 .table-container {
     border-collapse: collapse;
+    background-color:  #cfd9de;
   }
   
   .table-container th,
   .table-container td {
     border: 1px solid black;
     padding: 8px;
+    background-color:  #cfd9de
   }
   .but{
-    padding: 20px;
+    padding: 15px;
+    background-color:  #cfd9de;
   }
 
   .custom-browse{
@@ -19,10 +22,14 @@
 
   .custom-done{
     margin-left: 10px;
+    background-color: #5E7D7E;
   }
 
   .custom-edit{
     margin-left: 10px;
+    background-color: #5E7D7E;
   }
 
-  
+  .custom-savechange{
+    background-color: #5E7D7E;
+  }

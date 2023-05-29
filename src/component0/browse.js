@@ -65,12 +65,13 @@ function Browse() {
 
   const handleDone = () => {
     <br></br>
-    window.location.href = "http://localhost:3000/planner";
+    window.location.href = "http://localhost:3000/req";
   };
 
   return (
     <div className="but">
       <center>
+      <h2>ACE Electricals Planning</h2>
         <div className="button-container custom-browse">
           <input type="file" className="" onChange={handleFileChange} accept=".xlsx, .xls" ref={fileInputRef} />
           {excelData.length > 0 && (
@@ -81,16 +82,16 @@ function Browse() {
           {excelData.length > 0 && (
             <div className="button-group">
               <br /><br />
-              <button className="btn btn-primary btn-block custom-edit btn-sm" style={{ width: '70px' }} onClick={toggleEditing}>
+              <button className="btn btn-block custom-edit btn-sm text-white" style={{ width: '70px' }} onClick={toggleEditing}>
                 {isEditing ? "Save" : "EDIT"}
               </button>
               <br /><br />
               {isEditing && (
-                <button className="btn btn-primary btn-block btn-sm custom-savechange" style={{ width: '130px' }} onClick={saveChanges}>
+                <button className="btn btn-block btn-sm custom-savechange text-white" style={{ width: '130px' }} onClick={saveChanges}>
                   Save Changes
                 </button>
               )}
-              <button className="btn btn-primary btn-block custom-done btn-sm" style={{ width: '70px' }} onClick={handleDone}>
+              <button className="btn btn-block custom-done btn-sm text-white" style={{ width: '70px' }} onClick={handleDone}>
                 DONE
               </button>
             </div>
