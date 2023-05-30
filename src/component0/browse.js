@@ -41,7 +41,6 @@ function Browse() {
   };
 
   const saveChanges = () => {
-    <br></br>
     const worksheet = utils.aoa_to_sheet(excelData);
     const newWorkbook = utils.book_new();
     utils.book_append_sheet(newWorkbook, worksheet, "Sheet1");
@@ -54,34 +53,42 @@ function Browse() {
       const blob = new Blob([excelDataArray], {
         type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
       });
-      
+
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
       link.download = formattedFileName;
       link.click();
-      <br></br>
     }
   };
 
-  const handleDone = async (event) => {
-    const file = event.target.files[0];
-    const formdata = new FormData();
-    formdata.append('file', file);
-    try{
-      const response = await axios.post('http://127.0.0.1:8000/api/', formdata,{headers : {'Content-Type' : 'multipart/form-data', },});
-      console.log(response.data);
+  const handleDone = async () => {
+    if (excelData.length === 0) {
+      // Handle the case where excelData is empty
+      return;
     }
-    catch(error){
+  
+    try {
+      const file = fileInputRef.current.files[0];
+      const formData = new FormData();
+      formData.append("file", file);
+  
+      const response = await axios.post('http://127.0.0.1:8000/api/', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+  
+      console.log(response.data);
+    } catch (error) {
       console.error(error);
     }
-    
   };
 
   return (
     <div className="but">
       <center>
-      <h2>ACE Electricals Planning</h2>
+        <h2>ACE Electricals Planning</h2>
         <div className="button-container custom-browse">
           <input type="file" className="" onChange={handleFileChange} accept=".xlsx, .xls" ref={fileInputRef} />
           {excelData.length > 0 && (

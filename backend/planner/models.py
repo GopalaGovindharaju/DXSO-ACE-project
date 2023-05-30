@@ -1,10 +1,6 @@
 from django.db import models
+import pandas as pd
 
-
-
-
-
-"""import pandas as pd
 
 # Read the Excel file
 df = pd.read_excel("E:/Pro/backend/Bom.xlsx", sheet_name="Sheet1", header=2).fillna(0)
@@ -35,4 +31,3 @@ for index, row in df.iterrows():
     for column_name in column_names:
         setattr(bom_instance, str(column_name), row[column_name])
     bom_instance.save()
-"""

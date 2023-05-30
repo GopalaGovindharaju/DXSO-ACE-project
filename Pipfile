@@ -10,6 +10,7 @@ django-cors-headers = "*"
 pandas = "*"
 openpyxl = "*"
 psycopg2 = "*"
+chardet = "*"
 
 [dev-packages]
 
