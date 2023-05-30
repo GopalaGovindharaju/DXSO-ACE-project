@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { utils, write, read } from "xlsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './bro.css';
+import axios from 'axios';
 
 function Browse() {
   const [excelData, setExcelData] = useState([]);
@@ -63,9 +64,18 @@ function Browse() {
     }
   };
 
-  const handleDone = () => {
-    <br></br>
-    window.location.href = "http://localhost:3000/planner";
+  const handleDone = async (event) => {
+    const file = event.target.files[0];
+    const formdata = new FormData();
+    formdata.append('file', file);
+    try{
+      const response = await axios.post(' ', formdata,{headers : {'Content-Type' : 'multipart/form-data', },});
+      console.log(response.data);
+    }
+    catch(error){
+      console.error(error);
+    }
+    
   };
 
   return (
