@@ -69,7 +69,7 @@ function Browse() {
     const formdata = new FormData();
     formdata.append('file', file);
     try{
-      const response = await axios.post(' ', formdata,{headers : {'Content-Type' : 'multipart/form-data', },});
+      const response = await axios.post('http://127.0.0.1:8000/api/', formdata,{headers : {'Content-Type' : 'multipart/form-data', },});
       console.log(response.data);
     }
     catch(error){
