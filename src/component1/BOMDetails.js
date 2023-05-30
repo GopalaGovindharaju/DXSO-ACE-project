@@ -4,6 +4,7 @@ import './CustomStyles.css';
 import {Row,Col,container} from "react-bootstrap";
 import ToggleButton  from './shiftbtn';
 import { useNavigate } from 'react-router-dom';
+import DropdownWithOther from './Material';
 
 
 function Gridlay(){
@@ -38,6 +39,8 @@ function Gridlay(){
                                 <input placeholder='00:00' type="time" id="time_req" class="form-control" required/>   
                             </div>
                         </div><br></br>
+
+                        <DropdownWithOther/>
 
                         <MoreInputForm />
                         </form>

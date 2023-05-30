@@ -3,11 +3,13 @@ import DateComponent from "./dateauto";
 import CheckboxExample from "./check";
 import './Table.css'
 import ToggleButton from "./toggle";
+import Table from "./Table";
 
 function Lbox() {
-
+    
     return (
         <div class="container-fluid">
+            <div class="p-2 mb-2 text-white bg-gradient text-center fs-4 fw-bold custom-font" style={{ backgroundColor: "darkgreen" }}><h1>Bending Inspection Form - Inspector</h1></div>
             <div class="row">
                 <div class="col-sm-2">
                     <div class="card p-1 border border-dark">
@@ -17,14 +19,12 @@ function Lbox() {
 
                         <div class="form-group">    
                             <label>Date</label>
-                            <DateComponent/>
+                            <b><DateComponent/></b>
                         </div>
-
                         <div class="form-group">    
                             <label>Machine Number</label>
-                            <input placeholder='0' type="number" id="pieces" class="form-control" required/>   
+                            <input placeholder='0' type="number" id="pieces" class="form-control border-dark" required/>   
                         </div><br></br>
-
                         <div class="form-input-group">    
                             <label class="form-label">Machine Operator</label><br></br>
                             <select name="operator" id="shift form-control" required>
@@ -82,252 +82,16 @@ function Lbox() {
                                 <input type="time" class="form-control" id="exampleInputPassword1" placeholder="00:00"/>
                             </div>
                         </div><br></br>
-
-                        <div class="btn btn-primary btn-sm btn-block" style={{width: '80px'}} type="submit">Submit</div>
+                        <center><div class="btn btn-primary btn-sm btn-block" style={{width: '80px'}} type="submit">Submit</div></center>
 
                         </form>
                     </div>
                     
                 </div>
             </div>
-
-
             <div class="col-sm-4">
-            <div class="row">
-
-                <table class="table table-bordered table-sm-2 custom-tb">
-                <thead class="custom-table">
-                <tr>
-                    <th scope="col">Serial No</th>
-                    <th scope="col">BOM Specification</th>
-                    <th scope="col">BOM value</th>
-                    <th scope="col">Operator Entry</th>
-                    <th scope="col">Insp method</th>
-                    <th scope="col">Process Start-time</th>
-                    <th scope="col">Process End-Time</th>
-                    <th scope="col">Inspector Entry</th>
-                    <th scope="col">Approve/Reject</th>
-                    <th scope="col">Full part approved</th>
-                    <th scope="col">Comments</th>
-                    <th scope="col"class="col-md">Reason for Re-work</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>L</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>
-                    <select>
-                        <option value="Option 1">Vernier</option>
-                        <option value="Option 2">Depth</option>
-                        <option value="Option 3">protact</option>
-                    </select>   
-                    </td>
-                    <td rowSpan={5}><input type="text" class="tb1" id="tb"></input></td>
-                    <td rowSpan={5}><input type="text" class="tb1" id="tb"></input></td>
-                    <td contentEditable="true">3</td>
-                    <td contentEditable="true"><CheckboxExample/></td>
-                    <td rowSpan={5}><ToggleButton/></td>
-                    <td rowSpan={5}><input type="text" class="tb1" id="tb"></input></td>
-                    <td contentEditable="true"></td>
-                </tr>
-
-                <tr>
-                    <th scope="row">2</th>
-                    <td>W</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>
-                    <select>
-                        <option value="Option 1">Vernier</option>
-                        <option value="Option 2">Depth</option>
-                        <option value="Option 3">protact</option>
-                    </select>   
-                    </td>
-                    
-                    <td contentEditable="true">2</td>
-                    <td contentEditable="true"><CheckboxExample/></td>
-                    <td contentEditable="true"></td>
-                </tr>
-
-                <tr>
-                    <th scope="row">3</th>
-                    <td>H</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>
-                    <select>
-                        <option value="Option 1">Vernier</option>
-                        <option value="Option 2">Depth</option>
-                        <option value="Option 3">protact</option>
-                    </select>   
-                    </td>
-                
-                    <td contentEditable="true">4</td>
-                    <td contentEditable="true"><CheckboxExample/></td>
-                    <td contentEditable="true"></td>
-                </tr>
-
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Hole</td>
-                    <td>10</td>
-                    <td>10</td>
-                    <td>
-                    <select>
-                        <option value="Option 1">Vernier</option>
-                        <option value="Option 2">Depth</option>
-                        <option value="Option 3">protact</option>
-                    </select>   
-                    </td>
-
-                    <td contentEditable="true">10</td>
-                    <td contentEditable="true"><CheckboxExample/></td>
-                    <td contentEditable="true"></td>
-                </tr>
-
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Angle</td>
-                    <td>90</td>
-                    <td>90</td>
-                    <td>
-                    <select>
-                        <option value="Option 1">Vernier</option>
-                        <option value="Option 2">Depth</option>
-                        <option value="Option 3">protact</option>
-                    </select>   
-                    </td>
-                  
-                    <td contentEditable="true">90</td>
-                    <td contentEditable="true"><CheckboxExample/></td>
-                    <td contentEditable="true"></td>
-                </tr>
-                </tbody>    
-                </table>
-                <div class="btn btn-primary btn-sm btn-block" style={{width: '80px'}} type="submit">Submit</div>
-            </div>
-      
-            
-
-        <div class="row">
-        <table class="table table-bordered table-sm-2 custom-tb" style={{height:'50px'}} >
-                <thead class="custom-table">
-                <tr>
-                    <th scope="col">Serial No</th>
-                    <th scope="col">BOM Specification</th>
-                    <th scope="col">BOM value</th>
-                    <th scope="col">Operator Entry</th>
-                    <th scope="col">Insp method</th>
-                    <th scope="col">Process Start-time</th>
-                    <th scope="col">Process End-Time</th>
-                    <th scope="col">Inspector Entry</th>
-                    <th scope="col">Approve/Reject</th>
-                    <th scope="col">Full part approved</th>
-                    <th scope="col">Comments</th>
-                    <th scope="col"class="col-md">Reason for Re-work</th>
-                </tr>
-                </thead>
-                <tbody class="custom-tb1">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>L</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>
-                    <select>
-                        <option value="Option 1">Vernier</option>
-                        <option value="Option 2">Depth</option>
-                        <option value="Option 3">protact</option>
-                    </select>   
-                    </td>
-                    <td rowSpan={5}><input type="text" class="tb1" id="tb"></input></td>
-                    <td rowSpan={5}><input type="text" class="tb1" id="tb"></input></td>
-                    <td contentEditable="true">3</td>
-                    <td contentEditable="true"><CheckboxExample/></td>
-                    <td rowSpan={5}><ToggleButton/></td>
-                    <td rowSpan={5}><input type="text" class="tb1" id="tb"></input></td>
-                    <td contentEditable="true"></td>
-                </tr>
-
-                <tr>
-                    <th scope="row">2</th>
-                    <td>W</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>
-                    <select>
-                        <option value="Option 1">Vernier</option>
-                        <option value="Option 2">Depth</option>
-                        <option value="Option 3">protact</option>
-                    </select>   
-                    </td>
-                    
-                    <td contentEditable="true">2</td>
-                    <td contentEditable="true"><CheckboxExample/></td>
-                    <td contentEditable="true"></td>
-                </tr>
-
-                <tr>
-                    <th scope="row">3</th>
-                    <td>H</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>
-                    <select>
-                        <option value="Option 1">Vernier</option>
-                        <option value="Option 2">Depth</option>
-                        <option value="Option 3">protact</option>
-                    </select>   
-                    </td>
-                
-                    <td contentEditable="true">4</td>
-                    <td contentEditable="true"><CheckboxExample/></td>
-                    <td contentEditable="true"></td>
-                </tr>
-
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Hole</td>
-                    <td>10</td>
-                    <td>10</td>
-                    <td>
-                    <select>
-                        <option value="Option 1">Vernier</option>
-                        <option value="Option 2">Depth</option>
-                        <option value="Option 3">protact</option>
-                    </select>   
-                    </td>
-
-                    <td contentEditable="true">10</td>
-                    <td contentEditable="true"><CheckboxExample/></td>
-                    <td contentEditable="true"></td>
-                </tr>
-
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Angle</td>
-                    <td>90</td>
-                    <td>90</td>
-                    <td>
-                    <select>
-                        <option value="Option 1">Vernier</option>
-                        <option value="Option 2">Depth</option>
-                        <option value="Option 3">protact</option>
-                    </select>   
-                    </td>
-                  
-                    <td contentEditable="true">90</td>
-                    <td contentEditable="true"><CheckboxExample/></td>
-                    <td contentEditable="true"></td>
-                </tr>
-                </tbody>    
-                </table>
-                <div class="btn btn-primary btn-sm btn-block" style={{width: '80px'}} type="submit">Submit</div>
-        </div>
-        </div>
+                <Table />
+            </div> 
         </div>
         </div>
     );

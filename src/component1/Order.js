@@ -4,7 +4,7 @@ import Gridlay from './BOMDetails';
 
 function Order() {
     function handel(){
-      console.log("submiutted")
+      console.log("submitted")
     }
     const [currentDate, setCurrentDate] = useState('');
     useEffect(() => {

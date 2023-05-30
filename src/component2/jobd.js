@@ -20,17 +20,17 @@ function JobDetailsForm(props) {
     <div class='row'>
         <div class='col'>
         <div class="form-group row">  
-        <label htmlFor="cus" class="col-md-4">Customer:</label>
+        <label htmlFor="cus" class="col-md-4" id="custab">Customer:</label>
         <div class="col-md-4">
-        <input type="text" id="cus" name="cus" className="input-fields"/><br></br><br></br>
+        <input type="text" id="cus" name="cus" className="input-fields form-control"/><br></br><br></br>
         </div>
         </div>
         </div>
         <div class='col'>
         <div class="form-group row">  
-        <label htmlFor="cus" class="col-md-4">Date / time</label>
+        <label htmlFor="cus" class="col-md-4" id="custab">Date / time</label>
         <div class="col-md-4">
-        <input type="datetime-local" id="datetime" name="datetime" className="input-fields " /><br></br><br></br>
+        <input type="datetime-local" id="datetime" name="datetime" className="input-fields form-control" /><br></br><br></br>
         </div>
         </div>
         </div>
@@ -39,17 +39,17 @@ function JobDetailsForm(props) {
 <div class='row'>
         <div class='col'>
         <div class="form-group row">  
-        <label htmlFor="cus" class="col-md-4">Part Number:</label>
+        <label htmlFor="cus" class="col-md-4" id="custab">Part Number:</label>
         <div class="col-md-4">
-        <input type="text" id="pnum" name="pnum" className="input-fields"/><br></br><br></br>
+        <input type="text" id="pnum" name="pnum" className="input-fields form-control"/><br></br><br></br>
         </div>
         </div>
         </div>
         <div class='col'>
         <div class="form-group row">  
-        <label htmlFor="qty" class="col-md-4">#Qty Completed</label>
+        <label htmlFor="qty" class="col-md-4" id="custab">#Qty Completed</label>
         <div class="col-md-4">
-        <input type="text" id="qty" name="qty" className="input-fields"/><br></br><br></br>
+        <input type="text" id="qty" name="qty" className="input-fields form-control"/><br></br><br></br>
         </div>
         </div>
         </div>
@@ -58,9 +58,9 @@ function JobDetailsForm(props) {
 <div class='row'>
         <div class='col'>
         <div class="form-group row">  
-        <label htmlFor="batch" class="col-md-2">Batch:</label>
+        <label htmlFor="batch" class="col-md-2" id="custab">Batch:</label>
         <div class="col-md-2">
-        <input type="text" id="batch" name="batch" className="input-fields"/><br></br><br></br>
+        <input type="text" id="batch" name="batch" className="input-fields form-control"/><br></br><br></br>
         </div>
         </div>
         </div>
@@ -71,7 +71,7 @@ function JobDetailsForm(props) {
         <div class="form-group row">  
         <label htmlFor="cus" class="col-md-4"></label>
         <div class="col-md-4">
-        <button type="button" className="input-" id="bb1">Start job</button><br></br><br></br>
+        <button type="button" className="btn btn-primary btn-block" style={{width:'150px'}} id="bb1">Start job</button><br></br><br></br>
         </div>
         </div>
         </div>
@@ -79,19 +79,19 @@ function JobDetailsForm(props) {
         <div class="form-group row">  
         <label htmlFor="cus" class="col-md-4"></label>
         <div class="col-md-4">
-        <button type="button" className="input-" id="bb2">Update status</button><br></br><br></br>
+        <button type="button" className="btn btn-primary btn-block" style={{width: '150px'}} id="bb2">Update status</button><br></br><br></br>
         </div>
         </div>
         
         </div>
 </div>
     <center>
-    <label htmlFor="urgent">Urgent work:</label>
-    <input type="text" id="urgent" name="urgent" className="input-" /><br></br><br></br>
+    <label htmlFor="urgent" id="custab1">Urgent work:</label>
+    <input type="text" id="urgent" name="urgent" className="input-field rounded " /><br></br><br></br>
 </center><br></br>
 <center>
-    <label htmlFor="batch">Balance:</label>
-    <input type="text" id="balance" name="balance" className="input-" />
+    <label htmlFor="batch" class="custab">Balance:</label>
+    <input type="text" id="balance" name="balance" className="input-field rounded cuscol" />
 </center>
         </form>
       </center>

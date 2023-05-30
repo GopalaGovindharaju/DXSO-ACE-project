@@ -3,7 +3,13 @@ import './table2.css';
 import JobDetailsForm from './jobd.js';
 import { useState } from "react";
 import Box from "./box";
+import { useNavigate } from "react-router-dom";
+function handleInspectionButtonClick(navigate) {
+  navigate("/inspection");
+}
+
 function Table() {
+  const navigate = useNavigate();
     const [showJobDetails, setShowJobDetails] = useState(false);
   
     const handleJobDetailsButtonClick = () => {
@@ -56,7 +62,7 @@ function Table() {
                 <td>1</td>
                 <td>1</td>
                 <td>
-                  <input type="button" value="Inspection" id="bl" />
+                  <input type="button" value="Inspection" id="bl" onClick={() => handleInspectionButtonClick(navigate)}/>
                 </td>
                 <td>
                   <input type="button" value="View/Update job" id="bl" onClick={handleJobDetailsButtonClick} />
@@ -74,7 +80,9 @@ function Table() {
                 <td>2</td>
                 <td>1</td>
                 <td>1</td>
-                <td><input type="button" value="Inspection" id="bl"></input></td>
+                <td>
+                  <input type="button" value="Inspection" id="bl" onClick={() => handleInspectionButtonClick(navigate)}/>
+                </td>
                 <td><input type="button" value="View/Update job" id="bl" onClick={handleJobDetailsButtonClick}></input></td>
               </tr>
               <tr>
@@ -89,7 +97,9 @@ function Table() {
                 <td>2</td>
                 <td>1</td>
                 <td>1</td>
-                <td><input type="button" value="Inspection" id="bl"></input></td>
+                <td>
+                  <input type="button" value="Inspection" id="bl" onClick={() => handleInspectionButtonClick(navigate)}/>
+                </td>
                 <td><input type="button" value="View/Update job" id="bl" onClick={handleJobDetailsButtonClick}></input></td>
               </tr>
               <tr>
@@ -104,7 +114,9 @@ function Table() {
                 <td>2</td>
                 <td>1</td>
                 <td>1</td>
-                <td><input type="button" value="Inspection" id="bl"></input></td>
+                <td>
+                  <input type="button" value="Inspection" id="bl" onClick={() => handleInspectionButtonClick(navigate)}/>
+                </td>
                 <td><input type="button" value="View/Update job" id="bl" onClick={handleJobDetailsButtonClick}></input></td>
               </tr>
               <tr>
@@ -119,7 +131,9 @@ function Table() {
                 <td>2</td>
                 <td>1</td>
                 <td>1</td>
-                <td><input type="button" value="Inspection" id="bl"></input></td>
+                <td>
+                  <input type="button" value="Inspection" id="bl" onClick={() => handleInspectionButtonClick(navigate)}/>
+                </td>
                 <td><input type="button" value="View/Update job" id="bl" onClick={handleJobDetailsButtonClick}></input></td>
               </tr>
               <tr>
@@ -134,7 +148,9 @@ function Table() {
                 <td>2</td>
                 <td>1</td>
                 <td>1</td>
-                <td><input type="button" value="Inspection" id="bl"></input></td>
+                <td>
+                  <input type="button" value="Inspection" id="bl" onClick={() => handleInspectionButtonClick(navigate)}/>
+                </td>
                 <td><input type="button" value="View/Update job" id="bl" onClick={handleJobDetailsButtonClick}></input></td>
               </tr>
             </tbody>
