@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'plandb',
+        'NAME': 'plannerdb',
         'USER': 'postgres',
         'PASSWORD': 'Gopala@789$link',
         'HOST': 'localhost',

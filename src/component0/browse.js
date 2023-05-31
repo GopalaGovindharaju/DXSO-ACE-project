@@ -3,8 +3,10 @@ import { utils, write, read } from "xlsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './bro.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Browse() {
+  const navigate = useNavigate()
   const [excelData, setExcelData] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [editCellValue, setEditCellValue] = useState("");
@@ -78,6 +80,7 @@ function Browse() {
           'Content-Type': 'multipart/form-data',
         },
       });
+      navigate('planner')
   
       console.log(response.data);
     } catch (error) {
