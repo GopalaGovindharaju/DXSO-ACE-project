@@ -21,7 +21,7 @@ function Order() {
     <div>
       <Banner />
     </div>
-    <div class="card-body custom-cardbdy">
+    <div class="card-body custom-cardbody">
     
     <form class="needs-validation" noValidate>
 

@@ -5,7 +5,7 @@
   }
   
   #gg {
-    width: 1000px;
+    width: 1100px;
     table-layout: fixed; 
   }
 
@@ -16,7 +16,7 @@
   }
 
   .custom-table {
-    background-color: #517e3ce0;
+    background-color: #5E7D7E;
   }
 
   .tb1 {
@@ -32,11 +32,11 @@
   }
   
   table tr:nth-child(even) {
-    background-color: rgb(255, 255, 255);
+    background-color: white;
   }
   
   .custom-card-color {
-    background-color: rgb(196, 231, 204);
+    background-color: white;
   }
   
   .custom-tb,
@@ -49,4 +49,20 @@
   table td {
     border-color: black;
   }
+
+  .custom-cardbdy{
+    background-color: #b7c7d0;
+  }
   
+  .custlabel4{
+    margin-top: 20px;
+    text-align: right;
+  }
+
+  .comp4col{
+    text-align: left;
+  }
+
+  .insrow{
+    padding: -10px;
+  }

@@ -1,0 +1,97 @@
+.current-time-container {
+    text-align: right;
+    padding-bottom: 0px;
+  }
+  
+  .current-time-heading {
+    font-size: 24px;
+    color: #333;
+  }
+ 
+  #urgent{
+    margin-left: 40px;
+  }
+
+  #balance{
+    margin-left: 70px;
+  }
+  .current-time-text {
+    font-size: 18px;
+    color: #061d2d;
+  }
+  .custom-bg {
+    background-color:#5E7D7E; /* Replace with your desired background color */
+  }
+
+  .custom-bg1 {
+    background-color: #E0E2E5; /* Replace with your desired background color */
+  }
+
+  .customtf{
+    border-color: black;
+  }
+  .custom-bg3
+  {
+    background-color: #db6505;
+  }
+
+  #custab {
+    text-align: right;
+  }
+
+.cuscol{
+  text-align: left;
+  border-color: black;
+}
+
+#cuscol1{
+  text-align: left;
+  margin-left: 100px;
+}
+
+.custombody{
+  padding: 10px;
+}
+
+#bb1{
+  background-color:'#5E7D7E';
+}
+.boxcust{
+  background-color: #E0E2E5;
+}
+
+#customcard{
+  background-color: #5E7D7E;
+}
+
+.current-date {
+  text-align: right;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.bhead{
+  font-family: Verdana;
+  padding: 0px;
+  padding-top: 10px;
+  text-align: right;
+}
+
+.custom-font{
+  font-family: Verdana;
+  padding: 0px;
+  text-align: right;
+}
+
+.datetime{
+  padding-right: 15px;
+}
+
+.custlabel4{
+  text-align: right;
+}
+
+.custom-textfield0{
+  background-color: white;
+}

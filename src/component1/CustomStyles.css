@@ -78,6 +78,9 @@
     transform: translateX(30px);
   }
 
+  .custom-card{
+    background-color: #b7c7d0;
+  }
   .custom-textfield{
     background-color:  #cfd9de;
     border-color: black;
@@ -90,4 +93,8 @@
   .bomlabel{
     text-align: right;
     padding-right: 15px;
+  }
+
+  #cb{
+    background-color:  #b7c7d0;
   }

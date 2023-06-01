@@ -20,7 +20,7 @@ function Order1() {
     <div>
       <Banner/>
     </div>
-    <div class="card-body custom-cardbdy">
+    <div class="card-body" id="cb">
     <form class="needs-validation" novalidate onSubmit={handel()}>
       <div class="container-fluid">
         <div class="m-1 row row-cols-4 custom-req">
