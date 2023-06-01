@@ -9,14 +9,13 @@
     padding: 8px;
     background-color:  #cfd9de
   }
-  .but{
-    padding: 15px;
-    background-color:  #cfd9de;
+  .but1{
+    padding-top: 40px;
+    padding-bottom:0px;
+    background-color: #cfd9de;
   }
 
   .custom-browse{
-    margin-top: 100px;
-    padding-top: 100px;
     text-align: center;
   }
 

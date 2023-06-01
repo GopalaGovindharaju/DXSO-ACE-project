@@ -38,8 +38,10 @@
   }
 
   #bl{
-    background-color: #085febba;
+    background-color: #5E7D7E;
   }
+
+  
   
   
   .choice{
@@ -50,10 +52,10 @@
   }
   .table{
     width:100%;
-    
+    background-color: #E0E2E5;
   }
   .table-header {
-    background-color: darkblue;
+    background-color:#5E7D7E;
     color: white;
     font-family: Verdana;
   }

@@ -4,15 +4,14 @@ import DateComponent from "./datecomp";
 import ButtonValidation from "./addbtn";
 import DataDisplay from "./addbtn";
 import Table from "./downtab";
+import Banner from "./Banner";
 
 
 function Leftcolumn(){
 
     return(
         <div class="container">
-            <div>
-            <div class="p-2 mb-2 text-dark bg-gradient text-center fs-4 fw-bold custom-font" style={{ backgroundColor: '#ED7D31' }}><h1>Bending Inspection Form - Operator</h1></div>
-            </div>
+            <Banner/>
         <div class="card">
             <div class="card-body customlbox">
                 <form class="needs-validation"noValidate>
@@ -97,7 +96,7 @@ function Leftcolumn(){
 
                         <center>
                             <DataDisplay/>
-                            <button type="submit" className="btn btn-primary btn-sm btn-block" style={{ width: '80px' }}>CLEAR</button>
+                            <button type="submit" className="btn text-white btn-sm btn-block" style={{ width: '80px', backgroundColor:' #5E7D7E'}}>CLEAR</button>
 
                         </center>          
                 </form>

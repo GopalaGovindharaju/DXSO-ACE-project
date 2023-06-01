@@ -1,5 +1,5 @@
 .customlbox{
-    background: bisque;
+    background: #E0E2E5;
     font-family: verdana;
     font-weight: bold;
 }
@@ -19,7 +19,7 @@ table tr:nth-child(even) {
 }
 
 table th {
-    background-color: darkblue;
+    background-color:  #5E7D7E;
     color: white;
 }
 
@@ -29,10 +29,14 @@ table th {
 }
 
 .submit-button {
-    background-color: green;
+    background-color: #5E7D7E;
     color: white;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     font-size: 16px;
 }
+
+.custom-font{
+    font-family: Verdana;
+  }

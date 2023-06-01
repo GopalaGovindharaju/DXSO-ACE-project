@@ -52,7 +52,7 @@ const DropdownWithOther = () => {
     </select>
   </div>
 </div>
-<br></br>
+
 {showTextBox && (
   <div className="input-group input-group-sm">
     <label className="col-sm-6 col-form-label">Other Material</label>

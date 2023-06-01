@@ -1,17 +1,14 @@
-import React, { useState, useRef } from "react";
+import './info.css';
+import React, { useState } from "react";
 import { utils, write, read } from "xlsx";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './bro.css';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { FaFileExcel } from "react-icons/fa";
 
-function Browse() {
-  const navigate = useNavigate()
+function Infobtn() {
   const [excelData, setExcelData] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [editCellValue, setEditCellValue] = useState("");
-  const fileInputRef = useRef(null);
 
+  
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
@@ -27,21 +24,19 @@ function Browse() {
     reader.readAsArrayBuffer(file);
   };
 
-  const cancelFile = () => {
-    fileInputRef.current.value = null;
-    setExcelData([]);
-  };
-
+ 
   const toggleEditing = () => {
     setIsEditing(!isEditing);
   };
 
+  
   const handleCellValueChange = (e, rowIndex, columnIndex) => {
     const updatedData = [...excelData];
     updatedData[rowIndex][columnIndex] = e.target.value;
     setExcelData(updatedData);
   };
 
+  
   const saveChanges = () => {
     const worksheet = utils.aoa_to_sheet(excelData);
     const newWorkbook = utils.book_new();
@@ -55,7 +50,6 @@ function Browse() {
       const blob = new Blob([excelDataArray], {
         type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
       });
-
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
@@ -64,56 +58,77 @@ function Browse() {
     }
   };
 
-  const handleDone = async () => {
-    if (excelData.length === 0) {
-      // Handle the case where excelData is empty
-      return;
-    }
-  
-    try {
-      const file = fileInputRef.current.files[0];
-      const formData = new FormData();
-      formData.append("file", file);
-  
-      const response = await axios.post('http://127.0.0.1:8000/api/', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      navigate('planner')
-  
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
-    }
+  const handleDone = () => {
+    window.location.href = "http://localhost:3000/"; 
   };
+  /*const openNewWindow = () => {
+    const link = "http://4000/gokul.com";
+    const tooltip = document.createElement("div");
+    tooltip.textContent = link;
+    tooltip.classList.add("tooltip");
+
+    const icon = document.querySelector(".file-icon");
+    icon.appendChild(tooltip);
+
+    const iconRect = icon.getBoundingClientRect();
+    const tooltipRect = tooltip.getBoundingClientRect();
+    const tooltipTop = iconRect.top - tooltipRect.height - 10;
+    const tooltipLeft = iconRect.left + iconRect.width / 2 - tooltipRect.width / 2;
+
+    tooltip.style.top = `${tooltipTop}px`;
+    tooltip.style.left = `${tooltipLeft}px`;
+
+    tooltip.addEventListener("click", () => {
+      window.open(link, "_blank");
+    });
+
+    tooltip.addEventListener("mouseleave", () => {
+      icon.removeChild(tooltip);
+    });
+  };*/
+  const openNewWindow = () => {
+    const link = "http://4000/gokul.com";
+    const tooltip = document.createElement("div");
+    tooltip.textContent = link;
+    tooltip.classList.add("tooltip");
+  
+    const icon = document.querySelector(".file-icon");
+    icon.appendChild(tooltip);
+  
+    const iconRect = icon.getBoundingClientRect();
+    const tooltipRect = tooltip.getBoundingClientRect();
+    const tooltipTop = iconRect.top - tooltipRect.height - 10;
+    const tooltipLeft = iconRect.left + iconRect.width / 2 - tooltipRect.width / 2;
+  
+    tooltip.style.top = `${tooltipTop}px`;
+    tooltip.style.left = `${tooltipLeft}px`;
+  
+    const openWindow = () => {
+      window.open(link, "_blank");
+    };
+  
+    tooltip.addEventListener("click", openWindow);
+  
+    // Remove the event listener when the tooltip is removed
+    tooltip.addEventListener("mouseleave", () => {
+      icon.removeChild(tooltip);
+      tooltip.removeEventListener("click", openWindow);
+    });
+  };
+  
 
   return (
-    <div className="but1">
+    <div className="but">
       <center>
+        <div className="button-container">
+          <input type="file" className="" onChange={handleFileChange} accept=".xlsx, .xls" />
+          <span className="file-icon" onMouseEnter={openNewWindow}><FaFileExcel /></span>
 
-        <div className="button-container custom-browse">
-          <input type="file" className="" onChange={handleFileChange} accept=".xlsx, .xls" ref={fileInputRef} />
           {excelData.length > 0 && (
-            <button className="btn btn-secondary btn-block btn-sm custom-cancel" style={{ width: '80px' }} onClick={cancelFile}>
-              Cancel
-            </button>
-          )}
-          {excelData.length > 0 && (
-            <div className="button-group">
-              <br /><br />
-              <button className="btn btn-block custom-edit btn-sm text-white" style={{ width: '70px' }} onClick={toggleEditing}>
-                {isEditing ? "Save" : "EDIT"}
-              </button>
-              <br /><br />
-              {isEditing && (
-                <button className="btn btn-block btn-sm custom-savechange text-white" style={{ width: '130px' }} onClick={saveChanges}>
-                  Save Changes
-                </button>
-              )}
-              <button className="btn btn-block custom-done btn-sm text-white" style={{ width: '70px' }} onClick={handleDone}>
-                LOAD
-              </button>
+            <div className="button-group"><br></br>
+              <button className="button-edit" onClick={toggleEditing}>{isEditing ? "Save" : "Edit"}</button>              
+              {isEditing  && <button className="button-save" onClick={saveChanges}>Save Changes</button>}
+              <br></br><br></br><button className="button-done" onClick={handleDone}>Done</button>
             </div>
           )}
         </div>
@@ -154,4 +169,4 @@ function Browse() {
   );
 }
 
-export default Browse;
+export default Infobtn;

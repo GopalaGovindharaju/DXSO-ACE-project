@@ -1,9 +1,9 @@
 .custom-bg-color{
-    background-color : rgb(200, 232, 217);
+    background-color : #5E7D7E;
 }
 
 .custom-b-color{
-    background-color: rgb(236, 244, 241);
+    background-color: rgb(212, 225, 232);
 }
 
 .btn-custom-btn{
@@ -77,4 +77,17 @@
   .toggle-button.on::before {
     transform: translateX(30px);
   }
+
+  .custom-textfield{
+    background-color:  #cfd9de;
+    border-color: black;
+  }
+  .custom-textfield2{
+    background-color: white;
+    border-color: black;
+  }
   
+  .bomlabel{
+    text-align: right;
+    padding-right: 15px;
+  }

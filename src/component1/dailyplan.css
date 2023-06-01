@@ -1,0 +1,20 @@
+.customhead{
+    background-color: #5E7D7E;
+    border-color: black;
+}
+
+.planlabel{
+    text-align:justify;
+}
+
+.dailyplanbody{
+    background-color: rgb(212, 225, 232);
+}
+
+.dailyrow{
+    background-color: rgb(212, 225, 232);
+}
+
+.leadtimelabel{
+    text-align: right;
+}
