@@ -31,84 +31,84 @@ function Gridlay(){
                         <div className="input-group input-group-sm">
                             <label className="col-sm-6 col-form-label bomlabel">Material</label>
                         <div className="col-sm-6">
-                            <input type='text' class="form-control custom-textfield2" placeholder='1'/>
+                            <input type='text' class="form-control custom-textfield3" placeholder='1'/>
                         </div>
                         </div>
                                                 
                         <div className="input-group input-group-sm">
                             <label className="col-sm-6 col-form-label bomlabel">Qty in Drawing</label>
                         <div className="col-sm-6">
-                            <input type='number' class="form-control custom-textfield2" placeholder='1'/>
+                            <input type='number' class="form-control custom-textfield3" placeholder='1'/>
                         </div>
                         </div>
                                               
                         <div className="input-group input-group-sm">
                             <label className="col-sm-6 col-form-label bomlabel">Thickness</label>
                         <div className="col-sm-6">
-                            <input  type='number'  step="0.1" class="form-control custom-textfield2" placeholder='1.00'/>
+                            <input  type='number'  step="0.1" class="form-control custom-textfield3" placeholder='1.00'/>
                         </div>
                         </div>
                                             
                         <div className="input-group input-group-sm">
                             <label className="col-sm-6 col-form-label bomlabel">Width</label>
                         <div className="col-sm-6">
-                            <input  type='number' step="0.1" class="form-control custom-textfield2" placeholder='1.00'/>
+                            <input  type='number' step="0.1" class="form-control custom-textfield3" placeholder='1.00'/>
                         </div>
                         </div>
                                           
                         <div className="input-group input-group-sm">
                             <label className="col-sm-6 col-form-label bomlabel">Length</label>
                         <div className="col-sm-6">
-                            <input  type='number'  step="0.1" class="form-control custom-textfield2" placeholder='1.00'/>
+                            <input  type='number'  step="0.1" class="form-control custom-textfield3" placeholder='1.00'/>
                         </div>
                         </div>
 
                         <div className="input-group input-group-sm">
                             <label className="col-sm-6 col-form-label bomlabel">Blank Width</label>
                         <div className="col-sm-6">
-                            <input type='number' step="0.1" class="form-control custom-textfield2" placeholder='1.00'/>
+                            <input type='number' step="0.1" class="form-control custom-textfield3" placeholder='1.00'/>
                         </div>
                         </div>
 
                         <div className="input-group input-group-sm">
                             <label className="col-sm-6 col-form-label bomlabel">Powder Coating Area</label>
                         <div className="col-sm-6">
-                            <input  type='number'  step="0.1" class="form-control custom-textfield2" placeholder='1.00'/>
+                            <input  type='number'  step="0.1" class="form-control custom-textfield3" placeholder='1.00'/>
                         </div>
                         </div>
 
                         <div className="input-group input-group-sm">
                             <label className="col-sm-6 col-form-label bomlabel">Powder Usage in kgs</label>
                         <div className="col-sm-6">
-                            <input  type='number'  step="0.1" class="form-control custom-textfield2" placeholder='1.00'/>
+                            <input  type='number'  step="0.1" class="form-control custom-textfield3" placeholder='1.00'/>
                         </div>
                         </div>
     
                         <div className="input-group input-group-sm">
                             <label className="col-sm-6 col-form-label bomlabel">Assembly</label>
                         <div className="col-sm-6">
-                            <input type='text' class="form-control custom-textfield2" placeholder='Assembly'/>
+                            <input type='text' class="form-control custom-textfield3" placeholder='Assembly'/>
                         </div>
                         </div>     
                    
                         <div className="input-group input-group-sm">
                             <label className="col-sm-6 col-form-label bomlabel">Commodity</label>
                         <div className="col-sm-6">
-                            <input type='text' class="form-control custom-textfield2" placeholder='Sheet Metal'/>
+                            <input type='text' class="form-control custom-textfield3" placeholder='Sheet Metal'/>
                         </div>
                         </div>     
        
                         <div className="input-group input-group-sm">
                             <label className="col-sm-6 col-form-label bomlabel">Source</label>
                         <div className="col-sm-6">
-                            <input  type='text'  class="form-control custom-textfield2" placeholder=' '/>
+                            <input  type='text'  class="form-control custom-textfield3" placeholder=' '/>
                         </div>
                         </div>                      
 
                         <div className="input-group input-group-sm">
                             <label className="col-sm-6 col-form-label bomlabel">Bends</label>
                         <div className="col-sm-6">
-                            <input type='number' class="form-control custom-textfield2" placeholder='1'/>
+                            <input type='number' class="form-control custom-textfield3" placeholder='1'/>
                         </div>
                         </div>
 
