@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const CheckboxExample = () => {
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(true);
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
@@ -19,7 +19,6 @@ const CheckboxExample = () => {
           ) : (
             <p style={{ color: 'red' }}>Rejected</p>
           )}  
-      
     </div>
   );
 };

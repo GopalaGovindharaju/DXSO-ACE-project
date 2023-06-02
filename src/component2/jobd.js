@@ -18,6 +18,7 @@ function JobDetailsForm(props) {
     <center>
   <form class="needs-validation" novalidate> 
     <div class='row'>
+      
         <div class='col'>
         <div class="form-group row">  
         <label htmlFor="cus" class="col-md-4" id="custab">Customer</label>
@@ -26,6 +27,7 @@ function JobDetailsForm(props) {
         </div>
         </div>
         </div>
+
         <div class='col'>
         <div class="form-group row">  
         <label htmlFor="cus" class="col-md-4" id="custab">Date / time</label>

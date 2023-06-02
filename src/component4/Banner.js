@@ -1,15 +1,14 @@
 import React from 'react'
-import { useState,useEffect } from 'react'
 import CurrentTime from '../component2/time'
-import CurrentDate from './datecomp'
-import '../component2/time.css'
+import CurrentDate from './date'
+import './time.css'
 
-function Banner3(){
+function Banner4() {
   
   return (
       <div class="row text-white bg-gradient text-center custom-font rounded">
         <div class="col-8 bhead">
-          <h1>Bending Inspection Form - Operator</h1>
+          <h1>Bending Inspection Form - Inspector</h1>
         </div>
 
         <div class="col-4 datetime">
@@ -19,9 +18,10 @@ function Banner3(){
         <div class="row">
         <CurrentTime/>
         </div>
-        </div>        
+
+      </div>          
       </div>
-  )
+  );
 }
 
-export default Banner3;
+export default Banner4;

@@ -79,17 +79,16 @@
 }
 
 
-.custom-cardbdy{
+.custom-cardbody{
   margin-bottom: -15px;
   margin-top: 0px;
   margin-right: 50px;
+  background-color:  #b7c7d0;
 }
 
 .c1{
   text-align: left;
 }
-
-
 
 .custlabel{
   text-align: right;
