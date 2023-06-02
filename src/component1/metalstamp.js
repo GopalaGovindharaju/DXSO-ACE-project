@@ -9,10 +9,10 @@ const CheckboxExample = () => {
 
   return (
     <div>
-      <div class="form-check">
-        <div class="input-group input-group-sm">
-          <div class="col-sm-6">
-            <label class="form-check-label" for="defaultCheck1">
+      <div className="form-check">
+        <div className="input-group input-group-sm">
+          <div className="col-sm-6">
+            <label className="form-check-label" htmlFor="defaultCheck1">
               {isChecked ? (
                 <p style={{ color: 'green' }}><b>Yes</b></p>
               ) : (
@@ -20,7 +20,7 @@ const CheckboxExample = () => {
               )}
             </label>
             <input
-              class="form-check-input"
+              className="form-check-input"
               onChange={handleCheckboxChange}
               checked={isChecked}
               type="checkbox"

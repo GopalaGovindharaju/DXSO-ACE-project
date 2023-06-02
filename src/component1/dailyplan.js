@@ -47,11 +47,11 @@ function DailyPlan() {
 
   return (
     <>
-      <div class="card ">
+      <div className="card ">
         <div className="card-header customhead">
           <div className="row">
             <div className="col">
-              <h1 class="text-white">Planner</h1>
+              <h1 className="text-white">Planner</h1>
             </div>
 
             <div className="col">
@@ -88,7 +88,7 @@ function DailyPlan() {
                 <div className="col">
                   <div className="input-group input-group-sm">
                     <label className="col-sm-6 col-form-label planlabel">Shift</label>
-                    <div class="col-sm-6">
+                    <div className="col-sm-6">
                     <select className="form-control custom-textfield2" required value={formValue.shift} onChange={(e) => handleFormChange(index, "shift", e.target.value)}>
                       <option value="morning">morning</option>
                       <option value="evening">evening</option>

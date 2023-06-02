@@ -3,15 +3,17 @@ import { utils, write, read } from "xlsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './bro.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
-function Browse() {
-  const navigate = useNavigate()
+
+function Browse({ handleLoadButtonClick }) {
+  
   const [excelData, setExcelData] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [editCellValue, setEditCellValue] = useState("");
   const fileInputRef = useRef(null);
 
+  
+  
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
@@ -64,7 +66,10 @@ function Browse() {
     }
   };
 
+  
   const handleDone = async () => {
+
+
     if (excelData.length === 0) {
       // Handle the case where excelData is empty
       return;
@@ -75,14 +80,20 @@ function Browse() {
       const formData = new FormData();
       formData.append("file", file);
   
-      const response = await axios.post('http://127.0.0.1:8000/api/', formData, {
+      const response = await axios.post('http://127.0.0.1:8000/api/upload/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
-      navigate('planner')
+      if (typeof handleLoadButtonClick === 'function') {
+        handleLoadButtonClick();
+      }
+      
   
       console.log(response.data);
+
+      
+
     } catch (error) {
       console.error(error);
     }

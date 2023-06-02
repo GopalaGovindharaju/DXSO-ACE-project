@@ -25,7 +25,7 @@ const MoreInputForm = () => {
       <h4>Add Specifications</h4>
       {renderInputBoxes()}
       <br></br>
-      <button type="button"  class="btn-custom-btn" onClick={handleAddInput}>More Specs</button>
+      <button type="button"  className="btn-custom-btn" onClick={handleAddInput}>More Specs</button>
     </div>
   );
 };

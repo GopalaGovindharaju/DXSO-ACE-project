@@ -127,10 +127,10 @@ function Table() {
                 </tr>
                 </tbody>    
                 </table>  
-        <br></br>
-        <button id="finalsubmit" class="btn btn-primary rounded" onClick={handleSubmitButtonClick}>Submit</button>
+        <br></br><center>
+        <button id="finalsubmit" class="btn text-white rounded" onClick={handleSubmitButtonClick} style={{backgroundColor: '#5E7D7E'}}>Submit</button>
         {showAnotherTab ?  <Table onButtonClick={handleSubmitButtonClick} /> : null}
-        <br></br>
+        <br></br></center>
     </div>
 
 );

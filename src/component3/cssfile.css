@@ -39,4 +39,8 @@ table th {
 
 .custom-font{
     font-family: Verdana;
-  }
+}
+
+.insrow{
+    padding: -10px;
+}
