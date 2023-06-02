@@ -17,16 +17,16 @@ const InputWithOther = () => {
 
   return (
     <div>
-      <div class="input-group input-group-sm">
-        <label class="col-sm-6 col-form-label">Powdercoating Area</label>
+      <div className="input-group input-group-sm">
+        <label className="col-sm-6 col-form-label">Powdercoating Area</label>
         <div className="col-sm-6">
-        <input type="text" class="form-control" value={inputValue} onChange={handleInputChange} />
+        <input type="text" className="form-control" value={inputValue} onChange={handleInputChange} />
       </div>
       </div>
       {showOtherInput && (
-        <div class="input-group input-group-sm"><label class="col-sm-6 col-form-label">Powder Usage</label>
-        <div class="col-sm-6">
-        <input type="text" class="form-control" />
+        <div className="input-group input-group-sm"><label className="col-sm-6 col-form-label">Powder Usage</label>
+        <div className="col-sm-6">
+        <input type="text" className="form-control" />
         </div>
         </div>
       )}

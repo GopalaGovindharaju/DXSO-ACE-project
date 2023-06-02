@@ -2,7 +2,7 @@ from django.db import models
 import pandas as pd
 
 # Read the Excel file
-df = pd.read_excel("D:/ACE-Electricals-Planning/DXSO-frontend/backend/With G.xlsx", sheet_name="Sheet1", header=2).fillna(0)
+df = pd.read_excel("E:/Int/DXSO-frontend/backend/With G.xlsx", sheet_name="Sheet1", header=2).fillna(0)
 
 # Get the column names and data types from the Excel sheet
 column_names = df.columns.tolist()
@@ -28,10 +28,16 @@ for column_name, column_type in zip(column_names, column_types):
     field.verbose_name = column_name_str.replace("_", " ").title()  # Fix the attribute assignment
     BomDetail.add_to_class(column_name_str, field)  # Use column_name_str as the field name
 
-
+class OrderDetail(models.Model):
+    order_number = models.IntegerField()
+    customer_name = models.CharField(max_length=100)
+    planner_name = models.CharField(max_length=100)
+    deadline = models.DateField()
+    batch_control = models.IntegerField()
+    product_number = models.IntegerField()
+    product_name = models.CharField(max_length=100)
+    machines_available = models.IntegerField()
     
-'''for index, row in df.iterrows():
-    bom_instance = Bom()
-    for column_name in column_names:
-        setattr(bom_instance, str(column_name), row[column_name])
-    bom_instance.save()'''
+    def __str__(self):
+        return self.customer_name
+    
