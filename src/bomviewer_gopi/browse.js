@@ -3,6 +3,7 @@ import { utils, write, read } from "xlsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './component.css';
 import axios from 'axios';
+import MyComponent from "./format";
 
 function Browse({ handleLoadButtonClick }) {
   const [excelData, setExcelData] = useState([]);
@@ -98,8 +99,8 @@ function Browse({ handleLoadButtonClick }) {
   return (
     <div className="but1">
       <center>
-        <div className="button-container custom-browse">
-          <input type="file" className="" onChange={handleFileChange} accept=".xlsx, .xls" ref={fileInputRef} />
+        <div className="button-container custom-browse"><label htmlFor="file"><MyComponent/></label>
+          <input type="file" className="m-1 btn-sm " name="file" onChange={handleFileChange} accept=".xlsx, .xls" ref={fileInputRef} />
           {excelData.length > 0 && (
             <button className="btn btn-secondary btn-block btn-sm custom-cancel" style={{ width: '80px' }} onClick={cancelFile}>
               Cancel

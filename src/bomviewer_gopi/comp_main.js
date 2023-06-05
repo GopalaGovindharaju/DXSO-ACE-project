@@ -3,7 +3,7 @@ import Banner from "./Banner";
 import './component.css';
 import Details from "./details";
 import Browse from "./browse";
-import Table from "./format";
+
 
 
 
@@ -12,10 +12,8 @@ function Comp() {
     <div className="App">
       <Banner/>
       <Details/>
-      <Table/>
+      
       <Browse/>
-     
-   
      </div>
 
       

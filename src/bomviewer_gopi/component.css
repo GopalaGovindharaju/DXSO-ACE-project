@@ -1,13 +1,13 @@
-
-
+.custom-dt{
+  padding-right: 40px;
+  padding-top: 10px;
+}
+.custom-head{
+  margin-top: 15px;
+}
 .custom-font {
     background-color: #6de1e9;
-    min-height: 0vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;  
+      
   }
   
   .App-link {
@@ -95,11 +95,30 @@
     margin-right: 5px;
   }
   .custom-cardbody{
-    margin-bottom: -15px;
-    margin-top: 0px;
-    margin-right: 50px;
-    background-color:  #b7c7d0;
+    padding-left: 0px;
+    padding-right:50px;
+
+
   }
   .custlabel{
     text-align: right;
+    padding-right: 5px;
+  }
+
+  .Format
+  {
+    border: 1px solid black;
+    border: 1px solid black;
+    padding: 8px;
+    background-color:  #cfd9de;
+    margin: center;
+  }
+  .custom-card{
+    width: 75%;
+
+
+  }
+  .custom-textfield0{
+    
+    margin-bottom: 5px;
   }
