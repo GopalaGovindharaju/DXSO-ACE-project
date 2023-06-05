@@ -44,10 +44,11 @@ function Details()
                 <div class="col-sm-6">
                 <select className="form-control custom-textfield0" required >
                 <option value="abishek">abishek</option>
-                <option value="gopala">cus2</option>
-                <option value="gokul">cus2</option>
-                <option value="gopi">cus2</option>
-                <option value="cus1">cus2</option>
+                <option value="gopala">gopala</option>
+                <option value="gokul">gokul</option>
+                <option value="gopi">gopi</option>
+                <option value="chitra">chitra</option>
+                <option value="harish">harish</option>
                 <option value="other">other</option>
                 </select>
                 </div>

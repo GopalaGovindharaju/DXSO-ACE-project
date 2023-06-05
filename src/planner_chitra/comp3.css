@@ -25,20 +25,23 @@
   .scrollable-column {
     overflow-y: auto;
     overflow-x: hidden;
-    height: 300px; /* Set the desired height of the scrollable column */
+    height: 100px; /* Set the desired height of the scrollable column */
+  }
+
+  #mech1{
+    height: 95px;
   }
 
   #time{
     text-align: right;
     padding-right: 40px;
   }
+  .custom-area{
+    margin-top: 10px;
+  }
   
   #banner{
     background-color:dodgerblue;
-  }
-
-  #comp3{
-    background-color: rgb(9, 12, 15);
   }
 
   #cb{
