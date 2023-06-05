@@ -14,7 +14,7 @@ function Banner() {
               <Icon/>
             </div>
             <div className='col-6 custom-head'>
-            <div className="text-dark text-center rounded"><h1>BOM VIEWER</h1></div>
+            <div className="text-dark text-white text-center rounded"><h1>BOM VIEWER</h1></div>
             </div>
             <div className='col-3 custom-dt'>
             <div className='row'>

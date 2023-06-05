@@ -3,10 +3,10 @@
   padding-top: 10px;
 }
 .custom-head{
-  margin-top: 15px;
+  margin-top: 10px;
 }
 .custom-font {
-    background-color: #6de1e9;
+    background-color:dodgerblue;
       
   }
   
@@ -14,13 +14,10 @@
     color: #61dafb;
   }
   
-  
-  
   .current-time-container {
     text-align: right;
    
   }
-  
   
   .current-time-heading {
     font-size: 24px;
@@ -39,7 +36,6 @@
     color: #333;
   }
   
-  
   .table-container {
     border-collapse: collapse;
     background-color:  #cfd9de;
@@ -51,6 +47,7 @@
     padding: 8px;
     background-color:  #cfd9de
   }
+
   .but1{
     padding-top: 40px;
     padding-bottom:0px;
@@ -94,12 +91,12 @@
     vertical-align: middle;
     margin-right: 5px;
   }
-  .custom-cardbody{
+
+  .custom-cardbdy{
     padding-left: 0px;
-    padding-right:50px;
-
-
+    padding-right:10px;
   }
+
   .custlabel{
     text-align: right;
     padding-right: 5px;
@@ -113,12 +110,16 @@
     background-color:  #cfd9de;
     margin: center;
   }
-  .custom-card{
-    width: 75%;
 
+ #r1{
+  padding-right: 150px;
+ }
 
-  }
-  .custom-textfield0{
-    
+  .custom-textfield0{ 
     margin-bottom: 5px;
+    border-color: black;
+  }
+
+  .custom-card{
+    background-color: #a8d2fd;
   }

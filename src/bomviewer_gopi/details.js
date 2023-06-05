@@ -16,7 +16,7 @@ function Details()
     
     <form className="needs-validation" noValidate>
 
-        <div className="row">
+        <div className="row" id="r1">
             
             <div className="col">
                 <div className="input-group input-group-sm">
@@ -24,19 +24,13 @@ function Details()
                  <div className="col-sm-6">
                 <input type="date" className="form-control custom-textfield0" id="inputDate" placeholder="Date" value={currentDate} onChange={(e) => setCurrentDate(e.target.value)} required />
               </div>
-            </div>
-                
-            
+            </div>           
                 <div className="input-group input-group-sm">
                     <label className="col-sm-6 col-form-label custlabel">BOM Version :</label>
                     <div className="col-sm-6">
                     <input type="text" className="form-control custom-textfield0" id="inputDate" placeholder="version"/>
-                </div>
-
-            
+                </div>          
             </div>
-
-           
             </div>
             <div className="col"style={{justifyContent:'left'}}>
             <div className="input-group input-group-sm">
