@@ -1,5 +1,13 @@
+import { useState,useEffect } from "react";
+import './component.css';
 function Details()
 {
+    const [currentDate, setCurrentDate] = useState('');
+    useEffect(() => {
+      const today = new Date();
+      const formatedDate = today.toISOString().substr(0, 10);
+      setCurrentDate(formatedDate);
+    }, []);
      return (
     
     <div className="card  custom-card">
@@ -12,11 +20,13 @@ function Details()
             
             <div className="col">
                 <div className="input-group input-group-sm">
-                    <label className="col-sm-6 col-form-label custlabel">Date :</label>
-                    <div className="col-sm-6">
-                    <input type="date" className="form-control custom-textfield0" id="inputDate" placeholder="Date"/>
-                </div>
+                 <label htmlFor="inputDate" className="text-end col-sm-6 col-form-label custlabel">Date :</label>
+                 <div className="col-sm-6">
+                <input type="date" className="form-control custom-textfield0" id="inputDate" placeholder="Date" value={currentDate} onChange={(e) => setCurrentDate(e.target.value)} required />
+              </div>
             </div>
+                
+            
                 <div className="input-group input-group-sm">
                     <label className="col-sm-6 col-form-label custlabel">BOM Version :</label>
                     <div className="col-sm-6">
@@ -28,14 +38,17 @@ function Details()
 
            
             </div>
-            <div className="col">
+            <div className="col"style={{justifyContent:'left'}}>
             <div className="input-group input-group-sm">
                 <label className="col-sm-6 col-form-label custlabel">Customer_Name :</label>
                 <div class="col-sm-6">
-                <select className="form-control custom-textfield2" required >
-                <option value="morning">cus1</option>
-                <option value="evening">cust2</option>
-                <option value="night">other</option>
+                <select className="form-control custom-textfield0" required >
+                <option value="abishek">abishek</option>
+                <option value="gopala">cus2</option>
+                <option value="gokul">cus2</option>
+                <option value="gopi">cus2</option>
+                <option value="cus1">cus2</option>
+                <option value="other">other</option>
                 </select>
                 </div>
                 </div>
