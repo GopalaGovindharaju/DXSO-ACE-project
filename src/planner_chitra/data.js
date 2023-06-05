@@ -73,7 +73,7 @@ function Data(){
         </div>
 
         <div className="col-5" id="mech">
-          <div className="scrollable-column rounded border">
+          <div className="scrollable-column rounded border" id="mech1">
           <table class="table table-border table-sm">
             <thead class="thead-light">
                 <tr>
