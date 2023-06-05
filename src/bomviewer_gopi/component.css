@@ -1,0 +1,105 @@
+
+
+.custom-font {
+    background-color: #6de1e9;
+    min-height: 0vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;  
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  
+  
+  .current-time-container {
+    text-align: right;
+   
+  }
+  
+  
+  .current-time-heading {
+    font-size: 24px;
+    color: #333;
+    margin-top: -50px
+  }
+  
+  .current-time-text {
+    font-size: 18px;
+    color: #830640;
+  }
+  .current-date {
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  
+  .table-container {
+    border-collapse: collapse;
+    background-color:  #cfd9de;
+  }
+  
+  .table-container th,
+  .table-container td {
+    border: 1px solid black;
+    padding: 8px;
+    background-color:  #cfd9de
+  }
+  .but1{
+    padding-top: 40px;
+    padding-bottom:0px;
+    background-color: #cfd9de;
+  }
+  
+  .custom-browse{
+    text-align: center;
+  }
+  
+  .custom-done{
+    margin-left: 10px;
+    background-color: #5E7D7E;
+  }
+  
+  .custom-edit{
+    margin-left: 10px;
+    background-color: #5E7D7E;
+  }
+  
+  .custom-savechange{
+    background-color: #5E7D7E;
+  }
+  
+  .btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    margin-left: 100px
+  }
+  
+  .btn-primary:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+  
+  .bi-house {
+    display: inline-block;
+    font-size: 1.5rem;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  .custom-cardbody{
+    margin-bottom: -15px;
+    margin-top: 0px;
+    margin-right: 50px;
+    background-color:  #b7c7d0;
+  }
+  .custlabel{
+    text-align: right;
+  }

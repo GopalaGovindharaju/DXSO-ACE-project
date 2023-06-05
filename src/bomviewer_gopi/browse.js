@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { utils, write, read } from "xlsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './bro.css';
+import './component.css';
 import axios from 'axios';
 
 
