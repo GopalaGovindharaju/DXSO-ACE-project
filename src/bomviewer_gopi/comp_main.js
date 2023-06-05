@@ -1,5 +1,5 @@
 import React from "react";
-import Banner from "./banner";
+import Banner from "./Banner";
 import './component.css';
 import Details from "./details";
 import Browse from "./browse";

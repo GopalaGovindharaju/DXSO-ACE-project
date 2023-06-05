@@ -4,16 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './component.css';
 import axios from 'axios';
 
-
 function Browse({ handleLoadButtonClick }) {
-  
   const [excelData, setExcelData] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [editCellValue, setEditCellValue] = useState("");
+  const [displayedRows, setDisplayedRows] = useState(20);
   const fileInputRef = useRef(null);
 
-  
-  
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
@@ -66,20 +63,17 @@ function Browse({ handleLoadButtonClick }) {
     }
   };
 
-  
   const handleDone = async () => {
-
-
     if (excelData.length === 0) {
-      // Handle the case where excelData is empty
+      alert("Excel data is empty")
       return;
     }
-  
+
     try {
       const file = fileInputRef.current.files[0];
       const formData = new FormData();
       formData.append("file", file);
-  
+
       const response = await axios.post('http://127.0.0.1:8000/api/upload/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -88,21 +82,22 @@ function Browse({ handleLoadButtonClick }) {
       if (typeof handleLoadButtonClick === 'function') {
         handleLoadButtonClick();
       }
-      
-  
+
       console.log(response.data);
-
-      
-
     } catch (error) {
       console.error(error);
     }
   };
 
+  const expandRows = () => {
+    setDisplayedRows(displayedRows + 20);
+  };
+
+  const displayedData = excelData.slice(0, displayedRows);
+
   return (
     <div className="but1">
       <center>
-
         <div className="button-container custom-browse">
           <input type="file" className="" onChange={handleFileChange} accept=".xlsx, .xls" ref={fileInputRef} />
           {excelData.length > 0 && (
@@ -130,17 +125,17 @@ function Browse({ handleLoadButtonClick }) {
         </div>
         <br />
         <br />
-        {excelData.length > 0 && (
+        {displayedData.length > 0 && (
           <table className="table-container">
             <thead>
               <tr>
-                {excelData[0].map((cell, index) => (
+                {displayedData[0].map((cell, index) => (
                   <th key={index}>{cell}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
-              {excelData.slice(1).map((row, rowIndex) => (
+              {displayedData.slice(1).map((row, rowIndex) => (
                 <tr key={rowIndex}>
                   {row.map((cell, columnIndex) => (
                     <td key={columnIndex}>
@@ -159,6 +154,11 @@ function Browse({ handleLoadButtonClick }) {
               ))}
             </tbody>
           </table>
+        )}
+        {displayedRows < excelData.length && (
+          <button className="btn btn-block custom-done btn-sm text-white m-3" style={{ width: '80px' }} onClick={expandRows}>
+            Expand
+          </button>
         )}
       </center>
     </div>
