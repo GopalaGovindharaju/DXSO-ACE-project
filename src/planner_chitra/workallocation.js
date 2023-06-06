@@ -13,9 +13,14 @@ function Alloc(){
                 <div class="col-auto">
                     <div class="input-group input-group-sm ">
                     <div class="input-group-prepend">
-                        <div class="input-group-text"style={{width:'180px',backgroundColor:"yellowgreen",borderColor:'black'}}>Available lead time</div>
+                        <div class="input-group-text"style={{width:'180px',backgroundColor:'gold',borderColor:'black'}}>Available lead time</div>
                     </div>
                     <input type="time" class="form-control" style={{width:'80px',borderColor:'black'}} placeholder=""/>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group input-group-sm text-dark" style={{justifyContent:'center'}}>
+                        <h2>Planner</h2>
                     </div>
                 </div>
                 <div class="col-auto">
