@@ -2,7 +2,7 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './comp3.css'
 import Col from './column.js';
-import Plan from "./Plan";
+import { Calendar } from "antd";
 function Table(){
     return(
         <div class="container-fluid border border-dark  ">
@@ -11,8 +11,7 @@ function Table(){
           <Col/>
           </div>
           <div class="col">
-          <Plan/>
-         
+          <Calendar/>
           </div>
         </div>
         
