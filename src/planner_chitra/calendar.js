@@ -3,19 +3,68 @@ import './comp3.css';
 
 const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedMonth, setSelectedMonth] = useState(null);
+  const [selectedYear, setSelectedYear] = useState(null);
   const [tableRows, setTableRows] = useState([]);
   const [editingIndex, setEditingIndex] = useState(-1);
 
   const handleDayClick = (day) => {
+    const selectMonthInput = document.getElementById('select-month');
+    const selectYearInput = document.getElementById('select-year');
+    selectMonthInput.style.borderColor = 'white'
+    selectYearInput.style.borderColor = 'white'
+    if (selectedMonth === null) {
+      
+      console.log(selectMonthInput)
+      selectMonthInput.focus();
+      selectMonthInput.style.borderColor = '#f30000'
+      return;
+    }else if (selectedYear === null) {
+      
+      console.log(selectYearInput)
+      selectYearInput.focus();
+      selectYearInput.style.borderColor = '#f30000'
+      return;
+    }
+    
     setSelectedDate(day);
     setTableRows([{ shift: '', machine: '', quantity: '' }]);
   };
+  
+
+  const handleMonthChange = (month) => {
+    setSelectedMonth(month);
+    setSelectedDate(null);
+    setTableRows([]);
+  };
+
+  const handleYearChange = (year) => {
+    setSelectedYear(year);
+    setSelectedDate(null);
+    setTableRows([]);
+  };
+  
+  const getCurrentYear = () => {
+    const currentDate = new Date();
+    return currentDate.getFullYear();
+  };
+  
+  const getFutureYears = () => {
+    const currentYear = getCurrentYear();
+    const futureYears = [];
+  
+    for (let i = 0; i <= 5; i++) {
+      futureYears.push(currentYear + i);
+    }
+  
+    return futureYears;
+  };
+  
 
   const getCurrentDate = () => {
-    if (!selectedDate) return null;
+    if (!selectedDate || !selectedMonth || !selectedYear) return null;
 
-    const currentDate = new Date();
-    currentDate.setDate(selectedDate);
+    const currentDate = new Date(selectedYear, selectedMonth, selectedDate);
 
     const options = { weekday: 'long' };
     const dayOfWeek = currentDate.toLocaleDateString(undefined, options);
@@ -47,96 +96,99 @@ const Calendar = () => {
     const machineOptions = ['Machine 1', 'Machine 2', 'Machine 3'];
 
     return (
-      <table className='table table-bordered table-sm'>
-        <thead>
-          <tr>
-            <th colSpan={4}>{getCurrentDate()}</th>
-          </tr>
-          <tr>
-            <th>Shift</th>
-            <th>Machine</th>
-            <th>Quantity</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tableRows.map((row, index) => (
-            <tr key={index}>
-              <td>
-                <select
-                  className='form-control form-control-sm'
-                  value={row.shift}
-                  onChange={(e) => handleInputChange(index, 'shift', e.target.value)}
-                  disabled={editingIndex !== index}
-                >
-                  <option value=''>Select Shift</option>
-                  {shiftOptions.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </td>
-              <td>
-                <select
-                  className='form-control form-control-sm'
-                  value={row.machine}
-                  onChange={(e) => handleInputChange(index, 'machine', e.target.value)}
-                  disabled={editingIndex !== index}
-                >
-                  <option value=''>Select Machine</option>
-                  {machineOptions.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </td>
-              <td>
-                <input
-                  type='number'
-                  className='form-control form-control-sm'
-                  placeholder='Quantity'
-                  value={row.quantity}
-                  onChange={(e) => handleInputChange(index, 'quantity', e.target.value)}
-                  disabled={editingIndex !== index}
-                />
-              </td>
-              <td>
-                {editingIndex === index ? (
-                  <button className='btn btn-success btn-sm m-0' onClick={() => handleSaveRow(index)}>
-                    Save
-                  </button>
-                ) : (
-                  <button className='btn btn-primary btn-sm m-0' onClick={() => handleEditRow(index)}>
-                    Edit
-                  </button>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-        {selectedDate && (
-          <tfoot>
+      <div className="scrollable-column rounded border" style={{ height: '300px' }}>
+        <table className='table table-bordered table-sm'>
+          <thead>
             <tr>
-              <td colSpan={12}>
-                <div className='text-right'>
-                <button className='btn btn-primary btn-sm m-0' onClick={handleAddRow}>
-                  Add
-                </button></div>
-              </td>
+              <th colSpan={4}>{getCurrentDate()}</th>
             </tr>
-          </tfoot>
-        )}
-      </table>
+            <tr>
+              <th>Shift</th>
+              <th>Machine</th>
+              <th>Quantity</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableRows.map((row, index) => (
+              <tr key={index}>
+                <td>
+                  <select
+                    className='form-control form-control-sm'
+                    value={row.shift}
+                    onChange={(e) => handleInputChange(index, 'shift', e.target.value)}
+                    disabled={editingIndex !== index}
+                  >
+                    <option value=''>Select Shift</option>
+                    {shiftOptions.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                </td>
+                <td>
+                  <select
+                    className='form-control form-control-sm'
+                    value={row.machine}
+                    onChange={(e) => handleInputChange(index, 'machine', e.target.value)}
+                    disabled={editingIndex !== index}
+                  >
+                    <option value=''>Select Machine</option>
+                    {machineOptions.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                </td>
+                <td>
+                  <input
+                    type='number'
+                    className='form-control form-control-sm'
+                    placeholder='Quantity'
+                    value={row.quantity}
+                    onChange={(e) => handleInputChange(index, 'quantity', e.target.value)}
+                    disabled={editingIndex !== index}
+                  />
+                </td>
+                <td>
+                  {editingIndex === index ? (
+                    <button className='btn btn-success btn-sm m-0' onClick={() => handleSaveRow(index)}>
+                      Save
+                    </button>
+                  ) : (
+                    <button className='btn btn-primary btn-sm m-0' onClick={() => handleEditRow(index)}>
+                      Edit
+                    </button>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+          {selectedDate && (
+            <tfoot>
+              <tr>
+                <td colSpan={12}>
+                  <div className='text-right'>
+                    <button className='btn btn-primary btn-sm m-0' onClick={handleAddRow}>
+                      Add
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tfoot>
+          )}
+        </table>
+      </div>
     );
   };
 
   const renderCalendar = () => {
     const days = [];
     const currentDate = new Date();
-    const currentMonth = currentDate.getMonth();
-    const currentYear = currentDate.getFullYear();
+    const currentMonth = selectedMonth !== null ? selectedMonth : currentDate.getMonth();
+    const currentYear = selectedYear !== null ? selectedYear : currentDate.getFullYear();
     const totalDays = new Date(currentYear, currentMonth + 1, 0).getDate();
     const firstDayIndex = new Date(currentYear, currentMonth, 1).getDay();
 
@@ -145,11 +197,12 @@ const Calendar = () => {
     }
 
     for (let i = 1; i <= totalDays; i++) {
+      const isSelected = selectedDate === i;
       days.push(
         <td
           key={`day-${i}`}
           onClick={() => handleDayClick(i)}
-          className={`day ${selectedDate === i ? 'selected' : ''}`}
+          className={`day ${isSelected ? 'selected' : ''}`}
         >
           {i}
         </td>
@@ -168,11 +221,50 @@ const Calendar = () => {
   };
 
   return (
-    <div className='card' id='c3'>
+    <div className='card m-1' id='c3'>
       <div className='card-body'>
         <div className='calendar'>
           <div className='row'>
             <div className='col-3' id='c1'>
+              <div className='d-flex align-items-center mb-2'>
+                <label htmlFor='select-month' id='dl' style={{width:'60px'}} className='mr-2'>Month:</label>
+                <select
+                  id='select-month'
+                  className='form-control form-control-sm m-1' style={{width:'180px'}}
+                  value={selectedMonth !== null ? selectedMonth : ''}
+                  onChange={(e) => handleMonthChange(parseInt(e.target.value))}
+                >
+                  <option value=''>Select Month</option>
+                  <option value='0'>January</option>
+                  <option value='1'>February</option>
+                  <option value='2'>March</option>
+                  <option value='3'>April</option>
+                  <option value='4'>May</option>
+                  <option value='5'>June</option>
+                  <option value='6'>July</option>
+                  <option value='7'>August</option>
+                  <option value='8'>September</option>
+                  <option value='9'>October</option>
+                  <option value='10'>November</option>
+                  <option value='11'>December</option>
+                </select>
+              </div>
+              <div className='d-flex align-items-center mb-2'>
+                <label htmlFor='select-year'id='dl' style={{width:'60px'}} className='mr-2'>Year:</label>
+                <select
+                  id='select-year'
+                  className='form-control form-control-sm m-1' style={{width:'180px'}}
+                  value={selectedYear !== null ? selectedYear : ''}
+                  onChange={(e) => handleYearChange(parseInt(e.target.value))}
+                  >
+                    <option value=''>Select Year</option>
+                     {getFutureYears().map((year) => (
+                     <option key={year} value={year}>
+                     {year}
+                    </option>
+                     ))}
+                  </select>
+              </div>
               <table className='table table-border table-sm' id='caltab'>
                 <thead>
                   <tr>
@@ -192,8 +284,6 @@ const Calendar = () => {
               <div className='row'>
                 <div className='col'>{renderTable()}</div>
               </div>
-              <br></br>
-              <br></br>
               <div className='row' id='r3'>
                 <div className='col-4 input-group-prepend'>
                   <div

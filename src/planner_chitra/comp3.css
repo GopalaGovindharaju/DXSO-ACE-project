@@ -108,3 +108,9 @@
     font-weight: 500;
   }
   
+  
+.day.selected {
+  background-color: dodgerblue;
+  color: white;
+}
+

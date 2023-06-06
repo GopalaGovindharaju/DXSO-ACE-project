@@ -2,8 +2,8 @@ import React from "react"
 
 function Col(){
     return(
-        <div className="scrollable-column rounded border">
-                <table class="table table-border table-sm">
+        <div className="scrollable-column rounded border m-1" style={{ height: '380px'}}>
+                <table class="table table-border table-sm m-3">
             <thead class="thead-light">
                 <tr>
                     <th scope="col">Machine No</th>

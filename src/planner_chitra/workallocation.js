@@ -1,7 +1,5 @@
 import React from "react";
 import './comp3.css';
-import MonthNo from "./numberlist";
-import Table from "./column";
 
 function Alloc(){
     return(

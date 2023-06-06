@@ -7,10 +7,10 @@ function Table(){
     return(
         <div class="container-fluid border border-dark  ">
         <div class="row">
-          <div class="col-3 border border-dark ">
+          <div class="col-3 border border-dark">
           <Col/>
           </div>
-          <div class="col">
+          <div class="col border border-dark">
          <Calendar/>
           </div>
         </div>
