@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Calendar = () => {
+const Machine = () => {
   const [data, setData] = useState([]);
   const [editRowIndex, setEditRowIndex] = useState(-1);
   const [newRow, setNewRow] = useState({
@@ -206,4 +206,4 @@ const Calendar = () => {
   );
 };
 
-export default Calendar;
+export default Machine;

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './comp3.css';
-import Col from './column';
 
 const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -172,9 +171,6 @@ const Calendar = () => {
     <div className='card' id='c3'>
       <div className='card-body'>
         <div className='calendar'>
-          <center>
-            <h3>Planner</h3>
-          </center>
           <div className='row'>
             <div className='col-3' id='c1'>
               <table className='table table-border table-sm' id='caltab'>
