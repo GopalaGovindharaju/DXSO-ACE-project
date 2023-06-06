@@ -2,30 +2,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Adjust the height based on your requirements */
+    height: 100vh;
   }
   .banner {
     position: relative;
     z-index: 1;
-    /* Add any other styles you need for the banner */
   }
   
   .datetime {
     position: relative;
     z-index: 2;
-    /* Add any other styles you need for the datetime section */
   }
   
   .home-button {
     position: relative;
     z-index: 2;
-    /* Add any other styles you need for the home button */
   }
 
   .scrollable-column {
     overflow-y: auto;
     overflow-x: hidden;
-    height: 100px; /* Set the desired height of the scrollable column */
+    height: 160px;
   }
 
   #mech1{
@@ -45,5 +42,69 @@
   }
 
   #cb{
-    height: 120px;
+    height: 150px;
+    padding: 30px;
+    border: none;
+    background-color: #a8d2fd;
   }
+
+  #dtx{
+    margin-bottom: 5px;
+    border-color: goldenrod;
+  }
+
+  #dl{
+    text-align: right;
+    font-size: 15px;
+  }
+
+  #row2{
+    padding-left: 0%;
+  }
+
+  .input-group-text::placeholder {
+    color:white;
+  }
+
+  .input-group-text-sm::placeholder {
+    color:white;
+  }
+
+  #cb2{
+    background-color: #a8d2fd;
+    border-radius: 0%;
+  }
+  
+  #stbtn{
+    border-color: black;
+  }
+
+  #caltab{
+    width:20%;
+    height:10%;
+  }
+
+  #pl{
+    padding-left: 18px;
+    font-size: 15px;
+    font-weight:500;
+  }
+
+  #c1{
+    border-color: black;
+  }
+
+  #pl1{
+    border-color: black;
+  }
+
+  #r3{
+    padding-top: 10px;
+  }
+
+  #l3{
+    text-align: right;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  

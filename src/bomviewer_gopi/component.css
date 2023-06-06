@@ -38,20 +38,20 @@
   
   .table-container {
     border-collapse: collapse;
-    background-color:  #cfd9de;
+    background-color:  rgba(30, 143, 255, 0.555);
   }
   
   .table-container th,
   .table-container td {
     border: 1px solid black;
     padding: 8px;
-    background-color:  #cfd9de
+    background-color:rgba(30, 143, 255, 0.555)
   }
 
   .but1{
     padding-top: 40px;
     padding-bottom:0px;
-    background-color: #cfd9de;
+    background-color: #a8d2fd;
   }
   
   .custom-browse{
@@ -60,16 +60,16 @@
   
   .custom-done{
     margin-left: 10px;
-    background-color: #5E7D7E;
+    background-color: dodgerblue;
   }
   
   .custom-edit{
     margin-left: 10px;
-    background-color: #5E7D7E;
+    background-color: dodgerblue;
   }
   
   .custom-savechange{
-    background-color: #5E7D7E;
+    background-color: dodgerblue;
   }
   
   .btn-primary {
@@ -122,4 +122,5 @@
 
   .custom-card{
     background-color: #a8d2fd;
+    border-radius: 0%;
   }

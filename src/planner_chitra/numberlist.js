@@ -69,17 +69,6 @@ const MonthNo = () => {
         )}
       </div>
     </div>
-    <div className='row'>
-    <div class="col-6">
-                    <div class="input-group input-group-sm ">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">Calculation</div>
-                    </div>
-                    <input type="number" class="form-control" style={{width:'80px'}} placeholder=" "/>
-                    </div>
-                </div>
-
-    </div>
 
 
 
