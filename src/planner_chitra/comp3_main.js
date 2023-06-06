@@ -12,7 +12,6 @@ function Component3(){
             <Banner3/>
             <Data/>
             <Alloc/>
-            <Calendar/>
         </div>       
     );
 }
