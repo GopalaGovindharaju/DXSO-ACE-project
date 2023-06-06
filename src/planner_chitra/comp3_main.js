@@ -3,6 +3,7 @@ import Banner3 from './banner3';
 import Data from "./data";
 import Alloc from "./workallocation";
 import Calendar from "./calendar";
+import Table from "./table";
 
 function Component3(){
         const currentYear = new Date().getFullYear();
@@ -12,6 +13,7 @@ function Component3(){
             <Banner3/>
             <Data/>
             <Alloc/>
+            <Table/>
         </div>       
     );
 }
