@@ -2,7 +2,6 @@ import React from "react";
 import Banner3 from './banner3';
 import Data from "./data";
 import Alloc from "./workallocation";
-import Calendar from "./calendar";
 import Table from "./table";
 
 function Component3(){
@@ -14,6 +13,8 @@ function Component3(){
             <Data/>
             <Alloc/>
             <Table/>
+            
+            
         </div>       
     );
 }
