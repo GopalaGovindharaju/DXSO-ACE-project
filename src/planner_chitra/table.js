@@ -2,6 +2,7 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './comp3.css'
 import Col from './column.js';
+import Calendar from "./calendar";
 function Table(){
     return(
         <div class="container-fluid border border-dark  ">
@@ -10,7 +11,7 @@ function Table(){
           <Col/>
           </div>
           <div class="col">
-         
+         <Calendar/>
           </div>
         </div>
         

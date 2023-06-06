@@ -15,6 +15,7 @@ function Component3(){
             <Alloc/>
             <Table/>
             
+            
         </div>       
     );
 }
