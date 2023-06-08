@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
-import CurrentTime from './time.js'
+import CurrentTime from '../bomviewer_gopi/time.js'
 import CurrentDate from './datecomp.js'
-import './time.css'
+import '../bomviewer_gopi/component.css'
 
 function Banner3(){
   

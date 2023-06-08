@@ -8,6 +8,8 @@ import Machine from './assest_harish/Machine';
 import Login from './home_temp/login';
 import Table from './operator/table2.js';
 import First  from './home_gokul/login_home.js';
+import Leftbox from './inspection/leftbox.js';
+import Lbox from './inspector/lbox.js';
 
 function App()
 {
@@ -23,8 +25,9 @@ return (
       <Route path='/planner' element={<Component3/>}></Route>
       <Route path='/cust_assest' element={<Cust_asset/>}></Route>
       <Route path='/mach' element={<Machine/>}></Route>
-     
+      <Route path='/inspection' element={<Leftbox/>}></Route>
       <Route path='/operator' element={<Table/>}></Route>
+      <Route path='/inspector' element={<Lbox/>}></Route>     
       
      
 
