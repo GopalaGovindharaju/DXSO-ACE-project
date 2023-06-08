@@ -5,7 +5,7 @@ import Comp from './bomviewer_gopi/comp_main';
 import Component3 from './planner_chitra/comp3_main';
 import Cust_asset from './assest_harish/custasset'
 import Machine from './assest_harish/Machine';
-import Login from './home_temp/login';
+import Login from './home_gokul/login_home';
 import Table from './operator/table2.js';
 import First  from './home_gokul/login_home.js';
 import Leftbox from './inspection/leftbox.js';
