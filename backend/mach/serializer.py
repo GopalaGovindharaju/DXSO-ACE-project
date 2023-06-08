@@ -1,6 +1,7 @@
-from backend.models import machine_assest
+from mach.models import Machine_asset
+from rest_framework import ModelSerializer
 
-class CustomerSerializer(ModelSerializer):
+class MachineSerializer(ModelSerializer):
     class Meta:
-        model = machine_assest
+        model = Machine_asset
         fields = '__all__'

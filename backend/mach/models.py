@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class machine_assest(models.Model):
+class Machine_asset(models.Model):
     machine_name = models.CharField(max_length=100)
     machine_code = models.IntegerField()
     manufacturer = models.CharField(max_length=100)
@@ -16,5 +16,5 @@ class machine_assest(models.Model):
     machine_layout = models.CharField(max_length=100)   
     
     def __str__(self):
-        return self.machine_code
+        return self.machine_name
     
