@@ -1,0 +1,116 @@
+.centered-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .banner {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .datetime {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .home-button {
+    position: relative;
+    z-index: 2;
+  }
+
+  .scrollable-column {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 160px;
+  }
+
+  #mech1{
+    height: 95px;
+  }
+
+  #time{
+    text-align: right;
+    padding-right: 40px;
+  }
+  .custom-area{
+    margin-top: 10px;
+  }
+  
+  #banner{
+    background-color:dodgerblue;
+  }
+
+  #cb{
+    height: 150px;
+    padding: 30px;
+    border: none;
+    background-color: #a8d2fd;
+  }
+
+  #dtx{
+    margin-bottom: 5px;
+    border-color: goldenrod;
+  }
+
+  #dl{
+    text-align: right;
+    font-size: 15px;
+  }
+
+  #row2{
+    padding-left: 0%;
+  }
+
+  .input-group-text::placeholder {
+    color:white;
+  }
+
+  .input-group-text-sm::placeholder {
+    color:white;
+  }
+
+  #cb2{
+    background-color: #a8d2fd;
+    border-radius: 0%;
+  }
+  
+  #stbtn{
+    border-color: black;
+  }
+
+  #caltab{
+    width:20%;
+    height:10%;
+  }
+
+  #pl{
+    padding-left: 18px;
+    font-size: 15px;
+    font-weight:500;
+  }
+
+  #c1{
+    border-color: black;
+  }
+
+  #pl1{
+    border-color: black;
+  }
+
+  #r3{
+    padding-top: 10px;
+  }
+
+  #l3{
+    text-align: right;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  
+.day.selected {
+  background-color: dodgerblue;
+  color: white;
+}
+

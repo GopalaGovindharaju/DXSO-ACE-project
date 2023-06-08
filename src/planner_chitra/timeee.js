@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function CurrentTime1() {
+function CurrentTime() {
   const [currentTime, setCurrentTime] = useState('');
 
   useEffect(() => {
@@ -16,11 +16,10 @@ function CurrentTime1() {
   }, []);
 
   return (
-    <div className="current-time-container">
-      <h1 className="current-time-heading-md"></h1>
-      <p className="current-time-text mt-0 pt-0">Current Time  :{currentTime}</p>
+    <div className="current-time-container" id="time">
+      <h5 className="current-time-text"> {currentTime}</h5>
     </div>
   );
 }
 
-export default CurrentTime1;
+export default CurrentTime;

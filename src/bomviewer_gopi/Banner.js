@@ -9,14 +9,14 @@ function Banner() {
 
   return (<> 
     
-      <div className='row 'style= {{backgroundColor:'6de1e9'}}>
+      <div className='row bg-gradient custom-font'>
             <div className='col-3'>
               <Icon/>
             </div>
-            <div className='col-6'>
-            <div className="p-2 mb-2 text-dark bg-gradient text-center custom-font rounded"><h1>BOM VIEWER</h1></div>
+            <div className='col-6 custom-head'>
+            <div className="text-dark text-white text-center rounded"><h1>BOM VIEWER</h1></div>
             </div>
-            <div className='col-3'>
+            <div className='col-3 custom-dt'>
             <div className='row'>
             <CurrentDate/>
               </div>
