@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'planner',
     'rest_framework',
     'corsheaders',
+    'mach',
 ]
 
 MIDDLEWARE = [
