@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
-import CurrentTime from '../component2/time'
+import CurrentTime from './time'
 import CurrentDate from './datecomp'
-import '../component2/time.css'
+import './time.css'
 
 function Banner3(){
   
@@ -25,3 +25,5 @@ function Banner3(){
 }
 
 export default Banner3;
+
+

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
-import CurrentTime from '../component2/time'
+import CurrentTime from './time'
 import CurrentDate from './date'
 import './time.css'
 

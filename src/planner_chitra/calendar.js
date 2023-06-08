@@ -294,8 +294,8 @@ const Calendar = () => {
                     Expected Status
                   </div>
                 </div>
-                <div className='col-8'>
-                  <div className='input-group input-group-sm '>
+                <div className='col-5'>
+                  <div className='input-group input-group-sm  '>
                     <div className='input-group-prepend'>
                       <input
                         type='text'
@@ -320,6 +320,10 @@ const Calendar = () => {
                         placeholder='In Progress'
                       />
                     </div>
+                    
+                    <button type="button" class="btn btn-primary rounded custom-b1">submit Allocation</button>
+                    <button type="button" class="btn btn-primary rounded custom-b2">Edit Allocation</button>
+                    
                   </div>
                 </div>
               </div>
