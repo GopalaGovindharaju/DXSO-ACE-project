@@ -1,5 +1,5 @@
 import React from 'react'
-import CurrentTime from '../component2/time'
+import CurrentTime from './time'
 import CurrentDate from './date'
 import './time.css'
 
@@ -17,7 +17,7 @@ function Banner4() {
         </div>
         <div class="row">
         <CurrentTime/>
-        </div>
+        </div>s
 
       </div>          
       </div>

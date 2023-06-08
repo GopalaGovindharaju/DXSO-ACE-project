@@ -1,82 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import './comp1.css';
 
+const initialRowState = {
+  name: "",
+  address: "",
+  city: "",
+  orderNumber: "",
+  productNumber: "",
+  productName: "",
+  quantity: "",
+  orderPlacedDate: "",
+  deadline: "",
+};
+
 function Cust_asset() {
-  const [tableData, setTableData] = useState([
-    {
-      name: "Abishake",
-      orderNumber: "DXSO-003",
-      productNumber: "AC20UCS003",
-      productName: "Metal funnel",
-      orderPlacedDate: "26/06/23",
-      deadline: "26/09/23",
-    },
-    {
-    name: "Gokulraj",
-      orderNumber: "DXSO-033",
-      productNumber: "AC20UCS033",
-      productName: "AC-filter",
-      orderPlacedDate: "20/07/23",
-      deadline: "26/09/23",
-    },
-    {
-        name: "Gopala",
-          orderNumber: "DXSO-034",
-          productNumber: "AC20UCS034",
-          productName: "Wireframe",
-          orderPlacedDate: "18/10/23",
-          deadline: "13/11/23",
-    },
-    {
-        name: "Gopi",
-          orderNumber: "DXSO-154",
-          productNumber: "AC20UCS154",
-          productName: "MetalStamp",
-          orderPlacedDate: "07/07/23",
-          deadline: "26/09/23",
-        },
-    {
-        name: "Harish",
-          orderNumber: "DXSO-040",
-          productNumber: "AC20UCS040",
-          productName: "Cap",
-          orderPlacedDate: "07/07/23",
-          deadline: "08/08/23",
-        },
-    {
-    name: "Chitra",
-      orderNumber: "DXSO-023",
-      productNumber: "AC20UCS023",
-      productName: "Copper-frame",
-      orderPlacedDate: "13/09/23",
-      deadline: "18/10/23",
-    }
-  ]);
+  const [tableData, setTableData] = useState([]);
   const [editingRow, setEditingRow] = useState(null);
-  const [newRow, setNewRow] = useState({
-    name: "",
-    orderNumber: "",
-    productNumber: "",
-    productName: "",
-    orderPlacedDate: "",
-    deadline: "",
-  });
+  const [newRow, setNewRow] = useState(initialRowState);
   const [showInputFields, setShowInputFields] = useState(false);
+  const [hasChanges, setHasChanges] = useState(false);
+
+  useEffect(() => {
+    fetchTableData();
+  }, []);
+
+  const fetchTableData = () => {
+    axios.get("http://127.0.0.1:8000/cust/") // Replace "/api/tableData" with the actual API endpoint URL
+      .then(response => {
+        setTableData(response.data);
+      })
+      .catch(error => {
+        console.error("Error fetching table data:", error);
+      });
+  };
 
   const handleEdit = (index) => {
     setEditingRow(index);
-    // Set the previous values in the input fields for the selected row
     const rowData = tableData[index];
     setNewRow({ ...rowData });
   };
 
   const handleSave = (index) => {
     setEditingRow(null);
-    // Perform the necessary save/update operation with the modified data
-    // You can access the modified data using the index and the form inputs
     const updatedData = [...tableData];
     updatedData[index] = newRow;
     setTableData(updatedData);
+    setHasChanges(true);
   };
 
   const handleAdd = () => {
@@ -85,15 +55,20 @@ function Cust_asset() {
 
   const handleAddSave = () => {
     setTableData([...tableData, newRow]);
-    setNewRow({
-      name: "",
-      orderNumber: "",
-      productNumber: "",
-      productName: "",
-      orderPlacedDate: "",
-      deadline: "",
-    });
+    setNewRow(initialRowState);
     setShowInputFields(false);
+    setHasChanges(true);
+  };
+
+  const saveAllChanges = () => {
+    axios.post("http://127.0.0.1:8000/cust/save/", tableData) // Replace "/save" with the appropriate backend endpoint URL
+      .then(response => {
+        console.log("Changes saved successfully");
+        setHasChanges(false);
+      })
+      .catch(error => {
+        console.error("Error saving changes:", error);
+      });
   };
 
   const renderTableRow = (data, index) => {
@@ -115,10 +90,38 @@ function Cust_asset() {
             data.name
           )}
         </td>
-        <td>
+        <td style={{width:'140px'}}>
           {isEditing ? (
             <input
               type="text"
+              value={newRow.address}
+              placeholder="Customer Address"
+              onChange={(e) =>
+                setNewRow({ ...newRow, address: e.target.value })
+              }
+            />
+          ) : (
+            data.address
+          )}
+        </td>
+        <td style={{width:'100px'}}>
+          {isEditing ? (
+            <input
+              type="text"
+              value={newRow.city}
+              placeholder="City"
+              onChange={(e) =>
+                setNewRow({ ...newRow, city: e.target.value })
+              }
+            />
+          ) : (
+            data.city
+          )}
+        </td>
+        <td>
+          {isEditing ? (
+            <input
+              type="number"
               value={newRow.orderNumber}
               placeholder="Order Number"
               onChange={(e) =>
@@ -132,7 +135,7 @@ function Cust_asset() {
         <td>
           {isEditing ? (
             <input
-              type="text"
+              type="number"
               value={newRow.productNumber}
               placeholder="Product Number"
               onChange={(e) =>
@@ -160,7 +163,21 @@ function Cust_asset() {
         <td>
           {isEditing ? (
             <input
-              type="text"
+              type="number"
+              value={newRow.quantity}
+              placeholder="Quantity"
+              onChange={(e) =>
+                setNewRow({ ...newRow, quantity: e.target.value })
+              }
+            />
+          ) : (
+            data.quantity
+          )}
+        </td>
+        <td>
+          {isEditing ? (
+            <input
+              type="date"
               value={newRow.orderPlacedDate}
               placeholder="Order Placed Date"
               onChange={(e) =>
@@ -168,29 +185,31 @@ function Cust_asset() {
               }
             />
           ) : (
-            data.orderPlacedDate
+            new Date(data.orderPlacedDate).toLocaleDateString("en-GB")
           )}
         </td>
         <td>
           {isEditing ? (
             <input
-              type="text"
+              type="date"
               value={newRow.deadline}
-              placeholder="Deadline"
+              placeholder="Delivery Date"
               onChange={(e) =>
                 setNewRow({ ...newRow, deadline: e.target.value })
               }
             />
           ) : (
-            data.deadline
+            new Date(data.deadline).toLocaleDateString("en-GB")
           )}
         </td>
         <td>
-          {isEditing ? (
-            <button onClick={() => handleSave(index)}>Save</button>
-          ) : (
-            <button onClick={() => handleEdit(index)}>Edit</button>
-          )}
+          <center>
+            {isEditing ? (
+              <button onClick={() => handleSave(index)}>Save</button>
+            ) : (
+              <button onClick={() => handleEdit(index)}>Edit</button>
+            )}
+          </center>
         </td>
       </tr>
     );
@@ -199,18 +218,21 @@ function Cust_asset() {
   return (
     <center>
       <table className="table table-sm table-bordered w-75">
-        <thead className="thead-light" style={{alignItems: 'center'}}>
+        <thead className="thead-light" style={{ alignItems: 'center' }}>
           <tr>
             <th scope="col">Customer Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">City</th>
             <th scope="col">Order Number</th>
             <th scope="col">Product Number</th>
             <th scope="col">Product Name</th>
+            <th scope="col">Quantity</th>
             <th scope="col">Order placed date</th>
             <th scope="col">Deadline</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
-        <tbody >
+        <tbody>
           {tableData.map((data, index) => renderTableRow(data, index))}
           {showInputFields && (
             <tr>
@@ -225,61 +247,79 @@ function Cust_asset() {
               <td>
                 <input
                   type="text"
-                  value={newRow.orderNumber}
-                  placeholder="DXSO-13"
-                  onChange={(e) =>
-                    setNewRow({ ...newRow, orderNumber: e.target.value })
-                  }
+                  value={newRow.address}
+                  placeholder="1/93, MGR street..."
+                  onChange={(e) => setNewRow({ ...newRow, address: e.target.value })}
                 />
               </td>
               <td>
                 <input
                   type="text"
+                  value={newRow.city}
+                  placeholder="Bangalore"
+                  onChange={(e) => setNewRow({ ...newRow, city: e.target.value })}
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value={newRow.orderNumber}
+                  placeholder="12345"
+                  onChange={(e) => setNewRow({ ...newRow, orderNumber: e.target.value })}
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
                   value={newRow.productNumber}
-                  placeholder="AC20UCS013"
-                  onChange={(e) =>
-                    setNewRow({ ...newRow, productNumber: e.target.value })
-                  }
+                  placeholder="54321"
+                  onChange={(e) => setNewRow({ ...newRow, productNumber: e.target.value })}
                 />
               </td>
               <td>
                 <input
                   type="text"
                   value={newRow.productName}
-                  placeholder="Metal-Dye"
-                  onChange={(e) =>
-                    setNewRow({ ...newRow, productName: e.target.value })
-                  }
+                  placeholder="Product Name"
+                  onChange={(e) => setNewRow({ ...newRow, productName: e.target.value })}
                 />
               </td>
               <td>
                 <input
-                  type="text"
+                  type="number"
+                  value={newRow.quantity}
+                  placeholder="1"
+                  onChange={(e) => setNewRow({ ...newRow, quantity: e.target.value })}
+                />
+              </td>
+              <td>
+                <input
+                  type="date"
                   value={newRow.orderPlacedDate}
-                  placeholder="OrderDate"
-                  onChange={(e) =>
-                    setNewRow({ ...newRow, orderPlacedDate: e.target.value })
-                  }
+                  onChange={(e) => setNewRow({ ...newRow, orderPlacedDate: e.target.value })}
                 />
               </td>
               <td>
                 <input
-                  type="text"
+                  type="date"
                   value={newRow.deadline}
-                  placeholder="Deadline"
                   onChange={(e) => setNewRow({ ...newRow, deadline: e.target.value })}
                 />
               </td>
               <td>
-                <button onClick={handleAddSave}>Save</button>
+                <center>
+                  <button onClick={handleAddSave}>Save</button>
+                </center>
               </td>
             </tr>
           )}
         </tbody>
       </table>
-      {!showInputFields && (
-        <button onClick={handleAdd}>Add</button>
+      <br />
+      {hasChanges && (
+        <button onClick={saveAllChanges}>Save All Changes</button>
       )}
+      <button onClick={handleAdd}>Add</button>
     </center>
   );
 }
