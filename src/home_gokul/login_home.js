@@ -1,8 +1,9 @@
 import React from "react";
 import Disp from './one';
+import "./give.css";
 function First(){
     return(
-        <div>
+        <div id>
             
             <Disp/>
         </div>

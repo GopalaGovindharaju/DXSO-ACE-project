@@ -9,7 +9,7 @@ import Login from './home_temp/login';
 import Table from './operator/table2.js';
 import First  from './home_gokul/login_home.js';
 import Leftbox from './inspection/leftbox.js';
-
+import Signin from './home_gokul/newone.js';
 function App()
 {
 return (
@@ -18,7 +18,7 @@ return (
     <Routes>
 
       <Route path='/first' element={<First/>}></Route>
-
+      <Route path='/newone' element={<Signin/>}></Route>
       <Route path='/' element={<Login/>}></Route>
       <Route path='/bom' element={<Comp/>}></Route>
       <Route path='/planner' element={<Component3/>}></Route>
