@@ -79,7 +79,7 @@ function Cust_asset() {
         <td>
           {isEditing ? (
             <input
-              type="text"
+              type="text" id="custtext" className="form-control"
               value={newRow.name}
               placeholder="Customer Name"
               onChange={(e) =>
@@ -93,7 +93,7 @@ function Cust_asset() {
         <td style={{width:'140px'}}>
           {isEditing ? (
             <input
-              type="text"
+              type="text" id="custtext" className="form-control"
               value={newRow.address}
               placeholder="Customer Address"
               onChange={(e) =>
@@ -107,7 +107,7 @@ function Cust_asset() {
         <td style={{width:'100px'}}>
           {isEditing ? (
             <input
-              type="text"
+              type="text" id="custtext" className="form-control"
               value={newRow.city}
               placeholder="City"
               onChange={(e) =>
@@ -121,7 +121,7 @@ function Cust_asset() {
         <td>
           {isEditing ? (
             <input
-              type="number"
+              type="number" id="custtext" className="form-control"
               value={newRow.orderNumber}
               placeholder="Order Number"
               onChange={(e) =>
@@ -135,7 +135,7 @@ function Cust_asset() {
         <td>
           {isEditing ? (
             <input
-              type="number"
+              type="number" id="custtext" className="form-control"
               value={newRow.productNumber}
               placeholder="Product Number"
               onChange={(e) =>
@@ -149,7 +149,7 @@ function Cust_asset() {
         <td>
           {isEditing ? (
             <input
-              type="text"
+              type="text" id="custtext" className="form-control"
               value={newRow.productName}
               placeholder="Product Name"
               onChange={(e) =>
@@ -163,7 +163,7 @@ function Cust_asset() {
         <td>
           {isEditing ? (
             <input
-              type="number"
+              type="number" id="custtext" className="form-control"
               value={newRow.quantity}
               placeholder="Quantity"
               onChange={(e) =>
@@ -177,7 +177,7 @@ function Cust_asset() {
         <td>
           {isEditing ? (
             <input
-              type="date"
+              type="date" id="custtext" className="form-control"
               value={newRow.orderPlacedDate}
               placeholder="Order Placed Date"
               onChange={(e) =>
@@ -191,7 +191,7 @@ function Cust_asset() {
         <td>
           {isEditing ? (
             <input
-              type="date"
+              type="date" id="custtext" className="form-control"
               value={newRow.deadline}
               placeholder="Delivery Date"
               onChange={(e) =>
@@ -205,9 +205,9 @@ function Cust_asset() {
         <td>
           <center>
             {isEditing ? (
-              <button onClick={() => handleSave(index)}>Save</button>
+              <button className="btn btn-block custom-done btn-sm text-white m-2" onClick={() => handleSave(index)}>Save</button>
             ) : (
-              <button onClick={() => handleEdit(index)}>Edit</button>
+              <button className="btn btn-block custom-done btn-sm text-white m-2" onClick={() => handleEdit(index)}>Edit</button>
             )}
           </center>
         </td>
@@ -216,7 +216,8 @@ function Cust_asset() {
   };
 
   return (
-    <center>
+    <center id="mach">
+      <h1 className="text-center mt-4 mb-3">Customer Asset List</h1>
       <table className="table table-sm table-bordered w-75">
         <thead className="thead-light" style={{ alignItems: 'center' }}>
           <tr>
@@ -238,7 +239,7 @@ function Cust_asset() {
             <tr>
               <td>
                 <input
-                  type="text"
+                  type="text" id="custtext" className="form-control"
                   value={newRow.name}
                   placeholder="Ravi"
                   onChange={(e) => setNewRow({ ...newRow, name: e.target.value })}
@@ -246,7 +247,7 @@ function Cust_asset() {
               </td>
               <td>
                 <input
-                  type="text"
+                  type="text" id="custtext" className="form-control"
                   value={newRow.address}
                   placeholder="1/93, MGR street..."
                   onChange={(e) => setNewRow({ ...newRow, address: e.target.value })}
@@ -254,7 +255,7 @@ function Cust_asset() {
               </td>
               <td>
                 <input
-                  type="text"
+                  type="text" id="custtext" className="form-control"
                   value={newRow.city}
                   placeholder="Bangalore"
                   onChange={(e) => setNewRow({ ...newRow, city: e.target.value })}
@@ -262,7 +263,7 @@ function Cust_asset() {
               </td>
               <td>
                 <input
-                  type="number"
+                  type="number" id="custtext" className="form-control"
                   value={newRow.orderNumber}
                   placeholder="12345"
                   onChange={(e) => setNewRow({ ...newRow, orderNumber: e.target.value })}
@@ -270,7 +271,7 @@ function Cust_asset() {
               </td>
               <td>
                 <input
-                  type="number"
+                  type="number" id="custtext" className="form-control"
                   value={newRow.productNumber}
                   placeholder="54321"
                   onChange={(e) => setNewRow({ ...newRow, productNumber: e.target.value })}
@@ -278,7 +279,7 @@ function Cust_asset() {
               </td>
               <td>
                 <input
-                  type="text"
+                  type="text" id="custtext" className="form-control"
                   value={newRow.productName}
                   placeholder="Product Name"
                   onChange={(e) => setNewRow({ ...newRow, productName: e.target.value })}
@@ -286,7 +287,7 @@ function Cust_asset() {
               </td>
               <td>
                 <input
-                  type="number"
+                  type="number" id="custtext" className="form-control"
                   value={newRow.quantity}
                   placeholder="1"
                   onChange={(e) => setNewRow({ ...newRow, quantity: e.target.value })}
@@ -294,21 +295,21 @@ function Cust_asset() {
               </td>
               <td>
                 <input
-                  type="date"
+                  type="date" id="custtext" className="form-control"
                   value={newRow.orderPlacedDate}
                   onChange={(e) => setNewRow({ ...newRow, orderPlacedDate: e.target.value })}
                 />
               </td>
               <td>
                 <input
-                  type="date"
+                  type="date" id="custtext" className="form-control"
                   value={newRow.deadline}
                   onChange={(e) => setNewRow({ ...newRow, deadline: e.target.value })}
                 />
               </td>
               <td>
                 <center>
-                  <button onClick={handleAddSave}>Save</button>
+                  <button onClick={handleAddSave} className="btn btn-block custom-done btn-sm text-white m-2">Save</button>
                 </center>
               </td>
             </tr>
@@ -317,9 +318,9 @@ function Cust_asset() {
       </table>
       <br />
       {hasChanges && (
-        <button onClick={saveAllChanges}>Save All Changes</button>
+        <button onClick={saveAllChanges} className="btn btn-block custom-done btn-sm text-white m-3" style={{marginRight:'8px'}}>Save Changes</button>
       )}
-      <button onClick={handleAdd}>Add</button>
+      <button className="btn btn-block custom-done btn-sm text-white m-3" onClick={handleAdd}>Add</button>
     </center>
   );
 }
