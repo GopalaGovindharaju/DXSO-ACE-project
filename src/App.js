@@ -10,6 +10,7 @@ import Table from './operator/table2.js';
 import First  from './home_gokul/login_home.js';
 import Leftbox from './inspection/leftbox.js';
 import Lbox from './inspector/lbox.js';
+import Signin from './home_gokul/newone.js';
 
 function App()
 {
@@ -18,6 +19,8 @@ return (
 
     <Routes>
 
+      <Route path='/first' element={<First/>}></Route>
+      <Route path='/newone' element={<Signin/>}></Route>
       <Route path='/' element={<First/>}></Route>
 
       <Route path='/' element={<Login/>}></Route>
