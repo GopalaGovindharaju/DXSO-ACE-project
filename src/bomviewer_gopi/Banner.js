@@ -10,7 +10,8 @@ function Banner() {
   return (<> 
     
       <div className='row bg-gradient custom-font'>
-            <div className='col-3 customicon'>
+            <div className='col-3'>
+            <div class="d-flex flex-row">
               <Icon/>
               </div>
             </div>
@@ -28,7 +29,10 @@ function Banner() {
               
 
 
-            </div></>
+            </div>
+
+
+    </div></>
    
       
 

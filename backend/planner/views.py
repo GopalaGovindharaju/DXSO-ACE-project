@@ -3,7 +3,9 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import pandas as pd
 from . models import BomDetail
-from . models import OrderDetail
+from rest_framework.decorators import api_view
+from Cust_AssetList.models import CustomerAsset
+from rest_framework.response import Response
 
 @csrf_exempt  # To disable CSRF protection for simplicity in this example
 def upload_file(request):
@@ -17,32 +19,30 @@ def upload_file(request):
     else:
         return HttpResponse('No file received.')
     
-@csrf_exempt
-def upload_detail(request):
-    if request.method == 'POST':
-        body_unicode = request.body.decode('utf-8')
-        data = json.loads(body_unicode)
+@api_view(['GET'])
+def get_product_names(request):
+    customer_name = request.GET.get('customerName')
+    # Add your logic here to fetch the product names based on the customer name from your database
+    customers = CustomerAsset.objects.filter(name=customer_name)
+    product_names = customers.values_list('productName', flat=True)
+    product_names = list(product_names)
 
-        order_number = data.get('order_number')
-        customer_name = data.get('customer_name')
-        planner_name = data.get('planner_name')
-        deadline = data.get('deadline')
-        batch_control = data.get('batch_control')
-        product_number = data.get('product_number')
-        product_name = data.get('product_name')
-        machines_available = data.get('machines_available')
+    return Response({'productNames': product_names})
 
-        order_detail = OrderDetail(
-            customer_name=customer_name,
-            order_number=order_number,
-            planner_name=planner_name,
-            deadline=deadline,
-            batch_control=batch_control,
-            product_number=product_number,
-            product_name=product_name,
-            machines_available=machines_available
-        )
-        order_detail.save()
-        return HttpResponse("Form submitted.")
-    else:
-        return HttpResponse("Failed form submission.")
+@api_view(['GET'])
+def get_customer_names(request):
+    customer_names = CustomerAsset.objects.values_list('name', flat=True).distinct()
+    customer_names = list(customer_names)
+    return Response({'customerNames': customer_names})
+
+@api_view(['GET'])
+def get_product_numbers(request):
+    product_name = request.GET.get('productName')
+    customer_name = request.GET.get('customerName')
+    # Add your logic here to fetch the product numbers based on the product name and customer name from your database
+    products = CustomerAsset.objects.filter(productName=product_name, name=customer_name)
+    product_numbers = products.values_list('productNumber', flat=True)
+    product_numbers = list(product_numbers)
+
+    return Response({'productNumbers': product_numbers})
+
