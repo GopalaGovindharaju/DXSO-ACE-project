@@ -10,29 +10,16 @@ function Details()
     }, []);
      return (
     
-    <div className="card  custom-card">
+    <div className="card  custom-card" id="r2">
     
-    <div className="card-body custom-cardbdy">
+    <div className="card-body custom-cardbdy" id="r1">
     
     <form className="needs-validation" noValidate>
 
         <div className="row" id="r1">
             
+            
             <div className="col">
-                <div className="input-group input-group-sm">
-                 <label htmlFor="inputDate" className="text-end col-sm-6 col-form-label custlabel">Date :</label>
-                 <div className="col-sm-6">
-                <input type="date" className="form-control custom-textfield0" id="inputDate" placeholder="Date" value={currentDate} onChange={(e) => setCurrentDate(e.target.value)} required />
-              </div>
-            </div>           
-                <div className="input-group input-group-sm">
-                    <label className="col-sm-6 col-form-label custlabel">BOM Version :</label>
-                    <div className="col-sm-6">
-                    <input type="text" className="form-control custom-textfield0" id="inputDate" placeholder="version"/>
-                </div>          
-            </div>
-            </div>
-            <div className="col"style={{justifyContent:'left'}}>
             <div className="input-group input-group-sm">
                 <label className="col-sm-6 col-form-label custlabel">Customer_Name :</label>
                 <div class="col-sm-6">
@@ -47,15 +34,19 @@ function Details()
                 </select>
                 </div>
                 </div>
+            </div>
        
     
-          
+            <div className="col">
             <div className="input-group input-group-sm">
                     <label className="col-sm-6 col-form-label custlabel">Product Name :</label>
                     <div className="col-sm-6">
                     <input type='number' className="form-control custom-textfield0" name='product_name' />
                 </div>
             </div>
+            </div>
+
+            <div className="col">
             <div className="input-group input-group-sm">
                     <label className="col-sm-6 col-form-label custlabel">Product Number :</label>
                     <div className="col-sm-6">

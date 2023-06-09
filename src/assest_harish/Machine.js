@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './comp1.css';
 
@@ -12,17 +13,35 @@ const Machine = () => {
     model: '',
     machineType: '',
     capacityNumber: '',
-    capacityDropdown:'',
+    capacityDropdown: '',
     purchasedDate: '',
     lastMaintenanceDate: '',
     nextMaintenanceDate: '',
     status: '',
-    factorylocation:'',
-    machinelocation:''
+    factorylocation: '',
+    machinelocation: ''
   });
   const [isAdding, setIsAdding] = useState(false); // New state variable
 
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('http://127.0.0.1:8000/machine/');
+      console.log(response.data)
+      setData(response.data);
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const handleEditClick = (index) => {
+    // Set the newRow state with the data of the row being edited
+    const editedRow = data[index];
+    setNewRow({ ...editedRow });
     setEditRowIndex(index);
   };
 
@@ -36,36 +55,45 @@ const Machine = () => {
 
   const handleInputChange = (event, field) => {
     const { value } = event.target;
-    setNewRow((prevRow) => ({
-      ...prevRow,
-      [field]: value
-    }));
+  
+    if (field === 'capacityDropdown') {
+      setNewRow((prevRow) => ({
+        ...prevRow,
+        [field]: value
+      }));
+    } else {
+      setNewRow((prevRow) => ({
+        ...prevRow,
+        [field]: value
+      }));
+    }
   };
+  
 
   const handleAddClick = () => {
     setIsAdding(!isAdding);
   };
 
   const handleAddSaveClick = () => {
-    setData((prevData) => [...prevData, newRow]);
+    const newRowWithDropdown = { ...newRow, capacityDropdown: newRow.capacityDropdown };
+    setData((prevData) => [...prevData, newRowWithDropdown]);
     setNewRow({
-    machineName: '',
-    machineCode: '',
-    manufacturer: '',
-    model: '',
-    machineType: '',
-    capacityNumber: '',
-    capacityDropdown:'',
-    purchasedDate: '',
-    lastMaintenanceDate: '',
-    nextMaintenanceDate: '',
-    status: '',
-    factorylocation:'',
-    machinelocation:''
+      machineName: '',
+      machineCode: '',
+      manufacturer: '',
+      model: '',
+      machineType: '',
+      capacityNumber: '',
+      capacityDropdown:'',
+      purchasedDate: '',
+      lastMaintenanceDate: '',
+      nextMaintenanceDate: '',
+      status: '',
+      factorylocation:'',
+      machinelocation:''
     });
     setIsAdding(false); // Set isAdding back to false after saving
   };
-
   const getColumnSize = (field) => {
     const maxLength = Math.max(...data.map((row) => row[field].length));
     return maxLength > 10 ? maxLength : 10;
@@ -73,11 +101,11 @@ const Machine = () => {
 
   return (
     <div>
-      <div className="container-fluid" id='mach'>
+      <div className="container-fluid" id="mach">
         <h1 className="text-center mt-4 mb-3">Machine Asset List</h1>
         <table className="table table-bordered table-hover">
           <thead className="thead-light">
-          <tr>
+            <tr>
               <th id='thead'>Machine name</th>
               <th id='thead'>Machine Code</th>
               <th id='manufacturer1'>Manufacturer</th>
@@ -91,336 +119,121 @@ const Machine = () => {
               <th id='thead'>Factory Location</th>
               <th id='thead'>Machine Location</th>
               <th id='action'>Actions</th>
-          </tr>
+            </tr>
           </thead>
           <tbody>
             {data.map((row, index) => (
-              <tr key={index}>
-                <td>
-                  {editRowIndex === index ? (
-                    <input
-                      type="text"
-                      value={newRow.machineName}
-                      onChange={(e) => handleInputChange(e, 'machineName')}
-                      className="form-control"
-                    />
-                  ) : (
-                    row.machineName
-                  )}
-                </td>
-                <td>
-                  {editRowIndex === index ? (
-                    <input
-                      type="number"
-                      value={newRow.machineCode}
-                      onChange={(e) => handleInputChange(e, 'machineCode')}
-                      className="form-control"
-                    />
-                  ) : (
-                    row.machineCode
-                  )}
-                </td>
-                <td>
-                  {editRowIndex === index ? (
-                    <input
-                      type="text" id='manufacturer'
-                      value={newRow.manufacturer}
-                      onChange={(e) => handleInputChange(e, 'manufacturer')}
-                      className="form-control"
-                    />
-                  ) : (
-                    row.manufacturer
-                  )}
-                </td>
-                <td>
-                  {editRowIndex === index ? (
-                    <input
-                      type="text"
-                      value={newRow.model}
-                      onChange={(e) => handleInputChange(e, 'model')}
-                      className="form-control"
-                    />
-                  ) : (
-                    row.model
-                  )}
-                </td>
-                <td>
-                  {editRowIndex === index ? (
-                    <input
-                      type="text"
-                      value={newRow.machineType}
-                      onChange={(e) => handleInputChange(e, 'machineType')}
-                      className="form-control"
-                    />
-                  ) : (
-                    row.machineType
-                  )}
-                </td>
-                <td>
-                  {editRowIndex === index ? (
-                    <div className="d-flex">
-                      <div className='row'>
-                      <input
-                        type="number" id='ctext'
-                        value={newRow.capacityNumber}
-                        onChange={(e) => handleInputChange(e, 'capacityNumber')}
-                        className="form-control"
-                        style={{ width: getColumnSize('capacityNumber') * 6 + 'px' }}
-                      />
-                      <select
-                        value={newRow.capacityDropdown} id="cdrop"
-                        onChange={(e) => handleInputChange(e, 'capacityDropdown')}
-                        className="form-control ml-1 " style={{ width: getColumnSize('capacityNumber') * 9 + 'px' }}
-                      >
-                        <option value="">Tons</option>
-                        <option value="Holes">Holes</option>
-                        <option value="Bends">Bends</option>
-                        <option value="Cuts">Cuts</option>
-                      </select>
-                    </div></div>
-                  ) : (
-                    <div>
-                      {row.capacityNumber} {row.capacityDropdown}
-                    </div>
-                  )}
-                </td>
-                <td>
-                  {editRowIndex === index ? (
-                    <input
-                      type="date" id='purchase'
-                      value={newRow.purchasedDate} style={{width: '30px'}}
-                      onChange={(e) => handleInputChange(e, 'purchaseddate')}
-                      className="form-control"
-                    />
-                  ) : (
-                    row.purchasedDate
-                  )}
-                </td>
-                <td>
-                  {editRowIndex === index ? (
-                    <input
-                      type="date" id='purchase'
-                      value={newRow.lastMaintenanceDate}
-                      onChange={(e) => handleInputChange(e, 'lastmaintenancedate')}
-                      className="form-control"
-                    />
-                  ) : (
-                    row.lastMaintenanceDate
-                  )}
-                </td>
-                <td>
-                  {editRowIndex === index ? (
-                    <input
-                      type="date" id='purchase'
-                      value={newRow.nextMaintenanceDate}
-                      onChange={(e) => handleInputChange(e, 'nextmaintenancedate')}
-                      className="form-control"
-                    />
-                  ) : (
-                    row.nextMaintenanceDate
-                  )}
-                </td>
-                <td>
-                  {editRowIndex === index ? (
-                    <input
-                      type="status"
-                      value={newRow.status}
-                      onChange={(e) => handleInputChange(e, 'status')}
-                      className="form-control"
-                    />
-                  ) : (
-                    row.status
-                  )}
-                </td>
-                <td>
-                  {editRowIndex === index ? (
-                    <input
-                      type="text"
-                      value={newRow.factorylocation}
-                      onChange={(e) => handleInputChange(e, 'factorylocation')}
-                      className="form-control"
-                    />
-                  ) : (
-                    row.factorylocation
-                  )}
-                </td>
-                <td>
-                  {editRowIndex === index ? (
-                    <input
-                      type="text"
-                      value={newRow.machinelocation}
-                      onChange={(e) => handleInputChange(e, 'machinelocation')}
-                      className="form-control"
-                    />
-                  ) : (
-                    row.machinelocation
-                  )}
-                </td>
-              
-                <td>
-                  {editRowIndex === index ? (
+              index === editRowIndex ? (
+                <tr key={index}>
+                  <td><input
+                    type="text"
+                    className="form-control"
+                    value={newRow.machineName}
+                    onChange={(e) => handleInputChange(e, 'machineName')}
+                  /></td>
+                  <td><input
+                    type="text"
+                    className="form-control"
+                    value={newRow.machineCode}
+                    onChange={(e) => handleInputChange(e, 'machineCode')}
+                  /></td>
+                  <td><input
+                    type="text"
+                    className="form-control"
+                    value={newRow.manufacturer}
+                    onChange={(e) => handleInputChange(e, 'manufacturer')}
+                  /></td>
+                  <td><input
+                    type="text"
+                    className="form-control"
+                    value={newRow.model}
+                    onChange={(e) => handleInputChange(e, 'model')}
+                  /></td>
+                  <td><input
+                    type="text"
+                    className="form-control"
+                    value={newRow.machineType}
+                    onChange={(e) => handleInputChange(e, 'machineType')}
+                  /></td>
+                  <td><input
+                    type="text"
+                    className="form-control"
+                    value={newRow.capacityNumber}
+                    onChange={(e) => handleInputChange(e, 'capacityNumber')}
+                  /></td>
+                  <td><input
+                    type="text"
+                    className="form-control"
+                    value={newRow.purchasedDate}
+                    onChange={(e) => handleInputChange(e, 'purchasedDate')}
+                  /></td>
+                  <td><input
+                    type="text"
+                    className="form-control"
+                    value={newRow.lastMaintenanceDate}
+                    onChange={(e) => handleInputChange(e, 'lastMaintenanceDate')}
+                  /></td>
+                  <td><input
+                    type="text"
+                    className="form-control"
+                    value={newRow.nextMaintenanceDate}
+                    onChange={(e) => handleInputChange(e, 'nextMaintenanceDate')}
+                  /></td>
+                  <td><input
+                    type="text"
+                    className="form-control"
+                    value={newRow.status}
+                    onChange={(e) => handleInputChange(e, 'status')}
+                  /></td>
+                  <td><input
+                    type="text"
+                    className="form-control"
+                    value={newRow.factorylocation}
+                    onChange={(e) => handleInputChange(e, 'factorylocation')}
+                  /></td>
+                  <td><input
+                    type="text"
+                    className="form-control"
+                    value={newRow.machinelocation}
+                    onChange={(e) => handleInputChange(e, 'machinelocation')}
+                  /></td>
+                  <td>
                     <button
-                      className="btn btn-block custom-done btn-sm text-white m-3"
+                      className="btn btn-primary mr-2"
                       onClick={() => handleSaveClick(index)}
                     >
                       Save
                     </button>
-                  ) : (
-                    <center>
-                      <button
-                        className="btn btn-block custom-done btn-sm text-white m-3"
-                        onClick={() => handleEditClick(index)}
-                      >
-                        Edit
-                      </button>
-                    </center>
-                  )}
-                </td>
-              </tr>
-            ))}
-            {isAdding && ( // Render the new row fields only if isAdding is true
-              <tr>
-                <td>
-                  <input
-                    type="text"
-                    value={newRow.machineName}
-                    placeholder='Wel001'
-                    onChange={(e) => handleInputChange(e, 'machineName')}
-                    className="form-control"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="number"
-                    value={newRow.machineCode}
-                    placeholder='001'
-                    onChange={(e) => handleInputChange(e, 'machineCode')}
-                    className="form-control"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    value={newRow.manufacturer} id='manufacturer'
-                    placeholder='Gopi'
-                    onChange={(e) => handleInputChange(e, 'manufacturer')}
-                    className="form-control"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    value={newRow.model}
-                    placeholder='WL001'
-                    onChange={(e) => handleInputChange(e, 'model')}
-                    className="form-control"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    value={newRow.machineType}
-                    placeholder='Welding'
-                    onChange={(e) => handleInputChange(e, 'machineType')}
-                    className="form-control"
-                  />
-                </td>
-                <td><div className='row'>
-                <input
-                        type="number"
-                        value={newRow.capacityNumber}
-                        placeholder='80'
-                        onChange={(e) => handleInputChange(e, 'capacityNumber')}
-                        className="form-control" id="ctext"
-                        style={{ width: getColumnSize('capacityNumber') * 6 + 'px' }}
-                      />
-
-                      <select
-                        value={newRow.capacityDropdown}
-                        onChange={(e) => handleInputChange(e, 'capacityDropdown')}
-                        className="form-control ml-1 " id="cdrop" style={{ width: getColumnSize('capacityNumber') * 9 + 'px' }}
-                      >
-                        <option value="">Tons</option>
-                        <option value="Holes">Holes</option>
-                        <option value="Bends">Bends</option>
-                        <option value="Cuts">Cuts</option>
-                      </select>
-                </div>
-                </td>
-                <td>
-                  <input
-                    type="date" id='purchase'
-                    value={newRow.purchasedDate}
-                    onChange={(e) => handleInputChange(e, 'purchasedDate')}
-                    className="form-control"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="date" id='purchase'
-                    value={newRow.lastMaintenanceDate}
-                    onChange={(e) => handleInputChange(e, 'lastmaintenancedate')}
-                    className="form-control"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="date" id="purchase"
-                    value={newRow.nextMaintenanceDate}
-                    onChange={(e) => handleInputChange(e, 'nextmaintenancedate')}
-                    className="form-control"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    value={newRow.status}
-                    placeholder='available'
-                    onChange={(e) => handleInputChange(e, 'status')}
-                    className="form-control"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    value={newRow.factorylocation}
-                    placeholder='106/2A-1, Behind ESI Hospital,
-                    Inner Ring Road, Mookandapalli,
-                    Hosur 635126, Tamil Nadu'
-                    onChange={(e) => handleInputChange(e, 'factorylocation')}
-                    className="form-control"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    value={newRow.machinelocation}
-                    onChange={(e) => handleInputChange(e, 'machinelocation')}
-                    className="form-control"
-                  />
-                </td>
-                {/* ... Other input fields */}
-                <td>
-                  <center>
+                  </td>
+                </tr>
+              ) : (
+                <tr key={index}>
+                  {Object.values(row).map((value, i) => (
+                    <td key={i}>{value}</td>
+                  ))}
+                  <td>
                     <button
-                      className="btn btn-block custom-done btn-sm text-white m-3"
-                      onClick={handleAddSaveClick}
+                      className="btn btn-primary mr-2"
+                      onClick={() => handleEditClick(index)}
                     >
-                      Save
+                      Edit
                     </button>
-                  </center>
-                </td>
-              </tr>
-            )}
+                  </td>
+                </tr>
+              )
+            ))}
           </tbody>
         </table>
         <div className="text-center">
-          <button
-            className="btn btn-block custom-done btn-sm text-white m-3"
-            onClick={handleAddClick}
-          >
-            {isAdding ? 'Cancel' : 'ADD'} {/* Change button text based on isAdding state */}
-          </button>
+          {!isAdding ? (
+            <button className="btn btn-primary" onClick={handleAddClick}>
+              Add New Machine
+            </button>
+          ) : (
+            <button className="btn btn-success" onClick={handleAddSaveClick}>
+              Save New Machine
+            </button>
+          )}
         </div>
       </div>
     </div>
