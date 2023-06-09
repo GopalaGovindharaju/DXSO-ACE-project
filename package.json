@@ -22,6 +22,7 @@
     "react-hook-form": "^7.43.9",
     "react-icons": "^4.9.0",
     "react-router-dom": "^6.12.0",
+    "react-router-dom": "^6.12.1",
     "react-scripts": "^5.0.1",
     "react-tooltip": "^5.13.1",
     "toggle-switch": "^0.0.2",

@@ -1,0 +1,54 @@
+.input-field {
+    width: 10px; /* Set the desired width for the input fields */
+  }
+
+  #capcol{
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  #cdrop{
+    height: 40px;
+    margin-left: 10px;
+  }
+
+  #ctext{
+    height: 40px;
+    margin-left: 10px;
+  }
+
+  #purchase{
+    width: 100px;
+  }
+
+  #manufacturer{
+    width: 70px;
+  }
+
+  #manufacturer1{
+  padding:0%;
+  padding-bottom: 8px;
+  }
+
+  #action{
+    padding-right:0%;
+    padding-left: 0%;
+  }
+
+  #thead{
+    padding:0px;
+    padding-bottom:8px;
+  }
+
+  #mach{
+    background-color: #a8d2fd;
+  }
+
+  #custtext{
+    width: 80px;
+  }
+
+  #custtext1{
+    margin-left: 10px;
+    width: 60px;
+  }

@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'planner',
     'rest_framework',
     'corsheaders',
+    'Cust_AssetList',
+    'mach',
+    'login',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'plannerdb',
         'USER': 'postgres',
-        'PASSWORD': 'Gopala@789$link',
+        'PASSWORD': 'Welcome8220@#',
         'HOST': 'localhost',
         'PORT': '5432',
     }
