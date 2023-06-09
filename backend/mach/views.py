@@ -5,7 +5,7 @@ from .models import Machine_asset
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from mach.models import Machine_asset
-from mach.Serializer import MachineSerializer
+from mach.serializer import MachineSerializer
 
 @api_view(['GET'])
 def get_mach(requests):

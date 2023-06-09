@@ -21,5 +21,6 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include ('planner.urls')),
-    path('/machine',include('mach.urls'))
+    path('cust/', include ('Cust_AssetList.urls')),
+    path('machine/', include('mach.urls'))
 ]
