@@ -1,5 +1,5 @@
 from mach.models import Machine_asset
-from rest_framework import ModelSerializer
+from rest_framework.serializer import ModelSerializer
 
 class MachineSerializer(ModelSerializer):
     class Meta:
