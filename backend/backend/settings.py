@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'Cust_AssetList',
     'mach',
+    'login',
 ]
 
 MIDDLEWARE = [

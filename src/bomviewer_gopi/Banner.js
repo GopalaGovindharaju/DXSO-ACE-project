@@ -10,7 +10,7 @@ function Banner() {
   return (<> 
     
       <div className='row bg-gradient custom-font'>
-            <div className='col-3'>
+            <div className='col-3 customicon'>
               <Icon/>
             </div>
             <div className='col-6 custom-head'>

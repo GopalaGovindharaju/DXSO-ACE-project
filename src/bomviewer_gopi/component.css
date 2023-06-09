@@ -95,6 +95,7 @@
   .custom-cardbdy{
     padding-left: 0px;
     padding-right:10px;
+
   }
 
   .custlabel{
@@ -112,7 +113,13 @@
   }
 
  #r1{
-  padding-right: 150px;
+  padding-top:10px;
+  padding-right: 40px;
+  background-color:#a8d2fd ;
+ }
+
+ #r2{
+  background-color:#a8d2fd ;
  }
 
   .custom-textfield0{ 
@@ -123,4 +130,10 @@
   .custom-card{
     background-color: #a8d2fd;
     border-radius: 0%;
+  }
+
+  .customicon{
+    margin-left: 0%;
+    padding-left: 0%;
+    justify-content: left;
   }
