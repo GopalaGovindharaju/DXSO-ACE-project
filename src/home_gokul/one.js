@@ -38,7 +38,7 @@ function Header({ empName, handleLogout }) {
       <div id="title1" className="row">
         <div className="col"><img src={Logo} alt="" id="logo"/></div>
         <div className="col">
-          <div className="row text-white" id="r3"><p>Contact: +91- 94432 27570 | Email ID: info@aceelectricals.in</p></div></div>
+          <div className="row text-white" id="r3"><p>| Contact: +91- 94432 27570 |<br></br> Email ID: info@aceelectricals.in</p></div></div>
       </div>
       <div id="bb" style={{marginLeft:'0%'}}>
         <Routes>
