@@ -8,7 +8,8 @@ const initialRowState = {
   manufacturer: "",
   model: "",
   machineType: "",
-  capacity: "",
+  capacityValue: "",
+  capacityUnit: "",
   purchasedDate: "",
   lastMaintenanceDate: "",
   nextMaintenanceDate: "",
@@ -138,72 +139,91 @@ function Machine() {
         </td>
         <td>
           {isEditing ? (
-            <input
-              type="text" id="machinetext" className="form-control"
+            <select
+              id="machinetext"
+              className="form-control"
               value={newRow.machineType}
-              placeholder="Machine Type"
               onChange={(e) =>
-                setNewRow({ ...newRow, machineType: e.target.value })
-              }
-            />
+              setNewRow({ ...newRow, machineType: e.target.value })}   
+            >
+            <option value="">Select Type</option>
+            <option value="Tons">Tons</option>
+            <option value="Bends">Bends</option>
+            <option value="Drills">Drills</option>
+            </select>
+            ) : (
+                data.machineType
+                )}
+          </td>
+
+        <td>
+          {isEditing ? (
+            <>
+              <input
+                type="number"
+                id="capacityValue"
+                className="form-control"
+                value={newRow.capacityValue}
+                placeholder="Value"
+                onChange={(e) =>
+                  setNewRow({ ...newRow, capacityValue: e.target.value })
+                }
+              />
+              <select
+                id="capacityUnit"
+                className="form-control"
+                value={newRow.capacityUnit}
+                onChange={(e) =>
+                  setNewRow({ ...newRow, capacityUnit: e.target.value })
+                }
+              >
+                <option value="">Select Unit</option>
+                <option value="Tons">Tons</option>
+                <option value="Bends">Bends</option>
+                <option value="Drills">Drills</option>
+              </select>
+            </>
           ) : (
-            data.machineType
+            `${data.capacityValue} ${data.capacityUnit}`
           )}
         </td>
         <td>
           {isEditing ? (
             <input
-              type="text" id="machinetext" className="form-control"
-              value={newRow.capacity}
-              placeholder="Capacity(hr)"
-              onChange={(e) =>
-                setNewRow({ ...newRow, capacity: e.target.value })
-              }
-            />
-          ) : (
-            data.capacity
-          )}
-        </td>
-        <td>
-          {isEditing ? (
-            <input
-              type="date" id="machinetext" className="form-control"
+              type="date" id="machinedate" className="form-control"
               value={newRow.purchasedDate}
-              placeholder="Purchased Date"
               onChange={(e) =>
                 setNewRow({ ...newRow, purchasedDate: e.target.value })
               }
             />
           ) : (
-            new Date(data.purchasedDate).toLocaleDateString("en-GB")
+            data.purchasedDate
           )}
         </td>
         <td>
           {isEditing ? (
             <input
-              type="date" id="machinetext" className="form-control"
+              type="date" id="machinedate" className="form-control"
               value={newRow.lastMaintenanceDate}
-              placeholder="Last Maintenance Date"
               onChange={(e) =>
                 setNewRow({ ...newRow, lastMaintenanceDate: e.target.value })
               }
             />
           ) : (
-            new Date(data.lastMaintenanceDate).toLocaleDateString("en-GB")
+            data.lastMaintenanceDate
           )}
         </td>
         <td>
           {isEditing ? (
             <input
-              type="date" id="machinetext" className="form-control"
+              type="date" id="machinedate" className="form-control"
               value={newRow.nextMaintenanceDate}
-              placeholder="Next Maintenance Date"
               onChange={(e) =>
                 setNewRow({ ...newRow, nextMaintenanceDate: e.target.value })
               }
             />
           ) : (
-            new Date(data.nextMaintenanceDate).toLocaleDateString("en-GB")
+            data.nextMaintenanceDate
           )}
         </td>
         <td>
@@ -249,37 +269,45 @@ function Machine() {
           )}
         </td>
         <td>
-          <center>
-            {isEditing ? (
-              <button className="btn btn-block custom-done btn-sm text-white m-2" onClick={() => handleSave(index)}>Save</button>
-            ) : (
-              <button className="btn btn-block custom-done btn-sm text-white m-2" onClick={() => handleEdit(index)}>Edit</button>
-            )}
-          </center>
+          {isEditing ? (
+            <button
+              className="btn btn-primary btn-sm"
+              onClick={() => handleSave(index)}
+            >
+              Save
+            </button>
+          ) : (
+            <button
+              className="btn btn-primary btn-sm"
+              onClick={() => handleEdit(index)}
+            >
+              Edit
+            </button>
+          )}
         </td>
       </tr>
     );
   };
 
   return (
-    <center id="mach">
-      <h1 className="text-center mt-4 mb-3">Machine Asset List</h1>
-      <table className="table table-sm table-bordered w-75">
-        <thead className="thead-light" style={{ alignItems: 'center' }}>
+    <div className="container">
+      <h2>Machine List</h2>
+      <table className="table table-bordered">
+        <thead>
           <tr>
-            <th scope="col">Machine Name</th>
-            <th scope="col">Machine Code</th>
-            <th scope="col">Manufacturer</th>
-            <th scope="col">Model</th>
-            <th scope="col">Machine Type</th>
-            <th scope="col">Capacity(hr)</th>
-            <th scope="col">Purchased Date</th>
-            <th scope="col">Last Maintenance Date</th>
-            <th scope="col">Next Maintenance Date</th>
-            <th scope="col">Status</th>
-            <th scope="col">Factory Location</th>
-            <th scope="col">Machine Location</th>
-            <th scope="col">Actions</th>
+            <th>Machine Name</th>
+            <th>Machine Code</th>
+            <th>Manufacturer</th>
+            <th>Model</th>
+            <th>Machine Type</th>
+            <th>Capacity</th>
+            <th>Purchased Date</th>
+            <th>Last Maintenance Date</th>
+            <th>Next Maintenance Date</th>
+            <th>Status</th>
+            <th>Factory Location</th>
+            <th>Machine Location</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -291,7 +319,9 @@ function Machine() {
                   type="text" id="machinetext" className="form-control"
                   value={newRow.machineName}
                   placeholder="Machine Name"
-                  onChange={(e) => setNewRow({ ...newRow, machineName: e.target.value })}
+                  onChange={(e) =>
+                    setNewRow({ ...newRow, machineName: e.target.value })
+                  }
                 />
               </td>
               <td>
@@ -299,7 +329,9 @@ function Machine() {
                   type="text" id="machinetext" className="form-control"
                   value={newRow.machineCode}
                   placeholder="Machine Code"
-                  onChange={(e) => setNewRow({ ...newRow, machineCode: e.target.value })}
+                  onChange={(e) =>
+                    setNewRow({ ...newRow, machineCode: e.target.value })
+                  }
                 />
               </td>
               <td>
@@ -307,7 +339,9 @@ function Machine() {
                   type="text" id="machinetext" className="form-control"
                   value={newRow.manufacturer}
                   placeholder="Manufacturer"
-                  onChange={(e) => setNewRow({ ...newRow, manufacturer: e.target.value })}
+                  onChange={(e) =>
+                    setNewRow({ ...newRow, manufacturer: e.target.value })
+                  }
                 />
               </td>
               <td>
@@ -315,47 +349,75 @@ function Machine() {
                   type="text" id="machinetext" className="form-control"
                   value={newRow.model}
                   placeholder="Model"
-                  onChange={(e) => setNewRow({ ...newRow, model: e.target.value })}
+                  onChange={(e) =>
+                    setNewRow({ ...newRow, model: e.target.value })
+                  }
                 />
               </td>
               <td>
-                <input
-                  type="text" id="machinetext" className="form-control"
+                <select
+                  id="machinetext"
+                  className="form-control"
                   value={newRow.machineType}
-                  placeholder="Machine Type"
-                  onChange={(e) => setNewRow({ ...newRow, machineType: e.target.value })}
+                  onChange={(e) =>
+                  setNewRow({ ...newRow, machineType: e.target.value })}
+                >
+                  <option value="">Select Type</option>
+                  <option value="Tons">Tons</option>
+                  <option value="Bends">Bends</option>
+                  <option value="Drills">Drills</option>
+                  </select>
+                </td>
+              <td>
+                <input
+                  type="number"
+                  id="capacityValue"
+                  className="form-control"
+                  value={newRow.capacityValue}
+                  placeholder="Value"
+                  onChange={(e) =>
+                    setNewRow({ ...newRow, capacityValue: e.target.value })
+                  }
                 />
+                <select
+                  id="capacityUnit"
+                  className="form-control"
+                  value={newRow.capacityUnit}
+                  onChange={(e) =>
+                    setNewRow({ ...newRow, capacityUnit: e.target.value })
+                  }
+                >
+                  <option value="">Select Unit</option>
+                  <option value="Tons">Tons</option>
+                  <option value="Bends">Bends</option>
+                  <option value="Drills">Drills</option>
+                </select>
               </td>
               <td>
                 <input
-                  type="text" id="machinetext" className="form-control"
-                  value={newRow.capacity}
-                  placeholder="Capacity(hr)"
-                  onChange={(e) => setNewRow({ ...newRow, capacity: e.target.value })}
-                />
-              </td>
-              <td>
-                <input
-                  type="date" id="machinetext" className="form-control"
+                  type="date" id="machinedate" className="form-control"
                   value={newRow.purchasedDate}
-                  placeholder="Purchased Date"
-                  onChange={(e) => setNewRow({ ...newRow, purchasedDate: e.target.value })}
+                  onChange={(e) =>
+                    setNewRow({ ...newRow, purchasedDate: e.target.value })
+                  }
                 />
               </td>
               <td>
                 <input
-                  type="date" id="machinetext" className="form-control"
+                  type="date" id="machinedate" className="form-control"
                   value={newRow.lastMaintenanceDate}
-                  placeholder="Last Maintenance Date"
-                  onChange={(e) => setNewRow({ ...newRow, lastMaintenanceDate: e.target.value })}
+                  onChange={(e) =>
+                    setNewRow({ ...newRow, lastMaintenanceDate: e.target.value })
+                  }
                 />
               </td>
               <td>
                 <input
-                  type="date" id="machinetext" className="form-control"
+                  type="date" id="machinedate" className="form-control"
                   value={newRow.nextMaintenanceDate}
-                  placeholder="Next Maintenance Date"
-                  onChange={(e) => setNewRow({ ...newRow, nextMaintenanceDate: e.target.value })}
+                  onChange={(e) =>
+                    setNewRow({ ...newRow, nextMaintenanceDate: e.target.value })
+                  }
                 />
               </td>
               <td>
@@ -363,7 +425,9 @@ function Machine() {
                   type="text" id="machinetext" className="form-control"
                   value={newRow.status}
                   placeholder="Status"
-                  onChange={(e) => setNewRow({ ...newRow, status: e.target.value })}
+                  onChange={(e) =>
+                    setNewRow({ ...newRow, status: e.target.value })
+                  }
                 />
               </td>
               <td>
@@ -371,7 +435,9 @@ function Machine() {
                   type="text" id="machinetext" className="form-control"
                   value={newRow.factoryLocation}
                   placeholder="Factory Location"
-                  onChange={(e) => setNewRow({ ...newRow, factoryLocation: e.target.value })}
+                  onChange={(e) =>
+                    setNewRow({ ...newRow, factoryLocation: e.target.value })
+                  }
                 />
               </td>
               <td>
@@ -379,27 +445,43 @@ function Machine() {
                   type="text" id="machinetext" className="form-control"
                   value={newRow.machineLocation}
                   placeholder="Machine Location"
-                  onChange={(e) => setNewRow({ ...newRow, machineLocation: e.target.value })}
+                  onChange={(e) =>
+                    setNewRow({ ...newRow, machineLocation: e.target.value })
+                  }
                 />
               </td>
               <td>
-                <button className="btn btn-block custom-done btn-sm text-white m-2" onClick={handleAddSave}>Save</button>
+                <button
+                  className="btn btn-success btn-sm"
+                  onClick={handleAddSave}
+                >
+                  Save
+                </button>
               </td>
             </tr>
           )}
         </tbody>
       </table>
-      <div className="d-flex justify-content-center">
-        {hasChanges && (
-          <button className="btn btn-success" onClick={saveAllChanges}>
-            Save Changes
+      <div className="row">
+        <div className="col-md-12">
+          <button
+            className="btn btn-primary btn-sm"
+            onClick={handleAdd}
+            disabled={showInputFields}
+          >
+            Add New
           </button>
-        )}
-        <button className="btn btn-primary ml-2" onClick={handleAdd}>
-          Add Row
-        </button>
+          {hasChanges && (
+            <button
+              className="btn btn-success btn-sm ml-2"
+              onClick={saveAllChanges}
+            >
+              Save All Changes
+            </button>
+          )}
+        </div>
       </div>
-    </center>
+    </div>
   );
 }
 
