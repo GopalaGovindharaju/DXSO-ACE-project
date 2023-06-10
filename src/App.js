@@ -32,9 +32,6 @@ return (
       <Route path='/operator' element={<Table/>}></Route>
       <Route path='/inspector' element={<Lbox/>}></Route>     
       
-     
-
-
      </Routes>
      </div>
   );
