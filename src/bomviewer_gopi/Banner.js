@@ -10,8 +10,10 @@ function Banner() {
   return (<> 
     
       <div className='row bg-gradient custom-font'>
-            <div className='col-3 customicon'>
+            <div className='col-3'>
+            <div class="d-flex flex-row">
               <Icon/>
+              </div>
             </div>
             <div className='col-6 custom-head'>
             <div className="text-dark text-white text-center rounded"><h1>BOM VIEWER</h1></div>
