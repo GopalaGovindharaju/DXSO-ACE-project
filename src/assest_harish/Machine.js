@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import './comp1.css';
 
+<<<<<<< HEAD
 const initialRowState = {
   machineName: '',
   machineCode: '',
@@ -24,6 +25,27 @@ function Machine() {
   const [newRow, setNewRow] = useState(initialRowState);
   const [showInputFields, setShowInputFields] = useState(false);
   const [hasChanges, setHasChanges] = useState(false);
+=======
+const Machine = () => {
+  const [data, setData] = useState([]);
+  const [editRowIndex, setEditRowIndex] = useState(-1);
+  const [newRow, setNewRow] = useState({
+    machineName: '',
+    machineCode: '',
+    manufacturer: '',
+    model: '',
+    machineType: '',
+    capacityNumber: '',
+    capacityDropdown: '',
+    purchasedDate: '',
+    lastMaintenanceDate: '',
+    nextMaintenanceDate: '',
+    status: '',
+    factorylocation: '',
+    machinelocation: ''
+  });
+  const [isAdding, setIsAdding] = useState(false); // New state variable
+>>>>>>> 0a5470ac8a2fedbb80c4d513662559ff579d8053
 
   useEffect(() => {
     fetchTableData();
@@ -39,10 +61,18 @@ function Machine() {
       });
   };
 
+<<<<<<< HEAD
   const handleEdit = (index) => {
     setEditingRow(index);
     const rowData = tableData[index];
     setNewRow({ ...rowData });
+=======
+  const handleEditClick = (index) => {
+    // Set the newRow state with the data of the row being edited
+    const editedRow = data[index];
+    setNewRow({ ...editedRow });
+    setEditRowIndex(index);
+>>>>>>> 0a5470ac8a2fedbb80c4d513662559ff579d8053
   };
 
   const handleSave = (index) => {
@@ -290,16 +320,54 @@ function Machine() {
   };
   const handleInputChange = (event, field) => {
     const { value } = event.target;
-    setNewRow((prevRow) => ({
-      ...prevRow,
-      [field]: value
-    }));
+  
+    if (field === 'capacityDropdown') {
+      setNewRow((prevRow) => ({
+        ...prevRow,
+        [field]: value
+      }));
+    } else {
+      setNewRow((prevRow) => ({
+        ...prevRow,
+        [field]: value
+      }));
+    }
   };
+<<<<<<< HEAD
+=======
+  
+
+  const handleAddClick = () => {
+    setIsAdding(!isAdding);
+  };
+
+  const handleAddSaveClick = () => {
+    const newRowWithDropdown = { ...newRow, capacityDropdown: newRow.capacityDropdown };
+    setData((prevData) => [...prevData, newRowWithDropdown]);
+    setNewRow({
+      machineName: '',
+      machineCode: '',
+      manufacturer: '',
+      model: '',
+      machineType: '',
+      capacityNumber: '',
+      capacityDropdown:'',
+      purchasedDate: '',
+      lastMaintenanceDate: '',
+      nextMaintenanceDate: '',
+      status: '',
+      factorylocation:'',
+      machinelocation:''
+    });
+    setIsAdding(false); // Set isAdding back to false after saving
+  };
+>>>>>>> 0a5470ac8a2fedbb80c4d513662559ff579d8053
   const getColumnSize = (field) => {
     const maxLength = Math.max(...tableData.map((row) => row[field].length));
     return maxLength > 10 ? maxLength : 10;
   };
   return (
+<<<<<<< HEAD
     <center id="mach">
       <h1 className="text-center mt-4 mb-3">Customer Asset List</h1>
       <table className="table table-sm table-bordered w-75">
@@ -318,6 +386,27 @@ function Machine() {
               <th>Factory Location</th>
               <th>Machine Location</th>
               <th>Actions</th>
+=======
+    <div>
+      <div className="container-fluid" id="mach">
+        <h1 className="text-center mt-4 mb-3">Machine Asset List</h1>
+        <table className="table table-bordered table-hover">
+          <thead className="thead-light">
+            <tr>
+              <th id='thead'>Machine name</th>
+              <th id='thead'>Machine Code</th>
+              <th id='manufacturer1'>Manufacturer</th>
+              <th id='thead'>Model</th>
+              <th id='thead'>Machine type</th>
+              <th id="capcol">Capacity (/hr)</th>
+              <th id='thead'>Purchased date</th>
+              <th id='thead'>Last maintenance date</th>
+              <th id='thead'>Next maintenance date</th>
+              <th id='thead'>Status</th>
+              <th id='thead'>Factory Location</th>
+              <th id='thead'>Machine Location</th>
+              <th id='action'>Actions</th>
+>>>>>>> 0a5470ac8a2fedbb80c4d513662559ff579d8053
             </tr>
         </thead>
         <tbody>

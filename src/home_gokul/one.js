@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import "./give.css";
 import login from "./Images/login.png";
 import Logo from "./Images/Logo.png";
+import { Link } from "react-router-dom";
+import NewOne from "./newone.js";
+
 function Header({ empName, handleLogout }) {
   return (
     <>
       <div id="title1">
-        <h1 id="t1">ACE INTERN</h1>
+        <img src={Logo} alt="" id="logo"/>
       </div>
       <div id="title2">
         <div id="bb">
@@ -24,10 +27,6 @@ function Header({ empName, handleLogout }) {
           <p>Emp Name: {empName}</p>
         </div>        
       </div>
-      <center>
-        
-        <img src={Logo} alt="" id="logo"/>
-      </center>
     </>
   );
 }
@@ -36,8 +35,16 @@ function Disp() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [empName, setEmpName] = useState("");
   const [empId, setEmpId] = useState("");
+  const [role, setRole] = useState("");
+  const [shownNewOne, setShowNewOne] = useState(false);
 
   const handleLogin = () => {
+    if (empName.trim() === "" || empId.trim() === "") {
+      // Check if the empName and empId fields are empty
+      alert("Please fill in all the fields.");
+      return;
+    }
+    
     setLoggedIn(true);
   };
 
@@ -45,14 +52,27 @@ function Disp() {
     setLoggedIn(false);
     setEmpName("");
     setEmpId("");
+    setRole("");
   };
 
   const handleEmpNameChange = (event) => {
-    setEmpName(event.target.value);
+    const name = event.target.value;
+    const regex = /^[A-Za-z]+$/;
+    if (regex.test(name) || name === "") {
+      setEmpName(name);
+    }
   };
 
   const handleEmpIdChange = (event) => {
-    setEmpId(event.target.value);
+    const id = event.target.value;
+    const regex = /^[a-zA-Z0-9]*$/;
+    if (regex.test(id) || id === "") {
+      setEmpId(id);
+    }   
+  };
+
+  const handleSubmit = () => {
+    setShowNewOne(false);
   };
 
   return (
@@ -65,10 +85,13 @@ function Disp() {
             </div>
           )}
         </div>
-        {!isLoggedIn && (
+        {!isLoggedIn && !shownNewOne &&(
+          <div id="bcb">
           <div className="login-popup">
+            <h4>LOGIN</h4>
             <input
               type="text"
+              id="empname"
               placeholder="Employee Name"
               value={empName}
               onChange={handleEmpNameChange}
@@ -80,10 +103,19 @@ function Disp() {
               value={empId}
               onChange={handleEmpIdChange}
             />
-            <br />
+            <br/>
             <button onClick={handleLogin}>Login</button><br></br>
-            Don't have account <a href="*">Sign in</a>
+            Don't have an account?<Link to="/newone">Sign in</Link>
           </div>
+          </div>
+        )}
+        {!isLoggedIn && shownNewOne && (
+          <NewOne
+            empName={empName}
+            empId={empId}
+            role={role}
+            handleSubmit={handleSubmit}
+          />
         )}
       </div>
     </div>
