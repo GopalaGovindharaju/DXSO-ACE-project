@@ -14,3 +14,19 @@ def get_mach(requests):
     return Response(serial.data)
 
 
+@api_view(['POST'])
+def post_mach(request):
+    # Delete existing table data
+    Machine_asset.objects.all().delete()
+
+    data = request.data
+
+    # Iterate over each JSON object in the list and save as separate records
+    for record in data:
+        serializer = MachineSerializer(data=record)
+        if serializer.is_valid():
+            serializer.save()
+        else:
+            return Response(serializer.errors, status=400)
+
+    return Response("Data saved successfully")

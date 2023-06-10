@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import './component.css';
+import Browse from "./browse";
 
 function Details() {
   const [currentDate, setCurrentDate] = useState('');
@@ -10,7 +11,6 @@ function Details() {
   const [productNumber, setProductNumber] = useState('');
   const [customerNames, setCustomerNames] = useState([]);
   const [selectedCustomerName, setSelectedCustomerName] = useState('');
-
 
   useEffect(() => {
     const today = new Date();
@@ -64,14 +64,12 @@ function Details() {
       console.log("Error fetching product numbers:", error);
     }
   };
-  
 
   const handleCustomerNameChange = (event) => {
     const selectedCustomer = event.target.value;
     setCustomerName(selectedCustomer);
     setSelectedCustomerName(selectedCustomer);
   };
-  
 
   const handleProductNameChange = (event) => {
     setSelectedProductName(event.target.value);
@@ -86,12 +84,15 @@ function Details() {
       <div className="card-body custom-cardbdy" id="r1">
         <form className="needs-validation" noValidate>
           <div className="row" id="r1">
+            <div className="col-8">
+
+
             <div className="col">
               <div className="input-group input-group-sm">
-                <label className="col-sm-6 col-form-label custlabel">Customer Name:</label>
-                <div className="col-sm-6">
+                <label className="col-sm-4 col-form-label custlabel">Customer Name:</label>
+                <div className="col-sm-8">
                   <select className="form-control custom-textfield0" required onChange={handleCustomerNameChange}>
-                    <option value="">Select Customer</option>
+                    <option value="" id="oe">Select Customer</option>
                     {customerNames.map((customerName) => (
                       <option key={customerName} value={customerName}>{customerName}</option>
                     ))}
@@ -102,10 +103,10 @@ function Details() {
 
             <div className="col">
               <div className="input-group input-group-sm">
-                <label className="col-sm-6 col-form-label custlabel">Product Name:</label>
-                <div className="col-sm-6">
+                <label className="col-sm-4 col-form-label custlabel">Product Name:</label>
+                <div className="col-sm-8">
                   <select className="form-control custom-textfield0" required onChange={handleProductNameChange}>
-                    <option value="">Select Product Name</option>
+                    <option value="" id="oe">Select Product Name</option>
                     {productNames.map((productName) => (
                       <option key={productName} value={productName}>{productName}</option>
                     ))}
@@ -113,11 +114,10 @@ function Details() {
                 </div>
               </div>
             </div>
-
             <div className="col">
               <div className="input-group input-group-sm">
-                <label className="col-sm-6 col-form-label custlabel">Product Number:</label>
-                <div className="col-sm-6">
+                <label className="col-sm-4 col-form-label custlabel" id="oe">Product Number:</label>
+                <div className="col-sm-8">
                   <input
                     type="text"
                     className="form-control custom-textfield0"
@@ -128,9 +128,19 @@ function Details() {
                 </div>
               </div>
             </div>
+            </div>
+            <div className="col-4">
+            <div className="col">
+              <button>View</button>
+            </div>
+            <div className="col">
+              <button>Add</button>
+            </div>
+          </div>
           </div>
         </form>
       </div>
+      <div><Browse></Browse></div>
     </div>
   );
 }

@@ -3,19 +3,18 @@ import axios from "axios";
 import './comp1.css';
 
 const initialRowState = {
-  machineName: '',
-  machineCode: '',
-  manufacturer: '',
-  model: '',
-  machineType: '',
-  capacityNumber: '',
-  capacityDropdown:'',
-  purchasedDate: '',
-  lastMaintenanceDate: '',
-  nextMaintenanceDate: '',
-  status: '',
-  factorylocation:'',
-  machinelocation:''
+  machineName: "",
+  machineCode: "",
+  manufacturer: "",
+  model: "",
+  machineType: "",
+  capacity: "",
+  purchasedDate: "",
+  lastMaintenanceDate: "",
+  nextMaintenanceDate: "",
+  status: "",
+  factoryLocation: "",
+  machineLocation: ""
 };
 
 function Machine() {
@@ -30,8 +29,9 @@ function Machine() {
   }, []);
 
   const fetchTableData = () => {
-    axios.get("http://127.0.0.1:8000/machine/") // Replace "/api/tableData" with the actual API endpoint URL
+    axios.get("http://127.0.0.1:8000/machine/list/") // Replace "/api/tableData" with the actual API endpoint URL
       .then(response => {
+        console.log(response.data)
         setTableData(response.data);
       })
       .catch(error => {
@@ -65,7 +65,7 @@ function Machine() {
   };
 
   const saveAllChanges = () => {
-    axios.post("http://127.0.0.1:8000/cust/save/", tableData) // Replace "/save" with the appropriate backend endpoint URL
+    axios.post("http://127.0.0.1:8000/machine/save/", tableData) // Replace "/save" with the appropriate backend endpoint URL
       .then(response => {
         console.log("Changes saved successfully");
         setHasChanges(false);
@@ -83,9 +83,9 @@ function Machine() {
         <td>
           {isEditing ? (
             <input
-              type="text" id="custtext" className="form-control"
+              type="text" id="machinetext" className="form-control"
               value={newRow.machineName}
-              placeholder="Machine name"
+              placeholder="Machine Name"
               onChange={(e) =>
                 setNewRow({ ...newRow, machineName: e.target.value })
               }
@@ -94,10 +94,10 @@ function Machine() {
             data.machineName
           )}
         </td>
-        <td style={{width:'140px'}}>
+        <td>
           {isEditing ? (
             <input
-              type="number" id="custtext" className="form-control"
+              type="text" id="machinetext" className="form-control"
               value={newRow.machineCode}
               placeholder="Machine Code"
               onChange={(e) =>
@@ -108,10 +108,10 @@ function Machine() {
             data.machineCode
           )}
         </td>
-        <td style={{width:'100px'}}>
+        <td>
           {isEditing ? (
             <input
-              type="text" id="custtext" className="form-control"
+              type="text" id="machinetext" className="form-control"
               value={newRow.manufacturer}
               placeholder="Manufacturer"
               onChange={(e) =>
@@ -125,7 +125,7 @@ function Machine() {
         <td>
           {isEditing ? (
             <input
-              type="text" id="custtext" className="form-control"
+              type="text" id="machinetext" className="form-control"
               value={newRow.model}
               placeholder="Model"
               onChange={(e) =>
@@ -139,9 +139,9 @@ function Machine() {
         <td>
           {isEditing ? (
             <input
-              type="text" id="custtext" className="form-control"
+              type="text" id="machinetext" className="form-control"
               value={newRow.machineType}
-              placeholder="Machine type"
+              placeholder="Machine Type"
               onChange={(e) =>
                 setNewRow({ ...newRow, machineType: e.target.value })
               }
@@ -151,67 +151,53 @@ function Machine() {
           )}
         </td>
         <td>
-                  {isEditing ? (
-                    <div className="d-flex">
-                      <input
-                        type="number"
-                        value={newRow.capacityNumber}
-                        onChange={(e) => handleInputChange(e, 'capacityNumber')}
-                        className="form-control"
-                        style={{ width: getColumnSize('capacityNumber') * 6 + 'px' }}
-                      />
-                      <select
-                        value={newRow.capacityDropdown}
-                        onChange={(e) => handleInputChange(e, 'capacityDropdown')}
-                        className="form-control ml-1 " style={{ width: getColumnSize('capacityNumber') * 9 + 'px' }}
-                      >
-                        <option value="">Tons</option>
-                        <option value="Holes">Holes</option>
-                        <option value="Bends">Bends</option>
-                        <option value="Cuts">Cuts</option>
-                      </select>
-                      <p class="font-weight-light m-2" style={{ width: getColumnSize('capacityNumber') * 5 + 'px' }}>Per hr</p>
-                    </div>
-                  ) : (
-                    <div>
-                      {data.capacityNumber} {data.capacityDropdown}
-                    </div>
-                  )}
-                </td>
+          {isEditing ? (
+            <input
+              type="text" id="machinetext" className="form-control"
+              value={newRow.capacity}
+              placeholder="Capacity(hr)"
+              onChange={(e) =>
+                setNewRow({ ...newRow, capacity: e.target.value })
+              }
+            />
+          ) : (
+            data.capacity
+          )}
+        </td>
         <td>
           {isEditing ? (
             <input
-              type="date" id="custtext" className="form-control"
+              type="date" id="machinetext" className="form-control"
               value={newRow.purchasedDate}
-              placeholder="Purchased date"
+              placeholder="Purchased Date"
               onChange={(e) =>
                 setNewRow({ ...newRow, purchasedDate: e.target.value })
               }
             />
           ) : (
-            data.purchasedDate
+            new Date(data.purchasedDate).toLocaleDateString("en-GB")
           )}
         </td>
         <td>
           {isEditing ? (
             <input
-              type="date" id="custtext" className="form-control"
+              type="date" id="machinetext" className="form-control"
               value={newRow.lastMaintenanceDate}
-              placeholder="Last maintenance date"
+              placeholder="Last Maintenance Date"
               onChange={(e) =>
                 setNewRow({ ...newRow, lastMaintenanceDate: e.target.value })
               }
             />
           ) : (
-            data.lastMaintenanceDate
+            new Date(data.lastMaintenanceDate).toLocaleDateString("en-GB")
           )}
         </td>
         <td>
           {isEditing ? (
             <input
-              type="date" id="custtext" className="form-control"
+              type="date" id="machinetext" className="form-control"
               value={newRow.nextMaintenanceDate}
-              placeholder="Next maintenance date"
+              placeholder="Next Maintenance Date"
               onChange={(e) =>
                 setNewRow({ ...newRow, nextMaintenanceDate: e.target.value })
               }
@@ -223,7 +209,7 @@ function Machine() {
         <td>
           {isEditing ? (
             <input
-              type="text" id="custtext" className="form-control"
+              type="text" id="machinetext" className="form-control"
               value={newRow.status}
               placeholder="Status"
               onChange={(e) =>
@@ -234,46 +220,32 @@ function Machine() {
             data.status
           )}
         </td>
-        <td style={{width:'140px'}}>
+        <td>
           {isEditing ? (
             <input
-              type="text" id="custtext" className="form-control"
-              value={newRow.factorylocation}
+              type="text" id="machinetext" className="form-control"
+              value={newRow.factoryLocation}
               placeholder="Factory Location"
               onChange={(e) =>
-                setNewRow({ ...newRow, factorylocation: e.target.value })
+                setNewRow({ ...newRow, factoryLocation: e.target.value })
               }
             />
           ) : (
-            data.factorylocation
+            data.factoryLocation
           )}
         </td>
-        <td style={{width:'140px'}}>
+        <td>
           {isEditing ? (
             <input
-              type="text" id="custtext" className="form-control"
-              value={newRow.machinelocation}
+              type="text" id="machinetext" className="form-control"
+              value={newRow.machineLocation}
               placeholder="Machine Location"
               onChange={(e) =>
-                setNewRow({ ...newRow, machinelocation: e.target.value })
+                setNewRow({ ...newRow, machineLocation: e.target.value })
               }
             />
           ) : (
-            data.machinelocation
-          )}
-        </td>
-        <td style={{width:'140px'}}>
-          {isEditing ? (
-            <input
-              type="text" id="custtext" className="form-control"
-              value={newRow.actions}
-              placeholder="Actions"
-              onChange={(e) =>
-                setNewRow({ ...newRow, actions: e.target.value })
-              }
-            />
-          ) : (
-            data.actions
+            data.machineLocation
           )}
         </td>
         <td>
@@ -288,47 +260,27 @@ function Machine() {
       </tr>
     );
   };
-  const handleInputChange = (event, field) => {
-    const { value } = event.target;
-  
-    if (field === 'capacityDropdown') {
-      setNewRow((prevRow) => ({
-        ...prevRow,
-        [field]: value
-      }));
-    } else {
-      setNewRow((prevRow) => ({
-        ...prevRow,
-        [field]: value
-      }));
-    }
-  };
-  const getColumnSize = (field) => {
-    const maxLength = Math.max(...tableData.map((row) => row[field].length));
-    return maxLength > 10 ? maxLength : 10;
-  };
-  return (
 
+  return (
     <center id="mach">
-      <h1 className="text-center mt-4 mb-3">Customer Asset List</h1>
+      <h1 className="text-center mt-4 mb-3">Machine Asset List</h1>
       <table className="table table-sm table-bordered w-75">
         <thead className="thead-light" style={{ alignItems: 'center' }}>
-			<tr>
-              <th>Machine name</th>
-              <th>Machine Code</th>
-              <th>Manufacturer</th>
-              <th>Model</th>
-              <th>Machine type</th>
-              <th>Capacity</th>
-              <th>Purchased date</th>
-              <th>Last maintenance date</th>
-              <th>Next maintenance date</th>
-              <th>Status</th>
-              <th>Factory Location</th>
-              <th>Machine Location</th>
-              <th>Actions</th>
-
-            </tr>
+          <tr>
+            <th scope="col">Machine Name</th>
+            <th scope="col">Machine Code</th>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">Model</th>
+            <th scope="col">Machine Type</th>
+            <th scope="col">Capacity(hr)</th>
+            <th scope="col">Purchased Date</th>
+            <th scope="col">Last Maintenance Date</th>
+            <th scope="col">Next Maintenance Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">Factory Location</th>
+            <th scope="col">Machine Location</th>
+            <th scope="col">Actions</th>
+          </tr>
         </thead>
         <tbody>
           {tableData.map((data, index) => renderTableRow(data, index))}
@@ -336,122 +288,117 @@ function Machine() {
             <tr>
               <td>
                 <input
-                  type="text" id="custtext" className="form-control"
-                  value={newRow.machineNamename}
-                  placeholder="wel23"
-                  onChange={(e) => setNewRow({ ...newRow, machineNamename: e.target.value })}
+                  type="text" id="machinetext" className="form-control"
+                  value={newRow.machineName}
+                  placeholder="Machine Name"
+                  onChange={(e) => setNewRow({ ...newRow, machineName: e.target.value })}
                 />
               </td>
               <td>
                 <input
-                  type="number" id="custtext" className="form-control"
+                  type="text" id="machinetext" className="form-control"
                   value={newRow.machineCode}
-                  placeholder="023"
+                  placeholder="Machine Code"
                   onChange={(e) => setNewRow({ ...newRow, machineCode: e.target.value })}
                 />
               </td>
               <td>
                 <input
-                  type="text" id="custtext" className="form-control"
+                  type="text" id="machinetext" className="form-control"
                   value={newRow.manufacturer}
-                  placeholder="sr pvt. ltd.,"
+                  placeholder="Manufacturer"
                   onChange={(e) => setNewRow({ ...newRow, manufacturer: e.target.value })}
                 />
               </td>
               <td>
                 <input
-                  type="text" id="custtext" className="form-control"
+                  type="text" id="machinetext" className="form-control"
                   value={newRow.model}
-                  placeholder="23"
+                  placeholder="Model"
                   onChange={(e) => setNewRow({ ...newRow, model: e.target.value })}
                 />
               </td>
               <td>
                 <input
-                  type="text" id="custtext" className="form-control"
+                  type="text" id="machinetext" className="form-control"
                   value={newRow.machineType}
-                  placeholder="welding"
+                  placeholder="Machine Type"
                   onChange={(e) => setNewRow({ ...newRow, machineType: e.target.value })}
                 />
               </td>
-              <td><div className='row'>
-                  <input
-                    type="number" id='custtext1'
-                    value={newRow.capacityNumber}
-                    onChange={(e) => handleInputChange(e, 'capacityNumber')}
-                    className="form-control"
-                  />
-                  <select
-                        value={newRow.capacityDropdown} id='custtext'
-                        onChange={(e) => handleInputChange(e, 'capacityDropdown')}
-                        className="form-control ml-1 " style={{ width: getColumnSize('capacityNumber') * 9 + 'px' }}
-                      >
-                        <option value="">Tons</option>
-                        <option value="Holes">Holes</option>
-                        <option value="Bends">Bends</option>
-                        <option value="Cuts">Cuts</option>
-                      </select></div>
-                </td>
               <td>
                 <input
-                  type="date" id="custtext" className="form-control"
+                  type="text" id="machinetext" className="form-control"
+                  value={newRow.capacity}
+                  placeholder="Capacity(hr)"
+                  onChange={(e) => setNewRow({ ...newRow, capacity: e.target.value })}
+                />
+              </td>
+              <td>
+                <input
+                  type="date" id="machinetext" className="form-control"
                   value={newRow.purchasedDate}
+                  placeholder="Purchased Date"
                   onChange={(e) => setNewRow({ ...newRow, purchasedDate: e.target.value })}
                 />
               </td>
-			  <td>
+              <td>
                 <input
-                  type="date" id="custtext" className="form-control"
+                  type="date" id="machinetext" className="form-control"
                   value={newRow.lastMaintenanceDate}
+                  placeholder="Last Maintenance Date"
                   onChange={(e) => setNewRow({ ...newRow, lastMaintenanceDate: e.target.value })}
                 />
               </td>
               <td>
                 <input
-                  type="date" id="custtext" className="form-control"
+                  type="date" id="machinetext" className="form-control"
                   value={newRow.nextMaintenanceDate}
+                  placeholder="Next Maintenance Date"
                   onChange={(e) => setNewRow({ ...newRow, nextMaintenanceDate: e.target.value })}
                 />
               </td>
-			  <td>
+              <td>
                 <input
-                  type="text" id="custtext" className="form-control"
+                  type="text" id="machinetext" className="form-control"
                   value={newRow.status}
-				  placeholder='available'
+                  placeholder="Status"
                   onChange={(e) => setNewRow({ ...newRow, status: e.target.value })}
                 />
               </td>
-			  <td>
+              <td>
                 <input
-                  type="text" id="custtext" className="form-control"
-                  value={newRow.Factory}
-				  placeholder='ace electricals'
-                  onChange={(e) => setNewRow({ ...newRow, factorylocation: e.target.value })}
-                />
-              </td>
-			  <td>
-                <input
-                  type="text" id="custtext" className="form-control"
-                  value={newRow.machinelocation}
-				  placeholder=''
-                  onChange={(e) => setNewRow({ ...newRow, machinelocation: e.target.value })}
+                  type="text" id="machinetext" className="form-control"
+                  value={newRow.factoryLocation}
+                  placeholder="Factory Location"
+                  onChange={(e) => setNewRow({ ...newRow, factoryLocation: e.target.value })}
                 />
               </td>
               <td>
-                <center>
-                  <button onClick={handleAddSave} className="btn btn-block custom-done btn-sm text-white m-2">Save</button>
-                </center>
+                <input
+                  type="text" id="machinetext" className="form-control"
+                  value={newRow.machineLocation}
+                  placeholder="Machine Location"
+                  onChange={(e) => setNewRow({ ...newRow, machineLocation: e.target.value })}
+                />
+              </td>
+              <td>
+                <button className="btn btn-block custom-done btn-sm text-white m-2" onClick={handleAddSave}>Save</button>
               </td>
             </tr>
           )}
         </tbody>
       </table>
-      
-      <br />
-      {hasChanges && (
-        <button onClick={saveAllChanges} className="btn btn-block custom-done btn-sm text-white m-3" style={{marginRight:'8px'}}>Save Changes</button>
-      )}
-      <button className="btn btn-block custom-done btn-sm text-white m-3" onClick={handleAdd}>Add</button>
+      <div className="d-flex justify-content-center">
+        {hasChanges && (
+          <button className="btn btn-success" onClick={saveAllChanges}>
+            Save Changes
+          </button>
+        )}
+        <button className="btn btn-primary ml-2" onClick={handleAdd}>
+          Add Row
+        </button>
+      </div>
     </center>
   );
 }

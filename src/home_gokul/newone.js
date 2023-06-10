@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./give.css";
 
-function NewOne({ empName, empId, role, handleSubmit }) {
+function NewOne() {
   const [newEmpName, setNewEmpName] = useState("");
   const [newEmpId, setNewEmpId] = useState("");
   const [newRole, setNewRole] = useState("");
@@ -36,10 +37,25 @@ function NewOne({ empName, empId, role, handleSubmit }) {
     if (newEmpName.trim() === "" || newEmpId.trim() === "" || newRole.trim() === "") {
       alert("Please fill in all the fields.");
     } else {
-      setNewEmpName("");
-      setNewEmpId("");
-      setNewRole("");
-      navigate("/First");
+      const data = {
+        empName: newEmpName,
+        empId: newEmpId,
+        role: newRole,
+      };
+      console.log(data)
+      axios
+        .post('http://127.0.0.1:8000/login/signin/', data)
+        .then((response) => {
+          // Handle the response if needed
+          setNewEmpName("");
+          setNewEmpId("");
+          setNewRole("");
+          
+        })
+        .catch((error) => {
+          // Handle the error if needed
+          console.log("failed")
+        });
     }
   };
 
@@ -84,4 +100,3 @@ function NewOne({ empName, empId, role, handleSubmit }) {
 }
 
 export default NewOne;
-  

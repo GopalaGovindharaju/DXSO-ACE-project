@@ -12,7 +12,6 @@ function Comp() {
     <div className="App">
       <Banner/>
       <Details/>  
-      <Browse/>
      </div>
 
       

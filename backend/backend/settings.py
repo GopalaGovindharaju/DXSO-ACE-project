@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'plannerdb',
         'USER': 'postgres',
-        'PASSWORD': 'Gopala@789$link',
+        'PASSWORD': 'Welcome8220@#',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -136,3 +136,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000'
 ]
+
+
+
+
+
+
+
+

@@ -10,6 +10,11 @@
       
   }
   
+#oe{
+  margin-left:0%;
+}
+
+
   .App-link {
     color: #61dafb;
   }
@@ -24,6 +29,14 @@
     color: #333;
     margin-top: -50px
   }
+  
+  .custom-textfield0 {
+    width: 100px; /* Adjust the width as needed */
+    padding: 3px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
   
   .current-time-text {
     font-size: 18px;
