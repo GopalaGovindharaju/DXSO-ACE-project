@@ -1,11 +1,13 @@
 import React from "react";
+import { Route, Routes, Link, useNavigate } from "react-router-dom";
 import CurrentTime from './timeee';
 import CurrentDate from './datee';
 import HomeButton from "./homebutton";
 
 function Banner3() {
-  return (
+  return ( 
     <div className="banner">
+      
       <div className= "row text-white bg-gradient text-center py-2"id="banner" >
         <div className="col-4 text-start">
           <HomeButton />

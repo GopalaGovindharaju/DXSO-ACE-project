@@ -1,27 +1,63 @@
 import React, { useState } from "react";
+import { Route, Routes, Link, useNavigate } from "react-router-dom";
 import "./give.css";
 import login from "./Images/login.png";
 import Logo from "./Images/Logo.png";
-import { Link } from "react-router-dom";
 import NewOne from "./newone.js";
+import Comp from "../bomviewer_gopi/comp_main";
+import Component3 from "../planner_chitra/comp3_main";
+import Leftbox from '../inspection/leftbox';
+import Table from "../operator/table2";
+import Lbox from "../inspector/lbox";
 
 function Header({ empName, handleLogout }) {
-  return (
+  const navigate = useNavigate();
+ 
+  const handleClick2 = () => {
+    navigate("/Bom");
+  };
+
+  const handleClick3 = () => {
+    navigate("/planner");
+  };
+
+  const handleClick4 = () => {
+    navigate("/operator"); 
+  };
+
+  const handleClick5 = () => {
+    navigate("/inspection"); 
+  };
+
+  const handleClick6 = () => {
+    navigate("/inspector");
+  };
+  
+  return ( 
     <>
-      <div id="title1">
-        <img src={Logo} alt="" id="logo"/>
+      <div id="title1" className="row">
+        <div className="col"><img src={Logo} alt="" id="logo"/></div>
+        <div className="col">
+          <div className="row text-white" id="r3"><p>| Contact: +91- 94432 27570 |<br></br> Email ID: info@aceelectricals.in</p></div></div>
       </div>
-      <div id="title2">
-        <div id="bb">
-          <button>Home</button>
-          <button>BOM</button>
-          <button>Inspection</button>
-          <button>Inspector</button>
-          <button>Planning</button>
-          <button id="asset">Customer Asset</button>
-          <button id="asset">Machine Asset</button>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
+      <div id="bb" style={{marginLeft:'0%'}}>
+        <Routes>
+          <Route path="/Bom" component={Comp} />
+          <Route path="/planner" component={Component3}/>
+          <Route path='/inspection' element={<Leftbox/>}/>
+          <Route path='/operator' element={<Table/>}/>
+          <Route path='/inspector' element={<Lbox/>}/>  
+        </Routes>
+      
+
+          <button className="text-dark">Home</button>
+          <button className="text-dark" style={{marginLeft:'-8px',width:'80px'}} onClick={handleClick2}>BOM</button>
+          <button className="text-dark" onClick={handleClick3}>Planning</button>
+          <button className="text-dark" onClick={handleClick4}>Operator</button>
+          <button className="text-dark" onClick={handleClick5}>Inspection</button>
+          <button className="text-dark" onClick={handleClick6}>Inspector</button>
+          <button className="text-dark" onClick={handleLogout}>Logout</button>
+
         <div id="uu">
           <img src={login} alt="User" id="user-logo" />
           <p>Emp Name: {empName}</p>

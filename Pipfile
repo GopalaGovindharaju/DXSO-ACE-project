@@ -11,6 +11,7 @@ pandas = "*"
 openpyxl = "*"
 psycopg2 = "*"
 chardet = "*"
+axios = "*"
 
 [dev-packages]
 

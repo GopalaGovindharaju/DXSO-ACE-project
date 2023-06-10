@@ -3,8 +3,7 @@ import Disp from './one';
 import "./give.css";
 function First(){
     return(
-        <div id>
-            
+        <div id>         
             <Disp/>
         </div>
     );

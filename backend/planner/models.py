@@ -2,7 +2,7 @@ from django.db import models
 import pandas as pd
 
 # Read the Excel file
-df = pd.read_excel("planner/With G.xlsx", sheet_name="Sheet1", header=2).fillna(0)
+df = pd.read_excel("C:/Users/chitr/OneDrive/Desktop/DXSO/DXSO-ACE-project/backend/planner/With G.xlsx", sheet_name="Sheet1", header=2).fillna(0)
 
 # Get the column names and data types from the Excel sheet
 column_names = df.columns.tolist()
