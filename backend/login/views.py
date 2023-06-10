@@ -4,22 +4,25 @@ from .models import Signin
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from  login.serializers import SigninSerializer
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
 
-
-
+@api_view(['POST'])
 def create_employee(request):
-    if request.method == "POST":
-        emp_name = request.POST.get("empName")
-        emp_id = request.POST.get("empId")
-        role = request.POST.get("role")
+    if request.method == 'POST':
+        data = request.data
 
-        # Perform any necessary validation or processing here
+        Emp_Name = data.get('Emp_Name')
+        Emp_Id = data.get('Emp_Id')
+        Emp_Role = data.get('Emp_Role')
 
-        # Assuming you have an Employee model
-        employee = Signin(Emp_Name=emp_name, Emp_Id=emp_id, Emp_Role=role)
-        employee.save()
-
-        return JsonResponse({"message": "Account created successfully"})
+        emp_detail = Signin(
+            Emp_Name=Emp_Name,
+            Emp_Id=Emp_Id,
+            Emp_Role=Emp_Role
+        )
+        emp_detail.save()
+        return Response("Signed")
     else:
-        return JsonResponse({"error": "Invalid request method"})
+        return Response("Can't Signed")

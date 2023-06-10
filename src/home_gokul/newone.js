@@ -38,13 +38,12 @@ function NewOne() {
       alert("Please fill in all the fields.");
     } else {
       const data = {
-        empName: newEmpName,
-        empId: newEmpId,
-        role: newRole,
+        Emp_Name: newEmpName,
+        Emp_Id: newEmpId,
+        Emp_Role: newRole,
       };
       console.log(data)
-      axios
-        .post('http://127.0.0.1:8000/login/signin/', data)
+      axios.post("http://127.0.0.1:8000/login/signin/", data)
         .then((response) => {
           // Handle the response if needed
           setNewEmpName("");
