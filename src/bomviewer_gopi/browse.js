@@ -112,9 +112,9 @@ function Browse({ handleLoadButtonClick }) {
               <button className="btn btn-block custom-edit btn-sm text-white" style={{ width: '70px' }} onClick={toggleEditing}>
                 {isEditing ? "Save" : "EDIT"}
               </button>
-              <br /><br />
+        
               {isEditing && (
-                <button className="btn btn-block btn-sm custom-savechange text-white" style={{ width: '130px' }} onClick={saveChanges}>
+                <button className="btn btn-block btn-sm custom-savechange text-white" style={{ width: '130px', marginLeft:'10px' }} onClick={saveChanges}>
                   Save Changes
                 </button>
               )}

@@ -26,3 +26,19 @@ def create_employee(request):
         return Response("Signed")
     else:
         return Response("Can't Signed")
+    
+@api_view(['POST'])
+def validate_employee(request):
+    if request.method == 'POST':
+        data = request.data
+
+        Emp_Name = data.get('Emp_Name')
+        Emp_Id = data.get('Emp_Id')
+
+        # Assuming you have an Employee model/table
+        try:
+            employee = Signin.objects.get(Emp_Name=Emp_Name, Emp_Id=Emp_Id)
+            Emp_Role = employee.Emp_Role
+            return Response(Emp_Role)
+        except Signin.DoesNotExist:
+            return Response('')

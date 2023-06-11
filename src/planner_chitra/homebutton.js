@@ -6,7 +6,7 @@ import './home-icon.png';
 const HomeButton = () => {
   const navigate = useNavigate();
   const home = () => {
-    navigate("/first");
+    navigate("/");
   };
   return (
     <div className="banner">
