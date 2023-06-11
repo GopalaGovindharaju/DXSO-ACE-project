@@ -11,6 +11,7 @@ import First  from './home_gokul/login_home.js';
 import Leftbox from './inspection/leftbox.js';
 import Lbox from './inspector/lbox.js';
 import Signin from './home_gokul/newone.js';
+import Disp from './home_gokul/one'
 
 function App()
 {
@@ -19,11 +20,9 @@ return (
 
     <Routes>
 
-      <Route path='/first' element={<First/>}></Route>
+      <Route path='/first' element={<Disp/>}></Route>
       <Route path='/newone' element={<Signin/>}></Route>
-      <Route path='/' element={<First/>}></Route>
-
-      <Route path='/' element={<Login/>}></Route>
+      <Route path='/' element={<Disp/>}></Route>
       <Route path='/bom' element={<Comp/>}></Route>
       <Route path='/planner' element={<Component3/>}></Route>
       <Route path='/cust_assest' element={<Cust_asset/>}></Route>
