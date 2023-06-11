@@ -8,97 +8,107 @@ import Component3 from "../planner_chitra/comp3_main";
 import Leftbox from "../inspection/leftbox";
 import Table from "../operator/table2";
 import Lbox from "../inspector/lbox";
-import axios from "axios"
+import axios from "axios";
 
 function Disp() {
-const [showLoginPopup, setShowLoginPopup] = useState(
-  localStorage.getItem("showLoginPopup") === "true" ? true : false
-);
-const [showSignupPopup, setShowSignupPopup] = useState(
-  localStorage.getItem("showSignupPopup") === "true" ? true : false
-);
-const [isAuthorized, setIsAuthorized] = useState(localStorage.getItem("isAuthorized") || "");
-const [signed, setSigned] = useState(
-  localStorage.getItem("signed") === "true" ? true : false
-);
-useEffect(() => {
-  localStorage.setItem("showLoginPopup", showLoginPopup.toString());
-}, [showLoginPopup]);
+  const [showLoginPopup, setShowLoginPopup] = useState(
+    localStorage.getItem("showLoginPopup") === "true" ? true : false
+  );
+  const [showSignupPopup, setShowSignupPopup] = useState(
+    localStorage.getItem("showSignupPopup") === "true" ? true : false
+  );
+  const [isAuthorized, setIsAuthorized] = useState(
+    localStorage.getItem("isAuthorized") || ""
+  );
+  const [signed, setSigned] = useState(
+    localStorage.getItem("signed") === "true" ? true : false
+  );
+  useEffect(() => {
+    localStorage.setItem("showLoginPopup", showLoginPopup.toString());
+  }, [showLoginPopup]);
 
-useEffect(() => {
-  localStorage.setItem("showSignupPopup", showSignupPopup.toString());
-}, [showSignupPopup]);
+  useEffect(() => {
+    localStorage.setItem("showSignupPopup", showSignupPopup.toString());
+  }, [showSignupPopup]);
 
-useEffect(() => {
-  localStorage.setItem("isAuthorized", isAuthorized);
-}, [isAuthorized]);
+  useEffect(() => {
+    localStorage.setItem("isAuthorized", isAuthorized);
+  }, [isAuthorized]);
 
-useEffect(() => {
-  localStorage.setItem("signed", signed.toString());
-}, [signed]);
+  useEffect(() => {
+    localStorage.setItem("signed", signed.toString());
+  }, [signed]);
 
-
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const handleClick2 = () => {
     if (signed) {
       if (isAuthorized === "Bomviewer") {
         navigate("/Bom");
       } else {
-        console.log("Sorry, you don't have permission to access the BOM component");
+        console.log(
+          "Sorry, you don't have permission to access the BOM component"
+        );
       }
     } else {
       alert("Kindly SignIn");
     }
   };
-  
+
   const handleClick3 = () => {
     if (signed) {
       if (isAuthorized === "Planner") {
         navigate("/planner");
       } else {
-        console.log("Sorry, you don't have permission to access the Planner component");
+        console.log(
+          "Sorry, you don't have permission to access the Planner component"
+        );
       }
     } else {
       alert("Kindly SignIn");
     }
   };
-  
+
   const handleClick4 = () => {
     if (signed) {
       if (isAuthorized === "Operator") {
         navigate("/operator");
       } else {
-        console.log("Sorry, you don't have permission to access the Operator component");
+        console.log(
+          "Sorry, you don't have permission to access the Operator component"
+        );
       }
     } else {
       alert("Kindly SignIn");
     }
   };
-  
+
   const handleClick5 = () => {
     if (signed) {
       if (isAuthorized === "Inspector") {
         navigate("/inspection");
       } else {
-        console.log("Sorry, you don't have permission to access the Inspection component");
+        console.log(
+          "Sorry, you don't have permission to access the Inspection component"
+        );
       }
     } else {
       alert("Kindly SignIn");
     }
   };
-  
+
   const handleClick6 = () => {
     if (signed) {
       if (isAuthorized === "Inspector") {
         navigate("/inspector");
       } else {
-        console.log("Sorry, you don't have permission to access the Inspector component");
+        console.log(
+          "Sorry, you don't have permission to access the Inspector component"
+        );
       }
     } else {
       alert("Kindly SignIn");
     }
   };
-  
 
   const handleSignIn = () => {
     setShowLoginPopup(true);
@@ -110,6 +120,11 @@ const navigate = useNavigate();
     setShowLoginPopup(false);
   };
 
+  const handleLogout = () => {
+    setSigned(false);
+    setIsAuthorized("");
+  };
+
   const handleLoginSubmit = (event) => {
     event.preventDefault();
     // Implement your login logic here
@@ -117,28 +132,28 @@ const navigate = useNavigate();
       Emp_Name: newEmpName,
       Emp_Id: newEmpId,
     };
-    console.log(data)
-    axios.post("http://127.0.0.1:8000/login/", data)
+    console.log(data);
+    axios
+      .post("http://127.0.0.1:8000/login/", data)
       .then((response) => {
         // Handle the response if needed
-        console.log(response.data)
-        if (response.data === ''){
-          alert("User Can't Found")
-        }
-        else{
-          setSigned(true)
-          setIsAuthorized(response.data)
+        console.log(response.data);
+        if (response.data === "") {
+          alert("User Can't Found");
+        } else {
+          setSigned(true);
+          setIsAuthorized(response.data);
         }
         setNewEmpName("");
         setNewEmpId("");
       })
       .catch((error) => {
         // Handle the error if needed
-        console.log("login failed")
+        console.log("login failed");
       });
     setShowLoginPopup(false);
   };
-  const handleSignupSubmit= (event) => {
+  const handleSignupSubmit = (event) => {
     event.preventDefault();
     // Implement your login logic here
     const data = {
@@ -146,19 +161,19 @@ const navigate = useNavigate();
       Emp_Id: newEmpId,
       Emp_Role: newRole,
     };
-    console.log(data)
-    axios.post("http://127.0.0.1:8000/login/signin/", data)
+    console.log(data);
+    axios
+      .post("http://127.0.0.1:8000/login/signin/", data)
       .then((response) => {
         // Handle the response if needed
-        console.log(response.data)
+        console.log(response.data);
         setNewEmpName("");
         setNewEmpId("");
         setNewRole("");
-        
       })
       .catch((error) => {
         // Handle the error if needed
-        console.log("failed")
+        console.log("failed");
       });
 
     setShowSignupPopup(false);
@@ -177,7 +192,8 @@ const navigate = useNavigate();
     const value = event.target.value;
     const regex = /^[A-Za-z\s]*$/;
     if (regex.test(value) || value === "") {
-      const formattedName = value.charAt(0).toUpperCase() + value.slice(1);
+      const formattedName =
+        value.charAt(0).toUpperCase() + value.slice(1);
       setNewEmpName(formattedName);
     }
   };
@@ -192,7 +208,8 @@ const navigate = useNavigate();
 
   const handleNewRoleChange = (event) => {
     const enteredRole = event.target.value;
-    const formattedRole = enteredRole.charAt(0).toUpperCase() + enteredRole.slice(1);
+    const formattedRole =
+      enteredRole.charAt(0).toUpperCase() + enteredRole.slice(1);
     setNewRole(formattedRole);
   };
 
@@ -245,7 +262,7 @@ const navigate = useNavigate();
           <button className="text-dark" onClick={handleClick6}>
             Inspector
           </button>
-          <button className="text-dark">Logout</button>
+          
 
           {showLoginPopup ? (
             <div className="login-popup">
@@ -254,20 +271,24 @@ const navigate = useNavigate();
                   <h2>Sign in</h2>
                   <form onSubmit={handleLoginSubmit}>
                     <div className="inputBox">
-                      <input type="text"
-                      value={newEmpName}
-                      pattern="[A-Za-z\s]+"
-                      onChange={handleNewEmpNameChange}
-                       required="required" />
+                      <input
+                        type="text"
+                        value={newEmpName}
+                        pattern="[A-Za-z\s]+"
+                        onChange={handleNewEmpNameChange}
+                        required="required"
+                      />
                       <span>Employee Name</span>
                       <i></i>
                     </div>
                     <div className="inputBox">
-                      <input type="text"
-                      value={newEmpId}
-                      pattern="[A-Za-z0-9]+"
-                      onChange={handleNewEmpIdChange}
-                       required="required" />
+                      <input
+                        type="text"
+                        value={newEmpId}
+                        pattern="[A-Za-z0-9]+"
+                        onChange={handleNewEmpIdChange}
+                        required="required"
+                      />
                       <span>Employee ID</span>
                       <i></i>
                     </div>
@@ -285,13 +306,27 @@ const navigate = useNavigate();
             </div>
           ) : (
             <div id="uu">
-              {!showSignupPopup && (
-                <button className="rounded custom-btn btn-2" onClick={handleSignIn}>
+              {!showSignupPopup && !signed && (
+                <button
+                  className="rounded custom-btn btn-2"
+                  onClick={handleSignIn}
+                >
                   <span>Sign in</span>
                 </button>
               )}
-              {!showLoginPopup && (
-                <button className="rounded custom-btn btn-2" onClick={handleSignup}>
+              {!showLoginPopup && signed && (
+    <button
+      className="rounded custom-btn btn-2"
+      onClick={handleLogout}
+    >
+      <span>Logout</span>
+    </button>
+  )}
+              {!showLoginPopup && !signed && (
+                <button
+                  className="rounded custom-btn btn-2"
+                  onClick={handleSignup}
+                >
                   <span>Sign up</span>
                 </button>
               )}
@@ -299,43 +334,50 @@ const navigate = useNavigate();
           )}
 
           {showSignupPopup && (
-            <div className="login-popup" style={{ height: "500px", top: "59%" }}>
+            <div
+              className="login-popup"
+              style={{ height: "500px", top: "59%" }}
+            >
               <div className="box" style={{ height: "490px" }}>
                 <div className="form">
                   <h2>Sign up</h2>
                   <form onSubmit={handleSignupSubmit}>
-                  <div className="inputBox">
-                    <input type="text"
-                    value={newEmpName}
-                    pattern="[A-Za-z\s]+"
-                    onChange={handleNewEmpNameChange}
-                     required="required" />
-                    <span>Employee Name</span>
-                    <i></i>
-                  </div>
-                  <div className="inputBox">
-                    <input type="text"
-                    value={newEmpId}
-                    pattern="[A-Za-z0-9]+"
-                    onChange={handleNewEmpIdChange}
-                     required="required" />
-                    <span>Employee ID</span>
-                    <i></i>
-                  </div>
-                  <div className="inputBox">
-                    <input type="text"
-                    value={newRole}
-                    onChange={handleNewRoleChange}
-                    pattern="^(Planner|Operator|Inspector|Bomviewer)$"
-                    title="Planner, Operator, Inspector, or Bomviewer"
-                     required="required" />
-                    <span>Employee Role</span>
-                    <i></i>
-                  </div>
-                  <div className="button-group">
-                    <input type="submit" value="SignUp" />
-                    <button onClick={handleLoginCancel}>Cancel</button>
-                  </div>
+                    <div className="inputBox">
+                      <input
+                        type="text"
+                        value={newEmpName}
+                        pattern="[A-Za-z\s]+"
+                        onChange={handleNewEmpNameChange}
+                        required="required"
+                      />
+                      <span>Employee Name</span>
+                      <i></i>
+                    </div>
+                    <div className="inputBox">
+                      <input
+                        type="text"
+                        value={newEmpId}
+                        pattern="[A-Za-z0-9]+"
+                        onChange={handleNewEmpIdChange}
+                        required="required"
+                      />
+                      <span>Employee ID</span>
+                      <i></i>
+                    </div>
+                    <div className="inputBox">
+                      <input
+                        type="text"
+                        value={newRole}
+                        onChange={handleNewRoleChange}
+                        required="required"
+                      />
+                      <span>Role</span>
+                      <i></i>
+                    </div>
+                    <div className="button-group">
+                      <input type="submit" value="Sign up" />
+                      <button onClick={handleLoginCancel}>Cancel</button>
+                    </div>
                   </form>
                 </div>
               </div>

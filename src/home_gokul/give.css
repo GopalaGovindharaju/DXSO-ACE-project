@@ -10,7 +10,6 @@
   
   .home-page {
     flex-grow: 1;
-    background-color: #a8d2fd; 
     filter: blur(5px); 
   }
   
@@ -85,6 +84,7 @@
     padding:0%;
     margin:0%;
     border:0%;
+    background-color: #e1dfdf;
   }
 
   #bb button {

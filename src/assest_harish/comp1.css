@@ -52,3 +52,61 @@
     margin-left: 10px;
     width: 60px;
   }
+
+  #title1 {
+    text-align: center;
+    margin-top: 0px; 
+  }
+
+  #r3{
+    font-size: 20px;
+  }
+
+  
+  #title1 h1{
+    letter-spacing:5px;
+    font-size:20px;
+  }
+  
+  #title1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5%; 
+    width: 100%;
+    margin:0%;
+    background-color: dodgerblue;
+  }
+
+  #logo{
+    width: 450px;
+  }
+
+  #machinetext{
+    width: 100px;
+  }
+
+  #machinedate{
+    width: 100px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.5em;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+
+  .header-cell{
+    width: 100px
+  }
+
+  #hbtn{
+    margin-right:0px;
+    width:50px;
+  }
