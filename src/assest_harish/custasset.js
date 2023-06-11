@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Logo from '../home_gokul/Images/Logo.png';
+import home from './home.png';
 import './comp1.css';
 
 const initialRowState = {
@@ -216,8 +218,16 @@ function Cust_asset() {
   };
 
   return (
-    <center id="mach">
-      <h1 className="text-center mt-4 mb-3">Customer Asset List</h1>
+    <>
+    <div id="title1" className="row" >
+    <div className="col-1">
+      <button className="home-button border transparent" onClick={home} style={{ marginLeft: '30px', marginTop: '15px',marginBottom:'15px', marginLeft:'15px' }}>
+        <img src={home} id="hbtn"/></button></div>
+        <div className="col"><img src={Logo} alt="" id="logo"/></div>
+        <div className="col">
+          <div className="row text-white" id="r3"><h3>Customer Asset List</h3></div></div>
+      </div>
+    <center id="mach"><br></br>
       <table className="table table-sm table-bordered w-75">
         <thead className="thead-light" style={{ alignItems: 'center' }}>
           <tr>
@@ -316,12 +326,11 @@ function Cust_asset() {
           )}
         </tbody>
       </table>
-      <br />
       {hasChanges && (
         <button onClick={saveAllChanges} className="btn btn-block custom-done btn-sm text-white m-3" style={{marginRight:'8px'}}>Save Changes</button>
       )}
       <button className="btn btn-block custom-done btn-sm text-white m-3" onClick={handleAdd}>Add</button>
-    </center>
+    </center></>
   );
 }
 

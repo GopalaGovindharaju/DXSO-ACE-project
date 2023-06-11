@@ -9,6 +9,8 @@ import Component3 from "../planner_chitra/comp3_main";
 import Leftbox from '../inspection/leftbox';
 import Table from "../operator/table2";
 import Lbox from "../inspector/lbox";
+import Cust_asset from "../assest_harish/custasset";
+import Machine from "../assest_harish/Machine";
 
 function Header({ empName, handleLogout }) {
   const navigate = useNavigate();
@@ -32,11 +34,19 @@ function Header({ empName, handleLogout }) {
   const handleClick6 = () => {
     navigate("/inspector");
   };
+
+  const handleClick7 = () => {
+    navigate("/cust_assest");
+  };
+
+  const handleClick8 = () => {
+    navigate("/mach");
+  };
   
   return ( 
     <>
       <div id="title1" className="row">
-        <div className="col"><img src={Logo} alt="" id="logo"/></div>
+        <div className="col"><img src={Logo} alt="" id="logo1"/></div>
         <div className="col">
           <div className="row text-white" id="r3"><p>| Contact: +91- 94432 27570 |<br></br> Email ID: info@aceelectricals.in</p></div></div>
       </div>
@@ -46,7 +56,9 @@ function Header({ empName, handleLogout }) {
           <Route path="/planner" component={Component3}/>
           <Route path='/inspection' element={<Leftbox/>}/>
           <Route path='/operator' element={<Table/>}/>
-          <Route path='/inspector' element={<Lbox/>}/>  
+          <Route path='/inspector' element={<Lbox/>}/> 
+          <Route path='/cust_assest' element={<Cust_asset/>}></Route>
+          <Route path='/mach' element={<Machine/>}></Route> 
         </Routes>
       
 
@@ -63,6 +75,17 @@ function Header({ empName, handleLogout }) {
           <p>Emp Name: {empName}</p>
         </div>        
       </div>
+
+      <footer>
+        <div id="footer-content">
+          <div className="row" style={{justifyContent:'center'}}>
+            <div className="col-auto">
+        <p><button id="cc" onClick={handleClick7} style={{color: '#888'}}>Customer asset</button></p></div>
+        <div className="col-auto">
+        <p><button id="cc" onClick={handleClick8} style={{color: '#888'}}>Machine asset</button></p></div>
+        </div></div>
+      </footer>
+    
     </>
   );
 }
@@ -153,6 +176,8 @@ function Disp() {
             handleSubmit={handleSubmit}
           />
         )}
+
+
       </div>
     </div>
   );

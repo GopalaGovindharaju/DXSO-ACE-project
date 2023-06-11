@@ -11,6 +11,7 @@ function Details() {
   const [productNumber, setProductNumber] = useState('');
   const [customerNames, setCustomerNames] = useState([]);
   const [selectedCustomerName, setSelectedCustomerName] = useState('');
+  const [showBrowse, setShowBrowse] = useState(false);
 
   useEffect(() => {
     const today = new Date();
@@ -79,19 +80,23 @@ function Details() {
     setProductNumber(event.target.value);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setShowBrowse(true);
+  };
+
   return (
     <div className="card custom-card" id="r2">
       <div className="card-body custom-cardbdy" id="r1">
         <form className="needs-validation" noValidate>
           <div className="row" id="r1">
-            <div className="col-8">
 
 
-            <div className="col">
+            <div className="col-auto " id="col3">
               <div className="input-group input-group-sm">
-                <label className="col-sm-4 col-form-label custlabel">Customer Name:</label>
-                <div className="col-sm-8">
-                  <select className="form-control custom-textfield0" required onChange={handleCustomerNameChange}>
+                <label className="col-sm-7 col-form-label custlabel form-control-sm">Customer Name:</label>
+                <div className="col-sm-5">
+                  <select className="form-control form-control-sm custom-textfield0" required onChange={handleCustomerNameChange}>
                     <option value="" id="oe">Select Customer</option>
                     {customerNames.map((customerName) => (
                       <option key={customerName} value={customerName}>{customerName}</option>
@@ -101,11 +106,11 @@ function Details() {
               </div>
             </div>
 
-            <div className="col">
+            <div className="col-auto" id="col3">
               <div className="input-group input-group-sm">
-                <label className="col-sm-4 col-form-label custlabel">Product Name:</label>
-                <div className="col-sm-8">
-                  <select className="form-control custom-textfield0" required onChange={handleProductNameChange}>
+                <label className="col-sm-7 col-form-label form-control-sm custlabel">Product Name:</label>
+                <div className="col-sm-5">
+                  <select className="form-control form-control-sm custom-textfield0" required onChange={handleProductNameChange}>
                     <option value="" id="oe">Select Product Name</option>
                     {productNames.map((productName) => (
                       <option key={productName} value={productName}>{productName}</option>
@@ -114,13 +119,13 @@ function Details() {
                 </div>
               </div>
             </div>
-            <div className="col">
+            <div className="col-auto" id="col3">
               <div className="input-group input-group-sm">
-                <label className="col-sm-4 col-form-label custlabel" id="oe">Product Number:</label>
-                <div className="col-sm-8">
+                <label className="col-sm-7 col-form-label form-control-sm custlabel" id="oe">Product Number:</label>
+                <div className="col-sm-5">
                   <input
                     type="text"
-                    className="form-control custom-textfield0"
+                    className="form-control form-control-sm custom-textfield0"
                     required
                     value={productNumber}
                     onChange={handleProductNumberChange}
@@ -128,19 +133,18 @@ function Details() {
                 </div>
               </div>
             </div>
+
+
+            <div className="col-auto" id="col3">
+              <button className="btn btn-primary btn-sm" style={{width:'70px'}} >View</button>
             </div>
-            <div className="col-4">
-            <div className="col">
-              <button>View</button>
+            <div className="col-auto" id="col3">
+              <button className="btn btn-primary btn-sm" style={{width:'70px'}} onClick={handleSubmit}>Add</button>
             </div>
-            <div className="col">
-              <button>Add</button>
-            </div>
-          </div>
-          </div>
+          </div> 
         </form>
       </div>
-      <div><Browse></Browse></div>
+      {showBrowse && <Browse />}
     </div>
   );
 }
