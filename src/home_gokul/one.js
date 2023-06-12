@@ -9,6 +9,9 @@ import Leftbox from "../inspection/leftbox";
 import Table from "../operator/table2";
 import Lbox from "../inspector/lbox";
 import axios from "axios";
+import { Alert } from "react-bootstrap";
+
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 function Disp() {
   const [showLoginPopup, setShowLoginPopup] = useState(
@@ -43,10 +46,9 @@ function Disp() {
   const handleClick2 = () => {
     if (signed) {
       if (isAuthorized === "Bomviewer") {
-        navigate("/Bom");
-      } else {
+        navigate("/bom");
         console.log(
-          "Sorry, you don't have permission to access the BOM component"
+          alert("Sorry, you don't have permission to access the BOM component")
         );
       }
     } else {
@@ -60,7 +62,7 @@ function Disp() {
         navigate("/planner");
       } else {
         console.log(
-          "Sorry, you don't have permission to access the Planner component"
+          alert("Sorry, you don't have permission to access the Planner component")
         );
       }
     } else {
@@ -74,7 +76,7 @@ function Disp() {
         navigate("/operator");
       } else {
         console.log(
-          "Sorry, you don't have permission to access the Operator component"
+          alert("Sorry, you don't have permission to access the Operator component")
         );
       }
     } else {
@@ -88,7 +90,7 @@ function Disp() {
         navigate("/inspection");
       } else {
         console.log(
-          "Sorry, you don't have permission to access the Inspection component"
+          alert("Sorry, you don't have permission to access the Inspection component")
         );
       }
     } else {
@@ -102,7 +104,7 @@ function Disp() {
         navigate("/inspector");
       } else {
         console.log(
-          "Sorry, you don't have permission to access the Inspector component"
+          alert("Sorry, you don't have permission to access the Inspector component")
         );
       }
     } else {
