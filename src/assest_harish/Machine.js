@@ -3,7 +3,8 @@ import {Route, Routes, Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import './comp1.css';
 import Logo from '../home_gokul/Images/Logo.png';
-import home from './home.png';
+import Disp from "../home_gokul/one";
+import './home.png';
 
 const initialRowState = {
   machineName: "",
@@ -81,7 +82,7 @@ function Machine() {
 
   const navigate = useNavigate();
   const home = () => {
-    navigate("/first");
+    navigate("/");
   };
 
   const renderTableRow = (data, index) => {
@@ -303,10 +304,13 @@ function Machine() {
 
   return (
     <>
+    <Routes>
+        <Route path="/" component={Disp}></Route>
+    </Routes>
     <div id="title1" className="row">
     <div className="col-1">
       <button className="home-button border transparent" onClick={home} style={{ marginLeft: '30px', marginTop: '15px',marginBottom:'15px', marginLeft:'15px' }}>
-        <img src={home} id="hbtn"/></button></div>
+        <img src={require('./home.png')} id="hbtn"/></button></div>
         <div className="col-3"><img src={Logo} alt="" id="logo"/></div>
         <div className="col">
           <div className="row text-white" id="r3"><h3>Machine Asset List</h3></div></div>
