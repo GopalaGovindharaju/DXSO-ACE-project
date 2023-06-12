@@ -37,7 +37,7 @@ function Leftcolumn(){
                 <div className="input-group input-group-sm">
                 <label className="col-sm-6 col-form-label custlabel">Shift</label>
                 <div class="col-sm-6">
-                <select className="form-control custom-textfield2" required >
+                <select className="form-control custom-textfield0" required >
                 <option value="morning">morning</option>
                 <option value="evening">evening</option>
                 <option value="night">night</option>
@@ -113,13 +113,15 @@ function Leftcolumn(){
                 </div> <br></br>       
 
                 <div class="row insrow">
+                
                 <label className="col-sm-6"></label>
                 <div class="col-sm-6"><center>
-                    <button type="submit" className="btn btn-block text-white form-control" required style={{width:'100px',backgroundColor:'#5E7D7E'}}>Submit </button>
+                    <button type="submit" className="btn btn-block text-white form-control " required style={{width:'100px',backgroundColor:'#5E7D7E'}}>Submit </button>
                 </center></div>
                 </div>
             </div>
             </div>
+            
 
             </form>
             </div>

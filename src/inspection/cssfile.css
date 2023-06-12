@@ -1,5 +1,5 @@
 .customlbox{
-    background: #E0E2E5;
+    background: #a8d2fd;
     font-family: verdana;
     font-weight: bold;
 }
@@ -11,16 +11,16 @@
 table td,
 table th {
     padding: 8px;
-    border: 1px solid black;
+    border: 1px solid #e4eaf0;
 }
 
 table tr:nth-child(even) {
-    background-color: lightblue;
+    background-color: #f2f3f5;
 }
 
 table th {
-    background-color:  #5E7D7E;
-    color: white;
+    background-color:  #a8d2fd;
+    color: rgb(10, 10, 10);
 }
 
 .select {
