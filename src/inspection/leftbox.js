@@ -2,10 +2,21 @@ import React from "react";
 import './cssfile.css';
 import Table from "./downtab";
 import Banner3 from "./Banner";
-
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Leftcolumn(){
-
+    const isAuthorized = localStorage.getItem("isAuthorized");
+    const navigate = useNavigate();
+    useEffect(() => {
+      // Check if the user is authorized to access this component
+      if (isAuthorized !== "Inspection") {
+        // Redirect to the appropriate route if not authorized
+        navigate("/"); // Replace '/' with the desired route for unauthorized access
+      }
+    }, []);
+  
+    
     return(
         <div class="container">
             <Banner3/>

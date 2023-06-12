@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import "./give.css";
-import login from "./Images/login.png";
 import Logo from "./Images/Logo.png";
 import Comp from "../bomviewer_gopi/comp_main";
 import Component3 from "../planner_chitra/comp3_main";
@@ -11,6 +10,8 @@ import Lbox from "../inspector/lbox";
 import axios from "axios";
 
 function Disp() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [showLoginPopup, setShowLoginPopup] = useState(
     localStorage.getItem("showLoginPopup") === "true" ? true : false
   );
@@ -38,72 +39,16 @@ function Disp() {
   useEffect(() => {
     localStorage.setItem("signed", signed.toString());
   }, [signed]);
+  
 
-  const navigate = useNavigate();
-  const handleClick2 = () => {
-    if (signed) {
-      if (isAuthorized === "Bomviewer") {
-        navigate("/Bom");
-      } else {
-        console.log(
-          "Sorry, you don't have permission to access the BOM component"
-        );
-      }
-    } else {
-      alert("Kindly SignIn");
-    }
-  };
 
-  const handleClick3 = () => {
+ 
+  const handleNavigation = (authorizedRole, path) => {
     if (signed) {
-      if (isAuthorized === "Planner") {
-        navigate("/planner");
+      if (isAuthorized === authorizedRole) {
+        navigate(path);
       } else {
-        console.log(
-          "Sorry, you don't have permission to access the Planner component"
-        );
-      }
-    } else {
-      alert("Kindly SignIn");
-    }
-  };
-
-  const handleClick4 = () => {
-    if (signed) {
-      if (isAuthorized === "Operator") {
-        navigate("/operator");
-      } else {
-        console.log(
-          "Sorry, you don't have permission to access the Operator component"
-        );
-      }
-    } else {
-      alert("Kindly SignIn");
-    }
-  };
-
-  const handleClick5 = () => {
-    if (signed) {
-      if (isAuthorized === "Inspector") {
-        navigate("/inspection");
-      } else {
-        console.log(
-          "Sorry, you don't have permission to access the Inspection component"
-        );
-      }
-    } else {
-      alert("Kindly SignIn");
-    }
-  };
-
-  const handleClick6 = () => {
-    if (signed) {
-      if (isAuthorized === "Inspector") {
-        navigate("/inspector");
-      } else {
-        console.log(
-          "Sorry, you don't have permission to access the Inspector component"
-        );
+        console.log(`Sorry, you don't have permission to access the ${authorizedRole} component`);
       }
     } else {
       alert("Kindly SignIn");
@@ -138,7 +83,7 @@ function Disp() {
       .then((response) => {
         // Handle the response if needed
         console.log(response.data);
-        if (response.data === "") {
+        if (!response.data) {
           alert("User Can't Found");
         } else {
           setSigned(true);
@@ -153,6 +98,7 @@ function Disp() {
       });
     setShowLoginPopup(false);
   };
+  
   const handleSignupSubmit = (event) => {
     event.preventDefault();
     // Implement your login logic here
@@ -180,9 +126,12 @@ function Disp() {
   };
 
   const handleLoginCancel = () => {
-    setShowLoginPopup(false);
-    setShowSignupPopup(false);
-  };
+  setShowLoginPopup(false);
+  setShowSignupPopup(false);
+  setNewEmpName("");
+  setNewEmpId("");
+};
+
 
   const [newEmpName, setNewEmpName] = useState("");
   const [newEmpId, setNewEmpId] = useState("");
@@ -217,10 +166,10 @@ function Disp() {
     <div className="container-fluid w-100 p-0 header-design">
       <div className="container-fluid p-0">
         <div id="title1" className="row">
-          <div className="col">
+          <div className="col d-flex flex-row">
             <img src={Logo} alt="" id="logo" />
           </div>
-          <div className="col">
+          <div className="col  d-flex flex-row-reverse">
             <div className="row text-white" id="r3">
               <p>
                 | Contact: +91- 94432 27570 |
@@ -243,25 +192,21 @@ function Disp() {
           </Routes>
 
           <button className="text-dark">Home</button>
-          <button
-            className="text-dark"
-            style={{ marginLeft: "-8px", width: "80px" }}
-            onClick={handleClick2}
-          >
-            BOM
-          </button>
-          <button className="text-dark" onClick={handleClick3}>
-            Planning
-          </button>
-          <button className="text-dark" onClick={handleClick4}>
-            Operator
-          </button>
-          <button className="text-dark" onClick={handleClick5}>
-            Inspection
-          </button>
-          <button className="text-dark" onClick={handleClick6}>
-            Inspector
-          </button>
+          <button className="text-dark" onClick={() => handleNavigation("Bomviewer", "/Bom")}>
+  BOM
+</button>
+<button className="text-dark" onClick={() => handleNavigation("Planner", "/planner")}>
+  Planning
+</button>
+<button className="text-dark" onClick={() => handleNavigation("Operator", "/operator")}>
+  Operator
+</button>
+<button className="text-dark" onClick={() => handleNavigation("Inspection", "/inspection")}>
+  Inspection
+</button>
+<button className="text-dark" onClick={() => handleNavigation("Inspector", "/inspector")}>
+  Inspector
+</button>
           
 
           {showLoginPopup ? (
