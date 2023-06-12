@@ -18,7 +18,7 @@ function CurrentTime() {
   return (
     <div className="current-time-container">
       <h1 className="current-time-heading-md"></h1>
-      <p className="current-time-text">Current Time  :{currentTime}</p>
+      <p className="current-time-text">{currentTime}</p>
     </div>
   );
 }

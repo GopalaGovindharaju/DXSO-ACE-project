@@ -3,6 +3,8 @@ import axios from "axios";
 import Logo from '../home_gokul/Images/Logo.png';
 import home from './home.png';
 import './comp1.css';
+import { Route, Routes, Link, useNavigate } from "react-router-dom";
+import Disp from "../home_gokul/one";
 
 const initialRowState = {
   name: "",
@@ -15,6 +17,7 @@ const initialRowState = {
   orderPlacedDate: "",
   deadline: "",
 };
+
 
 function Cust_asset() {
   const [tableData, setTableData] = useState([]);
@@ -92,34 +95,7 @@ function Cust_asset() {
             data.name
           )}
         </td>
-        <td style={{width:'140px'}}>
-          {isEditing ? (
-            <input
-              type="text" id="custtext" className="form-control"
-              value={newRow.address}
-              placeholder="Customer Address"
-              onChange={(e) =>
-                setNewRow({ ...newRow, address: e.target.value })
-              }
-            />
-          ) : (
-            data.address
-          )}
-        </td>
-        <td style={{width:'100px'}}>
-          {isEditing ? (
-            <input
-              type="text" id="custtext" className="form-control"
-              value={newRow.city}
-              placeholder="City"
-              onChange={(e) =>
-                setNewRow({ ...newRow, city: e.target.value })
-              }
-            />
-          ) : (
-            data.city
-          )}
-        </td>
+       
         <td>
           {isEditing ? (
             <input
@@ -217,23 +193,30 @@ function Cust_asset() {
     );
   };
 
+  const navigate = useNavigate();
+  const home = () => {
+    navigate("/");
+  };
+
   return (
     <>
+    <Routes>
+        <Route path="/" component={Disp}></Route>
+    </Routes>
     <div id="title1" className="row" >
     <div className="col-1">
       <button className="home-button border transparent" onClick={home} style={{ marginLeft: '30px', marginTop: '15px',marginBottom:'15px', marginLeft:'15px' }}>
-        <img src={home} id="hbtn"/></button></div>
+        <img src={require('./home.png')} id="hbtn"/></button></div>
         <div className="col"><img src={Logo} alt="" id="logo"/></div>
         <div className="col">
-          <div className="row text-white" id="r3"><h3>Customer Asset List</h3></div></div>
+          <div className="row text-white" id="r3"><h3>Customer Order List</h3></div></div>
       </div>
     <center id="mach"><br></br>
       <table className="table table-sm table-bordered w-75">
         <thead className="thead-light" style={{ alignItems: 'center' }}>
           <tr>
             <th scope="col">Customer Name</th>
-            <th scope="col">Address</th>
-            <th scope="col">City</th>
+
             <th scope="col">Order Number</th>
             <th scope="col">Product Number</th>
             <th scope="col">Product Name</th>
@@ -253,22 +236,6 @@ function Cust_asset() {
                   value={newRow.name}
                   placeholder="Ravi"
                   onChange={(e) => setNewRow({ ...newRow, name: e.target.value })}
-                />
-              </td>
-              <td>
-                <input
-                  type="text" id="custtext" className="form-control"
-                  value={newRow.address}
-                  placeholder="1/93, MGR street..."
-                  onChange={(e) => setNewRow({ ...newRow, address: e.target.value })}
-                />
-              </td>
-              <td>
-                <input
-                  type="text" id="custtext" className="form-control"
-                  value={newRow.city}
-                  placeholder="Bangalore"
-                  onChange={(e) => setNewRow({ ...newRow, city: e.target.value })}
                 />
               </td>
               <td>
