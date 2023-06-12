@@ -217,24 +217,23 @@ function Disp() {
 
   return (
     <div className="container-fluid w-100 p-0 header-design">
-      <div className="container-fluid p-0">
         <div id="title1" className="row">
           <div className="col">
-            <img src={Logo} alt="" id="logo" />
+            <img src={Logo} alt="" style={{width:'600px'}} id="logo" />
           </div>
           <div className="col">
-            <div className="row text-white" id="r3">
+          <span className="row" id="r5">
               <p>
+                | Sheet metal fabrication | Welding | Finishing | Assembly | <br></br>
                 | Contact: +91- 94432 27570 |
-                <br />
                 Email ID: info@aceelectricals.in
               </p>
-            </div>
+            </span>
           </div>
         </div>
         <div
-          id="bb"
-          style={{ marginLeft: "0%", backgroundColor: "#ADD8E6" }}
+          id="bb" className="bg-gradient"
+          style={{ marginLeft: "0%", backgroundColor: "#69b4ff" }}
         >
           <Routes>
             <Route path="/Bom" element={<Comp />} />
@@ -295,7 +294,6 @@ function Disp() {
                       <i></i>
                     </div>
                     <div className="links">
-                      <a href="#">Forgot Password</a>
                       <button onClick={handleSignup}>Sign up</button>
                     </div>
                     <div className="button-group">
@@ -311,9 +309,9 @@ function Disp() {
               {!showSignupPopup && !signed && (
                 <button
                   className="rounded custom-btn btn-2"
-                  onClick={handleSignIn}
+                  onClick={handleSignIn} 
                 >
-                  <span>Sign in</span>
+                  <span className="text-dark">Sign In</span>
                 </button>
               )}
               {!showLoginPopup && signed && (
@@ -321,15 +319,15 @@ function Disp() {
       className="rounded custom-btn btn-2"
       onClick={handleLogout}
     >
-      <span>Logout</span>
+      <span className="text-dark">Logout</span>
     </button>
   )}
               {!showLoginPopup && !signed && (
                 <button
                   className="rounded custom-btn btn-2"
-                  onClick={handleSignup}
+                  onClick={handleSignup} id="sbtn"
                 >
-                  <span>Sign up</span>
+                  <span className="text-dark">Sign up</span>
                 </button>
               )}
             </div>
@@ -387,7 +385,6 @@ function Disp() {
           )}
         </div>
       </div>
-    </div>
   );
 }
 

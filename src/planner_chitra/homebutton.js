@@ -11,7 +11,7 @@ const HomeButton = () => {
   return (
     <div className="banner">
       <Routes>
-        <Route path="/first" component={Disp}></Route>
+        <Route path="/" component={Disp}></Route>
       </Routes>
       <button className="home-button" onClick={home} style={{ marginLeft: '30px', marginTop: '15px' }}>
         <img src={require('./home-icon.png')} alt="home" className="home-icon" width="30" height="30" />
