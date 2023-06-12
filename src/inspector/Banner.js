@@ -19,15 +19,15 @@ function Banner4() {
         <Route path="/" component={Disp}></Route>
     </Routes>
       <div class="row text-white bg-gradient text-center custom-font rounded">
-        <div className='col-2'>
+        <div className='col-auto'>
             <button className="home-button border transparent" onClick={home} style={{ marginLeft: '30px', marginTop: '15px',marginBottom:'15px', marginLeft:'15px' }}>
             <img src={require('./home.png')} id="hbtn"/></button></div>
       
-        <div class="col-5 bhead">
-          <h1>Bending Inspection Form - Inspector</h1>
+        <div class="col-9 bhead">
+          <h3>Bending Inspection Form - Inspector</h3>
         </div>
 
-        <div class="col-4 datetime">
+        <div class="col-auto datetime">
         <div class="row">
         <CurrentDate/>
         </div>

@@ -27,8 +27,6 @@ function Component3(){
             <Data/>
             <Alloc/>
             <Table/>
-            
-            
         </div>       
     );
 }
