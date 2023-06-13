@@ -6,51 +6,13 @@ function Col(){
                 <table class="table table-border table-sm m-3">
             <thead class="thead-light">
                 <tr>
-                    <th scope="col">Machine No</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Parts</th>
+                    <th scope="col">Req Quantity /piece</th>
+                    <th scope="col">Req for Order</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Mc-1</td>
-                    <td>Working</td>
-                </tr>
-                <tr>
-                    <td>Mc-2</td>
-                    <td>Working</td>
-                </tr>
-                <tr>
-                    <td>Mc-3</td>
-                    <td>Working</td>
-                </tr>
-                <tr>
-                    <td>Mc-4</td>
-                    <td>Maintenance</td>
-                </tr>
-                <tr>
-                    <td>Mc-5</td>
-                    <td>Maintenance</td>
-                </tr>
-                <tr>
-                    <td>Mc-6</td>
-                    <td>Maintenance</td>
-                </tr>
-                <tr>
-                    <td>Mc-7</td>
-                    <td>Maintenance</td>
-                </tr>
-                <tr>
-                    <td>Mc-8</td>
-                    <td>Working</td>
-                </tr>
-                <tr>
-                    <td>Mc-9</td>
-                    <td>Working</td>
-                </tr>
-                <tr>
-                    <td>Mc-10</td>
-                    <td>Maintenance</td>
-                </tr>
+                
             </tbody>
            </table>
 
