@@ -21,7 +21,7 @@
 
   .scrollable-column {
     overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: auto;
     height: 160px;
   }
 
@@ -123,4 +123,8 @@
 .day.selected {
   background-color: dodgerblue;
   color: white;
+}
+
+#plancol1{
+  
 }

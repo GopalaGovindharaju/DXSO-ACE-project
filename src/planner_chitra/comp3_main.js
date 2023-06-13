@@ -25,7 +25,6 @@ function Component3(){
         <div id="comp3">
             <Banner3 name="Product Planning"/>
             <Data/>
-            <Alloc/>
             <Table/>
         </div>       
     );
