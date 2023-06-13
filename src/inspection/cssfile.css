@@ -12,7 +12,7 @@ table td,
 table th {
     padding: 8px;
     border: 1px solid #e4eaf0;
-}
+} 
 
 table tr:nth-child(even) {
     background-color: #f2f3f5;

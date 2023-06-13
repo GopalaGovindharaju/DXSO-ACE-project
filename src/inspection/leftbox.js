@@ -7,7 +7,7 @@ import Banner3 from "./Banner";
 function Leftcolumn(){
 
     return(
-        <div class="container">
+        <div class="container fluid">
             <Banner3/>
         <div class="card">
             <div class="card-body customlbox">
@@ -17,7 +17,7 @@ function Leftcolumn(){
     
             <div class="col">
                 <div className="input-group input-group-sm">
-                <label className="col-sm-6 col-form-label custlabel">Machine Number</label>
+                <label className="col-sm-6 col-form-label custlabel">Machine Number </label>
                 <div className="col-sm-6">
                 <input type='text' class="form-control custom-textfield0" placeholder='AC-40'/>
                 </div>

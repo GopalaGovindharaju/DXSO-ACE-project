@@ -2,7 +2,7 @@ import React from "react";
 
 function Table(){
     return(
-        <div class="container lg">
+        <div class="container fluid">
            
 <table class="customtable table-bordered ">
         <thead>
