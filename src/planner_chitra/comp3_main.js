@@ -13,7 +13,7 @@ function Component3(){
 
   useEffect(() => {
     // Check if the user is authorized to access this component
-    if (isAuthorized !== "Planner") {
+    if (isAuthorized !== "Planner" && isAuthorized !== "Admin") {
       // Redirect to the appropriate route if not authorized
       navigate("/"); // Replace '/' with the desired route for unauthorized access
     }

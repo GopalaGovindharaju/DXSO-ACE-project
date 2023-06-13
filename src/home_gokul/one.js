@@ -10,8 +10,6 @@ import Lbox from "../inspector/lbox";
 import axios from "axios";
 import { Alert } from "react-bootstrap";
 
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
-
 function Disp() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -46,17 +44,89 @@ function Disp() {
 
 
  
-  const handleNavigation = (authorizedRole, path) => {
+  const handleNavigationBom = () => {
     if (signed) {
-      if (isAuthorized === authorizedRole) {
-        navigate(path);
+      if (isAuthorized === "Bomviewer" || isAuthorized === "Planner" || isAuthorized === "Admin") {
+        navigate("/Bom");
       } else {
-        console.log(`Sorry, you don't have permission to access the ${authorizedRole} component`);
+        alert("Sorry, you don't have permission to access the BOM component.");
       }
     } else {
-      alert("Kindly SignIn");
+      alert("Please sign in to access the BOM component.");
     }
   };
+  
+  const handleNavigationPlanner = () => {
+    if (signed) {
+      if (isAuthorized === "Planner" || isAuthorized === "Admin") {
+        navigate("/planner");
+      } else {
+        alert("Sorry, you don't have permission to access the Planner component.");
+      }
+    } else {
+      alert("Please sign in to access the Planner component.");
+    }
+  };
+  
+  const handleNavigationOperator = () => {
+    if (signed) {
+      if (isAuthorized === "Operator" || isAuthorized === "Admin" || isAuthorized === "Planner") {
+        navigate("/operator");
+      } else {
+        alert("Sorry, you don't have permission to access the Operator component.");
+      }
+    } else {
+      alert("Please sign in to access the Operator component.");
+    }
+  };
+  
+  const handleNavigationMachine = () => {
+    if (signed) {
+      if (isAuthorized === "Machine" || isAuthorized === "Admin" || isAuthorized === "Planner") {
+        navigate("/mach");
+      } else {
+        alert("Sorry, you don't have permission to access the Machine component.");
+      }
+    } else {
+      alert("Please sign in to access the Machine component.");
+    }
+  };
+  
+  const handleNavigationCustomer = () => {
+    if (signed) {
+      if (isAuthorized === "Customer" || isAuthorized === "Admin" || isAuthorized === "Planner") {
+        navigate("/cust_assest");
+      } else {
+        alert("Sorry, you don't have permission to access the Customer component.");
+      }
+    } else {
+      alert("Please sign in to access the Customer component.");
+    }
+  };
+  const handleNavigationInspection = () => {
+    if (signed) {
+      if (isAuthorized === "Inspection" || isAuthorized === "Admin" || isAuthorized === "Operator") {
+        navigate("/inspection");
+      } else {
+        alert("Sorry, you don't have permission to access the Inspection component.");
+      }
+    } else {
+      alert("Please sign in to access the Inspection component.");
+    }
+  };
+  
+  const handleNavigationInspector = () => {
+    if (signed) {
+      if (isAuthorized === "Inspector" || isAuthorized === "Admin") {
+        navigate("/inspector");
+      } else {
+        alert("Sorry, you don't have permission to access the Inspector component.");
+      }
+    } else {
+      alert("Please sign in to access the Inspector component.");
+    }
+  };
+    
 
   const handleSignIn = () => {
     setShowLoginPopup(true);
@@ -79,6 +149,7 @@ function Disp() {
     const data = {
       Emp_Name: newEmpName,
       Emp_Id: newEmpId,
+      Password: newPassword,
     };
     console.log(data);
     axios
@@ -94,6 +165,7 @@ function Disp() {
         }
         setNewEmpName("");
         setNewEmpId("");
+        setNewPassword("");
       })
       .catch((error) => {
         // Handle the error if needed
@@ -109,6 +181,7 @@ function Disp() {
       Emp_Name: newEmpName,
       Emp_Id: newEmpId,
       Emp_Role: newRole,
+      Password: newPassword,
     };
     console.log(data);
     axios
@@ -119,6 +192,7 @@ function Disp() {
         setNewEmpName("");
         setNewEmpId("");
         setNewRole("");
+        setNewPassword("");
       })
       .catch((error) => {
         // Handle the error if needed
@@ -133,12 +207,14 @@ function Disp() {
   setShowSignupPopup(false);
   setNewEmpName("");
   setNewEmpId("");
+  setNewPassword("");
 };
 
 
   const [newEmpName, setNewEmpName] = useState("");
   const [newEmpId, setNewEmpId] = useState("");
   const [newRole, setNewRole] = useState("");
+  const [newPassword, setNewPassword] = useState("");
 
   const handleNewEmpNameChange = (event) => {
     const value = event.target.value;
@@ -164,6 +240,10 @@ function Disp() {
       enteredRole.charAt(0).toUpperCase() + enteredRole.slice(1);
     setNewRole(formattedRole);
   };
+  const handleNewPasswordChange = (event) => {
+    setNewPassword(event.target.value);
+  };
+  
 
   return (
     <div className="container-fluid w-100 p-0 header-design">
@@ -193,27 +273,28 @@ function Disp() {
             <Route path="/inspector" element={<Lbox />} />
           </Routes>
 
-          <button className="text-dark btn-2" onClick={() => handleNavigation("Bomviewer", "/Bom")}>
+          <button className="text-dark btn-2" onClick={handleNavigationBom}>
   BOM
 </button>
-<button className="text-dark btn-2 rounded" onClick={() => handleNavigation("Planner", "/planner")}>
+<button className="text-dark btn-2 rounded" onClick={handleNavigationPlanner}>
   Planning
 </button>
-<button className="text-dark btn-2 rounded" onClick={() => handleNavigation("Operator", "/operator")}>
+<button className="text-dark btn-2 rounded" onClick={handleNavigationOperator}>
   Operator
 </button>
-<button className="text-dark btn-2 rounded" onClick={() => handleNavigation("Inspection", "/inspection")}>
-  Inspection
-</button>
-<button className="text-dark btn-2 rounded" onClick={() => handleNavigation("Inspector", "/inspector")}>
-  Inspector
-</button>
-<button className="text-dark btn-2 rounded" onClick={() => handleNavigation("Machine", "/mach")}>
+<button className="text-dark btn-2 rounded" onClick={handleNavigationMachine}>
   Machine
 </button>
-<button className="text-dark btn-2 rounded" onClick={() => handleNavigation("Customer", "/cust_assest")}>
+<button className="text-dark btn-2 rounded" onClick={handleNavigationCustomer}>
   Customer
 </button>
+<button className="text-dark btn-2 rounded" onClick={handleNavigationInspection}>
+  Inspection
+</button>
+<button className="text-dark btn-2 rounded" onClick={handleNavigationInspector}>
+  Inspector
+</button>
+
           
 
           {showLoginPopup ? (
@@ -242,6 +323,16 @@ function Disp() {
                         required="required"
                       />
                       <span>Employee ID</span>
+                      <i></i>
+                    </div>
+                    <div className="inputBox">
+                      <input
+                        type="password"
+                        value={newPassword}
+                        onChange={handleNewPasswordChange}
+                        required="required"
+                      />
+                      <span>Password</span>
                       <i></i>
                     </div>
                     <div className="links">
@@ -287,9 +378,9 @@ function Disp() {
           {showSignupPopup && (
             <div
               className="login-popup"
-              style={{ height: "500px", top: "59%" }}
+              style={{ height: "550px", top: "59%" }}
             >
-              <div className="box" style={{ height: "490px" }}>
+              <div className="box" style={{ height: "550px" }}>
                 <div className="form">
                   <h2>Sign up</h2>
                   <form onSubmit={handleSignupSubmit}>
@@ -323,6 +414,16 @@ function Disp() {
                         required="required"
                       />
                       <span>Role</span>
+                      <i></i>
+                    </div>
+                    <div className="inputBox">
+                      <input
+                        type="password"
+                        value={newPassword}
+                        onChange={handleNewPasswordChange}
+                        required="required"
+                      />
+                      <span>Password</span>
                       <i></i>
                     </div>
                     <div className="button-group">

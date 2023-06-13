@@ -23,9 +23,9 @@
     align-items: center;
     justify-content: center;
     width: 400px;
-    height: 450px;
+    height: 650px;
     position: absolute;
-    top: 54%;
+    top: 55%;
     left: 87%;
     transform: translate(-50%, -50%);
     background-color: rgb(246, 247, 249);
@@ -172,7 +172,7 @@
 .login-popup .box {
   position: relative;
   width: 380px;
-  height: 420px;
+  height: 500px;
   background: #000218;
   border-radius: 8px;
   overflow: hidden;

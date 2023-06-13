@@ -5,12 +5,9 @@ import Comp from './bomviewer_gopi/comp_main';
 import Component3 from './planner_chitra/comp3_main';
 import Cust_asset from './assest_harish/custasset'
 import Machine from './assest_harish/Machine';
-import Login from './home_gokul/login_home';
 import Table from './operator/table2.js';
-import First  from './home_gokul/login_home.js';
 import Leftbox from './inspection/leftbox.js';
 import Lbox from './inspector/lbox.js';
-import Signin from './home_gokul/newone.js';
 import Disp from './home_gokul/one'
 
 function App()
@@ -19,9 +16,6 @@ return (
     <div className='App'>
 
     <Routes>
-
-      <Route path='/first' element={<Disp/>}></Route>
-      <Route path='/newone' element={<Signin/>}></Route>
       <Route path='*' element={<Disp/>}></Route>
       <Route path='/bom' element={<Comp/>}></Route>
       <Route path='/planner' element={<Component3/>}></Route>
