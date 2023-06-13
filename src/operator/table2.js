@@ -1,7 +1,7 @@
 import React from "react";
 import './table2.css';
 import JobDetailsForm from './jobd.js';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Box from "./box";
 import { useNavigate } from "react-router-dom";
 function handleInspectionButtonClick(navigate) {
@@ -10,6 +10,18 @@ function handleInspectionButtonClick(navigate) {
 
 function Table() {
   const navigate = useNavigate();
+  const isAuthorized = localStorage.getItem("isAuthorized");
+
+  useEffect(() => {
+    // Check if the user is authorized to access this component
+    if (isAuthorized !== "Operator") {
+      // Redirect to the appropriate route if not authorized
+      navigate("/"); // Replace '/' with the desired route for unauthorized access
+    }
+  }, []);
+
+
+  
     const [showJobDetails, setShowJobDetails] = useState(false);
   
     const handleJobDetailsButtonClick = () => {

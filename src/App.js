@@ -22,7 +22,7 @@ return (
 
       <Route path='/first' element={<Disp/>}></Route>
       <Route path='/newone' element={<Signin/>}></Route>
-      <Route path='/' element={<Disp/>}></Route>
+      <Route path='*' element={<Disp/>}></Route>
       <Route path='/bom' element={<Comp/>}></Route>
       <Route path='/planner' element={<Component3/>}></Route>
       <Route path='/cust_assest' element={<Cust_asset/>}></Route>
