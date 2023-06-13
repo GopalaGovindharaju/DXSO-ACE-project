@@ -39,6 +39,7 @@ function Details() {
     try {
       const response = await axios.get('http://127.0.0.1:8000/bom/custname/');
       const { data } = response;
+      console.log(data)
       setCustomerNames(data.customerNames);
     } catch (error) {
       console.log("Error fetching customer names:", error);

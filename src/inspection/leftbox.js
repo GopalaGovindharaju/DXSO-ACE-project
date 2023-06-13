@@ -1,7 +1,7 @@
 import React from "react";
 import './cssfile.css';
 import Table from "./downtab";
-import Banner3 from "./Banner";
+import Banner3 from "../planner_chitra/banner3"
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -19,7 +19,7 @@ function Leftcolumn(){
     
     return(
         <div class="container">
-            <Banner3/>
+            <Banner3 name="Inspection"/>
         <div class="card">
             <div class="card-body customlbox">
             <form class="needs-validation" noValidate>

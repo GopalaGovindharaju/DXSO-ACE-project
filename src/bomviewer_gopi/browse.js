@@ -75,7 +75,7 @@ function Browse({ handleLoadButtonClick }) {
       const formData = new FormData();
       formData.append("file", file);
 
-      const response = await axios.post('http://127.0.0.1:8000/api/upload/', formData, {
+      const response = await axios.post('http://127.0.0.1:8000/bom/upload/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

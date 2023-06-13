@@ -2,14 +2,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import CurrentTime from './time';
 import './time.css';
-import Banner2 from './Banner';
+import Banner3 from '../planner_chitra/banner3'
 
 
 function Box()
 {
     return(
         <div class="card boxcust">   
-            <Banner2/>
+            <Banner3 name="Operator"/>
             <div class="card-body custombody">
             <form class="needs-validation" novalidate> 
             <div class='row'>

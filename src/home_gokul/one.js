@@ -193,20 +193,19 @@ function Disp() {
             <Route path="/inspector" element={<Lbox />} />
           </Routes>
 
-          <button className="text-dark">Home</button>
-          <button className="text-dark" onClick={() => handleNavigation("Bomviewer", "/Bom")}>
+          <button className="text-dark btn-2" onClick={() => handleNavigation("Bomviewer", "/Bom")}>
   BOM
 </button>
-<button className="text-dark" onClick={() => handleNavigation("Planner", "/planner")}>
+<button className="text-dark btn-2 rounded" onClick={() => handleNavigation("Planner", "/planner")}>
   Planning
 </button>
-<button className="text-dark" onClick={() => handleNavigation("Operator", "/operator")}>
+<button className="text-dark btn-2 rounded" onClick={() => handleNavigation("Operator", "/operator")}>
   Operator
 </button>
-<button className="text-dark" onClick={() => handleNavigation("Inspection", "/inspection")}>
+<button className="text-dark btn-2 rounded" onClick={() => handleNavigation("Inspection", "/inspection")}>
   Inspection
 </button>
-<button className="text-dark" onClick={() => handleNavigation("Inspector", "/inspector")}>
+<button className="text-dark btn-2 rounded" onClick={() => handleNavigation("Inspector", "/inspector")}>
   Inspector
 </button>
           

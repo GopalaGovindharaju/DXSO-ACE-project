@@ -23,7 +23,7 @@ function Component3(){
 
     return(
         <div id="comp3">
-            <Banner3/>
+            <Banner3 name="Product Planning"/>
             <Data/>
             <Alloc/>
             <Table/>
