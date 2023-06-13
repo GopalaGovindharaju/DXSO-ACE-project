@@ -25,7 +25,6 @@ function Component3(){
         <div id="comp3">
             <Banner3/>
             <Data/>
-            <Alloc/>
             <Table/>
         </div>       
     );

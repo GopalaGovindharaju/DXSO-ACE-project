@@ -4,37 +4,66 @@ import './comp3.css';
 function Alloc(){
     return(
         <>
-            <div className="card" id="cb2">
-            <div className="card-header" style={{paddingRight: '40px', paddingLeft: '120px'}}>
-                <div className="form-group row">
-                <div className="row" style={{paddingBottom: '5px',justifyContent:'center'}}>
-                <div class="col-auto">
-                    <div class="input-group input-group-sm ">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text"style={{width:'180px',backgroundColor:'gold',borderColor:'black'}}>Available lead time</div>
-                    </div>
-                    <input type="time" class="form-control" style={{width:'80px',borderColor:'black'}} placeholder=""/>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="input-group input-group-sm text-dark" style={{justifyContent:'center'}}>
-                        <h2>Planner</h2>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="input-group input-group-sm ">
-                    <div class="input-group-prepend"><input type="text" class="input-group-text" style={{width:'120px',backgroundColor:'orange',borderColor:'black'}} placeholder="Pending"/></div>
-                    <div><input type="text" class="input-group-text" style={{width:'120px',backgroundColor:'green',borderColor:'black'}} placeholder="Completed"/></div>
-                    <div class="input-group-postpend"><input type="text" class="input-group-text" style={{width:'120px',backgroundColor:'blue',borderColor:'black'}} placeholder="Future"/></div>
-                    </div>   
-                </div>
+        <div className=" rounded border p-3" style={{height:'210px'}}>
+        <span className="row">
+        <span className="col-5">
+                        <div className="form-group row">
+                        <label className="col-sm-5 col-form-label form-control-sm" id="dl">Start Date</label>
+                        <div className="col-sm-5">
+                            <input type="date" className="form-control form-control-sm dtx" id="dtx" style={{width: '100px'}} placeholder='ACE0034'/>
+                        </div>
+                        </div>
 
-                </div>
+                        <div className="form-group row">
+                        <label className="col-sm-5 col-form-label form-control-sm" id="dl">End Date</label>
+                        <div className="col-sm-5">
+                            <input type="date" className="form-control form-control-sm dtx" id="dtx" style={{width: '100px'}} placeholder=" "/>
+                        </div>
+                        </div>
+
+                        <div className="form-group row">
+                        <label className="col-sm-5 col-form-label form-control-sm" id="dl">Hours Req</label>
+                        <div className="col-sm-5">
+                            <input type="date" className="form-control form-control-sm dtx" id="dtx" style={{width: '100px'}} placeholder=" "/>
+                        </div>
+                        </div>
+
+                        <div className="form-group row">
+                        <label className="col-sm-5 col-form-label form-control-sm" id="dl">Shift Req</label>
+                        <div className="col-sm-5">
+                            <input type="date" className="form-control form-control-sm dtx" id="dtx" style={{width: '100px'}} placeholder=" "/>
+                        </div>
+                        </div>
+
+                        <div className="form-group row">
+                        <label className="col-sm-5 col-form-label form-control-sm" id="dl">Machines</label>
+                        <div className="col-sm-5">
+                            <input type="date" className="form-control form-control-sm dtx" id="dtx" style={{width: '100px'}} placeholder=" "/>
+                        </div>
+                        </div>
+
+          </span>
+          <span className="col-4">
+          <div className="scrollable-column rounded border border-dark m-1" style={{ height: '170px', width:'320px'}}>
+                <table class="table table-border table-sm m-3">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Parts</th>
+                    <th scope="col">Allocated</th>
+                    <th scope="col">Remaining</th>
+                </tr>
+            </thead>
+            <tbody>
                 
-                
-                </div>
-            </div>
-            </div>
+            </tbody>
+           </table>
+
+          
+          </div>
+          </span>
+        </span>
+
+        </div>
         </>
     );
 }

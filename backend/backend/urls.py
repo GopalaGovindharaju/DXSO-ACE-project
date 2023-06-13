@@ -24,4 +24,5 @@ urlpatterns = [
     path('cust/', include ('Cust_AssetList.urls')),
     path('machine/', include('mach.urls')),
     path('login/', include('login.urls')),
+    path('planner/', include ('planner1.urls')),
 ]
