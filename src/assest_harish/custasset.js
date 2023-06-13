@@ -21,7 +21,7 @@ function Cust_asset() {
   const isAuthorized = localStorage.getItem("isAuthorized");
   const navigate = useNavigate();
   useEffect(() => {
-    if (isAuthorized !== "Customer") {
+    if (isAuthorized !== "Customer" && isAuthorized !== "Admin" && isAuthorized !== "Planner") {
       navigate("/"); 
     }
   }, []);

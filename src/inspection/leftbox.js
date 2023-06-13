@@ -10,7 +10,7 @@ function Leftcolumn(){
     const navigate = useNavigate();
     useEffect(() => {
       // Check if the user is authorized to access this component
-      if (isAuthorized !== "Inspection") {
+      if (isAuthorized !== "Inspection" && isAuthorized !== "Admin" && isAuthorized !== "Operator") {
         // Redirect to the appropriate route if not authorized
         navigate("/"); // Replace '/' with the desired route for unauthorized access
       }

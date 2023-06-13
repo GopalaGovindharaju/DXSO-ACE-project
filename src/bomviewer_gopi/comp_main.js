@@ -11,7 +11,7 @@ function Comp() {
   const isAuthorized = localStorage.getItem("isAuthorized");
   const navigate = useNavigate();
   useEffect(() => {
-    if (isAuthorized !== "Bomviewer") {
+    if (isAuthorized !== "Bomviewer" && isAuthorized !== "Planner" && isAuthorized !== "Admin") {
       navigate("/"); 
     }
   }, []);

@@ -16,7 +16,7 @@ function Table() {
 
   useEffect(() => {
     // Check if the user is authorized to access this component
-    if (isAuthorized !== "Operator") {
+    if (isAuthorized !== "Operator" && isAuthorized !== "Admin" && isAuthorized !== "Planner") {
       // Redirect to the appropriate route if not authorized
       navigate("/"); // Replace '/' with the desired route for unauthorized access
     }

@@ -24,7 +24,7 @@ function Machine() {
   const isAuthorized = localStorage.getItem("isAuthorized");
   const navigate = useNavigate();
   useEffect(() => {
-    if (isAuthorized !== "Machine") {
+    if (isAuthorized !== "Machine" && isAuthorized !== "Admin" && isAuthorized !== "Planner") {
       navigate("/"); 
     }
   }, []);

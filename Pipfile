@@ -12,6 +12,7 @@ openpyxl = "*"
 psycopg2 = "*"
 chardet = "*"
 axios = "*"
+bcrypt = "*"
 
 [dev-packages]
 
