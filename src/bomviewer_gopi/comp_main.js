@@ -1,9 +1,9 @@
-import React from "react";
-import Banner from "./Banner";
+import React from "react"
 import './component.css';
 import Details from "./details";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Banner3 from "../planner_chitra/banner3"
 
 
 
@@ -19,7 +19,7 @@ function Comp() {
   
   return (
     <div className="App">
-      <Banner/>
+      <Banner3 name="BomViewer"/>
       <Details/>  
      </div>
 

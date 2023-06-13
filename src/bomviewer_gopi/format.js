@@ -28,7 +28,7 @@ const MyComponent = () => {
       </OverlayTrigger>
       {showTable && (
         <div className="Format">
-          <table className="table table-bordered">
+          <table className="table table-bordered ">
           <thead className="table-header">
                 <tr>
                   <th>SL.NO</th>

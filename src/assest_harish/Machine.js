@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import {Route, Routes, Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import './comp1.css';
-import Logo from '../home_gokul/Images/Logo.png';
-import Disp from "../home_gokul/one";
-import './home.png';
+import Banner3 from "../planner_chitra/banner3";
 
 const initialRowState = {
   machineName: "",
@@ -23,6 +21,13 @@ const initialRowState = {
 };
 
 function Machine() {
+  const isAuthorized = localStorage.getItem("isAuthorized");
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (isAuthorized !== "Machine") {
+      navigate("/"); 
+    }
+  }, []);
   const [tableData, setTableData] = useState([]);
   const [editingRow, setEditingRow] = useState(null);
   const [newRow, setNewRow] = useState(initialRowState);
@@ -80,10 +85,6 @@ function Machine() {
       });
   };
 
-  const navigate = useNavigate();
-  const home = () => {
-    navigate("/");
-  };
 
   const renderTableRow = (data, index) => {
     const isEditing = editingRow === index;
@@ -304,17 +305,7 @@ function Machine() {
 
   return (
     <>
-    <Routes>
-        <Route path="/" component={Disp}></Route>
-    </Routes>
-    <div id="title1" className="row">
-    <div className="col-1">
-      <button className="home-button border transparent" onClick={home} style={{ marginLeft: '30px', marginTop: '15px',marginBottom:'15px', marginLeft:'15px' }}>
-        <img src={require('./home.png')} id="hbtn"/></button></div>
-        <div className="col-3"><img src={Logo} alt="" id="logo"/></div>
-        <div className="col">
-          <div className="row text-white" id="r3"><h3>Machine Asset List</h3></div></div>
-      </div>
+    <Banner3 name="Machine Inventory"/>
     <div className="container-fluid" style={{backgroundColor:' #a8d2fd'}}><br></br>
     <div style={{ overflow: 'auto', maxHeight: '500px', scrollbarWidth: 'thin' }}>
       <table className="table table-bordered">

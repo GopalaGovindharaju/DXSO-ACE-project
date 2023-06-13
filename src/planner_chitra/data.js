@@ -39,12 +39,12 @@ function Data() {
   };
 
   const fetchCustomerData = (orderNumber) => {
-
     axios
-      .get(`http://127.0.0.1:8000/planner/orderid/details/${orderNumber}`)
+      .get(`http://127.0.0.1:8000/planner/details/${orderNumber}/`)
       .then((response) => {
+        console.log(response.data )
         const orderData = response.data;
-        setCustomerName(orderData.customerName);
+        setCustomerName(orderData.name);
         setDeadline(orderData.deadline);
         setRequiredHours(orderData.requiredHours);
         setProductNumber(orderData.productNumber);
@@ -78,15 +78,15 @@ function Data() {
                     Order Number
                   </label>
                   <div className="col-sm-5">
-                  <select className="form-control form-control-sm dtx" id="dtx" style={{ width: "100px" }} value={orderNumber} onChange={handleOrderNumberChange}>
-  <option value="">Select Order Number</option>
-  {orderIDs.orderid &&
-    orderIDs.orderid.map((orderId) => (
-      <option key={orderId} value={orderId}>
-        {orderId}
-      </option>
-    ))}
-</select>
+                    <select className="form-control form-control-sm dtx" id="dtx" style={{ width: "100px" }} value={orderNumber} onChange={handleOrderNumberChange}>
+                      <option value="">Select Order Number</option>
+                      {orderIDs.orderid &&
+                        orderIDs.orderid.map((orderId) => (
+                          <option key={orderId} value={orderId}>
+                            {orderId}
+                          </option>
+                        ))}
+                    </select>
                   </div>
                 </div>
               </div>
@@ -162,7 +162,7 @@ function Data() {
                     className="col-sm-5 col-form-label form-control-sm"
                     id="dl"
                   >
-                    product Number 
+                    Product Number
                   </label>
                   <div className="col-sm-5">
                     <input

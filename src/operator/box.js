@@ -2,14 +2,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import CurrentTime from './time';
 import './time.css';
-import Banner2 from './Banner';
+import Banner3 from '../planner_chitra/banner3'
 
 
 function Box()
 {
     return(
         <div class="card boxcust">   
-            <Banner2/>
+            <Banner3 name="Operator"/>
             <div class="card-body custombody">
             <form class="needs-validation" novalidate> 
             <div class='row'>
@@ -51,19 +51,12 @@ function Box()
                 </div>
             </div>
 
-            <div class="col">
-                <div className="input-group input-group-sm">
-                    <label className="col-sm-7 col-form-label custlabel">Batch Control</label>
-                    <div className="col-sm-5">
-                        <input  type='number'  class="form-control custom-textfield0" placeholder=''/>
-                    </div>
-                </div>
-            </div>
+            
 
             <div class='col'>
                 <div class="form-group"> 
                 <div className="col">                
-                <button type="submit" className="btn btn-block subbtn text-white form-control" required style={{width:'100px',backgroundColor:'#5E7D7E'}}>Submit </button>
+                <button type="button" className="btn btn-block subbtn text-white form-control" required style={{width:'100px',backgroundColor:'#5E7D7E'}}>Save </button>
             </div>
             </div>
             </div>

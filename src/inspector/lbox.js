@@ -1,7 +1,7 @@
 import React from "react";
 import './Table.css'
 import Table from "./Table";
-import Banner4 from "./Banner";
+import Banner3 from '../planner_chitra/banner3'
 import Box from "./topbox";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -20,7 +20,7 @@ function Lbox() {
   
     return (
         <div class="container-fluid custom-cardbdy">
-            <Banner4/><br></br>
+            <Banner3 name="Inspector"/><br></br>
             <Box/><br></br>
             <Table/>
         </div>

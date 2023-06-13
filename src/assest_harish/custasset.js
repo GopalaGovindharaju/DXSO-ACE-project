@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Logo from '../home_gokul/Images/Logo.png';
-import home from './home.png';
 import './comp1.css';
-import { Route, Routes, Link, useNavigate } from "react-router-dom";
-import Disp from "../home_gokul/one";
+import {useNavigate } from "react-router-dom";
+import Banner3 from "../planner_chitra/banner3";
 
 const initialRowState = {
   name: "",
@@ -20,6 +18,13 @@ const initialRowState = {
 
 
 function Cust_asset() {
+  const isAuthorized = localStorage.getItem("isAuthorized");
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (isAuthorized !== "Customer") {
+      navigate("/"); 
+    }
+  }, []);
   const [tableData, setTableData] = useState([]);
   const [editingRow, setEditingRow] = useState(null);
   const [newRow, setNewRow] = useState(initialRowState);
@@ -193,24 +198,9 @@ function Cust_asset() {
     );
   };
 
-  const navigate = useNavigate();
-  const home = () => {
-    navigate("/");
-  };
-
   return (
     <>
-    <Routes>
-        <Route path="/" component={Disp}></Route>
-    </Routes>
-    <div id="title1" className="row" >
-    <div className="col-1">
-      <button className="home-button border transparent" onClick={home} style={{ marginLeft: '30px', marginTop: '15px',marginBottom:'15px', marginLeft:'15px' }}>
-        <img src={require('./home.png')} id="hbtn"/></button></div>
-        <div className="col"><img src={Logo} alt="" id="logo"/></div>
-        <div className="col">
-          <div className="row text-white" id="r3"><h3>Customer Order List</h3></div></div>
-      </div>
+    <Banner3 name="Customer List"/>
     <center id="mach"><br></br>
       <table className="table table-sm table-bordered w-75">
         <thead className="thead-light" style={{ alignItems: 'center' }}>

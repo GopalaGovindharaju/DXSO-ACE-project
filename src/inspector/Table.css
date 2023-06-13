@@ -4,19 +4,28 @@
     font-weight: bold;
   }
   
-  #gg {
+  #gg 
+  {
     width: 1100px;
-    table-layout: fixed; 
+  }
+  #sno{
+    width: 100px;
+  }
+  #notes
+  {
+    width: 300px;
   }
 
   #commentstext{
-    width: 70px;
+    width: 100px;
     height: 300px;
     border: none;
   }
 
   .custom-table {
     background-color: #5E7D7E;
+    
+
   }
 
   .tb1 {
@@ -28,7 +37,7 @@
   }
   
   #finalsubmit {
-    margin-left: 500px;
+    margin:center;
   }
   
   table tr:nth-child(even) {

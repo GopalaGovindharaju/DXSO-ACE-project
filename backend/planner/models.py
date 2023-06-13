@@ -12,6 +12,9 @@ column_types = df.dtypes.tolist()
 class BomDetail(models.Model):
     pass
 
+    class Meta:
+        managed = False
+
     def __str__(self):
         return self.Part_Name
     
