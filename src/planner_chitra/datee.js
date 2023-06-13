@@ -8,7 +8,11 @@ const CurrentDate = () => {
     const formattedDate = currentDate.toDateString();
   
     // Render the formatted date
-    return <div className="current-date"><h5 style={{paddingRight: '40px'}}>{formattedDate}</h5></div>;
+    return(
+      <div className="row" id="current-date">
+        <p style={{paddingRight: '40px'}}>{formattedDate}</p>
+        </div>  
+    ); 
   };
   
 
