@@ -4,6 +4,12 @@
     font-weight: bold;
   }
   
+  .custlabel{
+    text-align: right;
+    padding-right: 6px;
+    padding-top:-20px;
+  }
+  
   #gg 
   {
     width: 1100px;
@@ -24,8 +30,6 @@
 
   .custom-table {
     background-color: #5E7D7E;
-    
-
   }
 
   .tb1 {
@@ -53,6 +57,9 @@
     border-color: black;
   }
   
+  .table th{
+    background-color: rgba(224, 232, 245, 0.877);
+  }
   .table th,
   table tr,
   table td {
@@ -60,7 +67,7 @@
   }
 
   .custom-cardbdy{
-    background-color: #b7c7d0;
+    background-color: #a8d2fd;
   }
   
   .custlabel4{
@@ -74,4 +81,11 @@
 
   .insrow{
     padding: -10px;
+  }
+
+  .custom-cardbdy1{
+    margin-top: -20px;
+    padding-right: -25px;
+    padding-left: 10px;
+    margin-bottom: -50px;
   }

@@ -95,7 +95,7 @@ function Table(){
         </tbody>
     </table><br></br>
     </center>
-    <center><button type="submit" class="submit-button rounded">Submit</button></center>
+    <center><button type="submit" class="btn btn-primary btn-sm submit-button rounded">Submit</button></center>
 
 
 </div>

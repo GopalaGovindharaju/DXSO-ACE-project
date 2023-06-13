@@ -29,7 +29,7 @@ function Box(){
 
     <div className="col">
         <div className="input-group input-group-sm">
-        <label className="col-sm-6 col-form-label custlabel">Shift</label>
+        <label className="col-sm-6 col-form-label custlabel" style={{textAlign:'right'}}>Shift</label>
         <div class="col-sm-6">
         <select className="form-control custom-textfield0" required >
         <option value="morning">morning</option>
@@ -80,7 +80,7 @@ function Box(){
 
     <div className="col">
     <div class="col-sm-15"><center>
-            <button type="submit" className="btn btn-block text-white form-control " required style={{width:'100px',backgroundColor:'#5E7D7E'}}>Submit </button>
+            <button type="submit" className="btn btn-primary text-white form-control " required style={{width:'100px'}}>Submit </button>
         </center></div>               
     </div>   
 

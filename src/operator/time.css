@@ -64,11 +64,11 @@
   background-color:'#5E7D7E';
 }
 .boxcust{
-  background-color: #E0E2E5;
+  background-color:  #a8d2fd;
 }
 
 #customcard{
-  background-color: #5E7D7E;
+  background-color: #a8d2fd;
 }
 
 .current-date {
@@ -100,4 +100,8 @@
   padding-right: 0px;
   margin-left: 0px;
   margin-right: 0px
+}
+
+.custlabel{
+  padding-right: 30px;
 }
