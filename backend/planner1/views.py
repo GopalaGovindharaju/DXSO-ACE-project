@@ -20,3 +20,4 @@ def get_details(request, order_number):
         return Response(serializer.data)
     except CustomerAsset.DoesNotExist:
         return Response({'error': 'Customer not found'})
+

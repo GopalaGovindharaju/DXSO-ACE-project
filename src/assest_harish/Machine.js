@@ -307,7 +307,7 @@ function Machine() {
     <>
     <Banner3 name="Machine Inventory"/>
     <div className="container-fluid" style={{backgroundColor:' #a8d2fd'}}><br></br>
-    <div style={{ overflow: 'auto', maxHeight: '500px', scrollbarWidth: 'thin', scrollbarColor: 'transparent transparent' }}>
+    <div style={{ overflow: 'auto', maxHeight: '500px', scrollbarWidth: 'thin' }}>
       <table className="table table-bordered">
       <thead>
         <tr>
@@ -482,7 +482,7 @@ function Machine() {
           )}
         </tbody>
       </table>
-      </div>
+      </div><br></br>
       <div className="row">
         <div className="col-md-12">
           <button
