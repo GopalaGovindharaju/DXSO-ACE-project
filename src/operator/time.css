@@ -29,6 +29,7 @@
 
   .customtf{
     border-color: black;
+    width:200px;
   }
   .custom-bg3
   {
@@ -47,6 +48,8 @@
 #cuscol1{
   text-align: left;
   margin-left: 100px;
+  width: 200px;
+
 }
 
 .custable{
