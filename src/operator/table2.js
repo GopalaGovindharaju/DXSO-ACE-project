@@ -1,9 +1,11 @@
 import React from "react";
-import './table2.css';
-import JobDetailsForm from './jobd.js';
+import "./table2.css";
+import JobDetailsForm from "./jobd.js";
 import { useState, useEffect } from "react";
 import Box from "./box";
 import { useNavigate } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 function handleInspectionButtonClick(navigate) {
   navigate("/inspection");
 }
@@ -20,23 +22,24 @@ function Table() {
     }
   }, []);
 
+  const [showJobDetails, setShowJobDetails] = useState(false);
 
-  
-    const [showJobDetails, setShowJobDetails] = useState(false);
-  
-    const handleJobDetailsButtonClick = () => {
-      setShowJobDetails(true);
-    };
-  
-    const handleViewUpdateJobButtonClick = () => {
-      setShowJobDetails(false);
-    };
-  
-    return (
-      <div className="App">
-        <div><Box/></div>
-  
-        <header className="tab">
+  const handleJobDetailsButtonClick = () => {
+    setShowJobDetails(true);
+  };
+
+  const handleViewUpdateJobButtonClick = () => {
+    setShowJobDetails(false);
+  };
+
+  return (
+    <div className="App">
+      <div>
+        <Box />
+      </div>
+
+      <header className="tab">
+        <div className="scrollable-column rounded border m-1" style={{ height: "350px", overflow: "auto" }}>
           <table className="table" table border="1">
             <thead className="table-header">
               <tr>
@@ -166,12 +169,12 @@ function Table() {
               </tr>
             </tbody>
           </table>
-        </header>
-  
-        {showJobDetails ? <JobDetailsForm onButtonClick={handleViewUpdateJobButtonClick} /> : null}
-      </div>
-    );
-  }
-  
-  export default Table;
-  
+        </div>
+      </header>
+
+      {showJobDetails ? <JobDetailsForm onButtonClick={handleViewUpdateJobButtonClick} /> : null}
+    </div>
+  );
+}
+
+export default Table;

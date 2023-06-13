@@ -14,7 +14,8 @@ function Table() {
 
 
     return(
-        <div class="container">
+        <div class="container-fluid">
+            <center>
           
           <table class="table table-bordered table-sm" id="gg">
                 <thead class="custom-table text-dark">
@@ -35,7 +36,7 @@ function Table() {
                 </thead>
                 <tbody>
                 <tr>
-                    <td scope="row">1</td>
+                    <td scope="row" id="sno">1</td>
                     <td>L</td>
                     <td>3</td>
                     <td>3</td>
@@ -52,7 +53,7 @@ function Table() {
                     <td contentEditable="true"><CheckboxExample/></td>
                     <td rowSpan={5}><ToggleButton/></td>
                     <td rowSpan={5}><input type="text" class="tb2" id="commentstext"></input></td>
-                    <td contentEditable="true"></td>
+                    <td contentEditable="true"id="notes"></td>
                 </tr>
 
                 <tr>
@@ -127,6 +128,7 @@ function Table() {
                 </tr>
                 </tbody>    
                 </table>  
+                </center>
         <br></br><center>
         <button id="finalsubmit" class="btn text-white rounded" onClick={handleSubmitButtonClick} style={{backgroundColor: '#5E7D7E'}}>Submit</button>
         {showAnotherTab ?  <Table onButtonClick={handleSubmitButtonClick} /> : null}

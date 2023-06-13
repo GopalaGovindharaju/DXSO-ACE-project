@@ -13,7 +13,7 @@ function JobDetailsForm(props) {
     return(
          <div>
        <div class="card w=-50" id="customcard">
-  <h5 class="card-header custom-bg" >Job Details</h5>
+  <h3 class="card-header custom-bg" >Job Details</h3>
   <div class="card-body custom-bg1">
     <center>
   <form class="needs-validation" novalidate> 
@@ -89,11 +89,11 @@ function JobDetailsForm(props) {
 </div>
     <center>
     <label htmlFor="urgent" id="custab1">Urgent work</label>
-    <input type="text" id="urgent" name="urgent" className="input-field customtf border border-dark rounded " /><br></br><br></br>
+    <input type="text" id="urgent" name="urgent" className="input-field border border-dark rounded " style={{width: '200px'}}/><br></br><br></br>
 </center><br></br>
 <center>
     <label htmlFor="batch" class="custab">Balance</label>
-    <input type="text" id="balance" name="balance" className="input-field customtf border border-dark rounded cuscol" />
+    <input type="text" id="balance" name="balance" className="input-field border border-dark rounded " style={{width: '200px'}} />
 </center>
         </form>
       </center>
