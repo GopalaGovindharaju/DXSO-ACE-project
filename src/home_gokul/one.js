@@ -208,6 +208,12 @@ function Disp() {
 <button className="text-dark btn-2 rounded" onClick={() => handleNavigation("Inspector", "/inspector")}>
   Inspector
 </button>
+<button className="text-dark btn-2 rounded" onClick={() => handleNavigation("Machine", "/mach")}>
+  Machine
+</button>
+<button className="text-dark btn-2 rounded" onClick={() => handleNavigation("Customer", "/cust_assest")}>
+  Customer
+</button>
           
 
           {showLoginPopup ? (
