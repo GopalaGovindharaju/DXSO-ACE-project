@@ -12,12 +12,21 @@ def get_orderid(request):
     return Response({'orderid': orderid})
 
 @api_view(['GET'])
-def get_product_numbers(request):
-    product_name = request.GET.get('productName')
+def get_details(request):
     orderid = request.GET.get('orderid')
-    # Add your logic here to fetch the product numbers based on the product name and customer name from your database
-    products = CustomerAsset.objects.filter(productName=product_name, name=orderid)
-    product_numbers = products.values_list('productNumber', flat=True)
-    product_numbers = list(product_numbers)
 
-    return Response({'productNumbers': product_numbers})
+    # Fetch the row corresponding to the order ID from your database
+    order = YourOrderModel.objects.filter(orderid=orderid).first()
+
+    if order:
+        # Assuming your order model has the necessary fields, modify the response accordingly
+        response_data = {
+            'customerName': order.customerName,
+            'deadline': order.deadline,
+            'requiredHours': order.requiredHours,
+            'partNumber': order.partNumber,
+            'quantity': order.quantity
+        }
+        return Response(response_data)
+    else:
+        return Response({'error': 'Order not found'}, status=status.HTTP_404_NOT_FOUND)
