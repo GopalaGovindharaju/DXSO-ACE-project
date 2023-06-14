@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('planner', '0002_delete_orderdetail'),
+        ('bomviewer', '0002_delete_orderdetail'),
     ]
 
     operations = [

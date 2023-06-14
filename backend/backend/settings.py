@@ -37,12 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'planner',
+    'planner1',
     'rest_framework',
     'corsheaders',
     'Cust_AssetList',
     'mach',
     'login',
+    'bomviewer',
 ]
 
 MIDDLEWARE = [
