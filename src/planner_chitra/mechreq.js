@@ -2,8 +2,8 @@ import React from "react"
 
 function Mechreq(){
     return(
-        <div className="scrollable-column rounded border border-dark p-3" >
-                <table class="table table-border table-sm " >
+        <div className="scrollable-column rounded border border-dark p-3"  style={{backgroundColor:'rgba(224, 232, 245, 0.877)'}} >
+                <table class="table table-bordered table-sm " id="talloc" >
             <thead class="thead-light">
                 <tr>
                     <th scope="col">Machines Required</th>
