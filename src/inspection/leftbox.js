@@ -23,7 +23,7 @@ function Leftcolumn(){
        
             <form class="needs-validation" noValidate>
 
-            <div class="row insrow">
+    <div class="row insrow">
     
 
     <div class="col">
@@ -97,11 +97,11 @@ function Leftcolumn(){
 
     <div className="col">
     <div class="col-sm-15"><center>
-            <button type="submit" className="btn btn-block text-white form-control " required style={{width:'100px',backgroundColor:'#5E7D7E'}}>Submit </button>
+            <button type="submit" className="btn btn-primary btn-sm btn-block text-white form-control " required style={{width:'100px'}}>Submit </button>
         </center></div>               
     </div>   
 
-    </div><br></br>
+    </div>
 
 
            

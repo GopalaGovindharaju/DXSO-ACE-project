@@ -8,7 +8,7 @@ import Icon from './insp_icon.js'
 function Banner() {
 
   return (<> 
-    
+      <div className='container-fluid w-100'>
       <div className='row bg-gradient custom-font'>
             <div className='col-3'>
             <div class="d-flex flex-row">
@@ -30,7 +30,7 @@ function Banner() {
 
             </div>
 
-
+            </div>
     </div></>
    
       

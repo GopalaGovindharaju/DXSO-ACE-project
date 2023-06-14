@@ -39,7 +39,7 @@ function Table() {
       </div>
 
       <header className="tab">
-        <div className="scrollable-column rounded border m-1" style={{ height: "350px", overflow: "auto" }}>
+        <div className="scrollable-column rounded border m-3" style={{ height: "500px", overflow: "auto" }}>
           <table className="table" table border="1">
             <thead className="table-header">
               <tr>
@@ -76,10 +76,10 @@ function Table() {
                 <td>1</td>
                 <td>1</td>
                 <td>
-                  <input type="button" value="Inspection" class="text-white" id="bl" onClick={() => handleInspectionButtonClick(navigate)}/>
+                  <input type="button" value="Inspection" class="bg-primary border w-100 text-white" id="bl" onClick={() => handleInspectionButtonClick(navigate)}/>
                 </td>
                 <td>
-                  <input type="button" value="View/Update job" class="text-white" id="bl" onClick={handleJobDetailsButtonClick} />
+                  <input type="button" value="View/Update job" class="bg-primary border w-100 text-white" id="bl" onClick={handleJobDetailsButtonClick} />
                 </td>
               </tr>
               <tr>
@@ -95,9 +95,9 @@ function Table() {
                 <td>1</td>
                 <td>1</td>
                 <td>
-                  <input type="button" value="Inspection" class="text-white" id="bl" onClick={() => handleInspectionButtonClick(navigate)}/>
+                  <input type="button" value="Inspection" class="bg-primary border w-100 text-white" id="bl" onClick={() => handleInspectionButtonClick(navigate)}/>
                 </td>
-                <td><input type="button" value="View/Update job" class="text-white" id="bl" onClick={handleJobDetailsButtonClick}></input></td>
+                <td><input type="button" value="View/Update job" class="bg-primary border w-100 text-white" id="bl" onClick={handleJobDetailsButtonClick}></input></td>
               </tr>
               <tr>
                 <td>3</td>
@@ -112,9 +112,9 @@ function Table() {
                 <td>1</td>
                 <td>1</td>
                 <td>
-                  <input type="button" value="Inspection"class="text-white" id="bl" onClick={() => handleInspectionButtonClick(navigate)}/>
+                  <input type="button" value="Inspection"class="bg-primary border w-100 text-white" id="bl" onClick={() => handleInspectionButtonClick(navigate)}/>
                 </td>
-                <td><input type="button" value="View/Update job" class="text-white" id="bl" onClick={handleJobDetailsButtonClick}></input></td>
+                <td><input type="button" value="View/Update job" class="bg-primary border w-100 text-white" id="bl" onClick={handleJobDetailsButtonClick}></input></td>
               </tr>
               <tr>
                 <td>4</td>
@@ -129,9 +129,9 @@ function Table() {
                 <td>1</td>
                 <td>1</td>
                 <td>
-                  <input type="button" value="Inspection" class="text-white" id="bl" onClick={() => handleInspectionButtonClick(navigate)}/>
+                  <input type="button" value="Inspection" class="bg-primary border w-100 text-white" id="bl" onClick={() => handleInspectionButtonClick(navigate)}/>
                 </td>
-                <td><input type="button" value="View/Update job" class="text-white" id="bl" onClick={handleJobDetailsButtonClick}></input></td>
+                <td><input type="button" value="View/Update job" class="bg-primary border w-100 text-white" id="bl" onClick={handleJobDetailsButtonClick}></input></td>
               </tr>
               <tr>
                 <td>5</td>
@@ -146,9 +146,9 @@ function Table() {
                 <td>1</td>
                 <td>1</td>
                 <td>
-                  <input type="button" value="Inspection" class="text-white" id="bl" onClick={() => handleInspectionButtonClick(navigate)}/>
+                  <input type="button" value="Inspection" class="bg-primary border w-100 text-white" id="bl" onClick={() => handleInspectionButtonClick(navigate)}/>
                 </td>
-                <td><input type="button" value="View/Update job" class="text-white" id="bl" onClick={handleJobDetailsButtonClick}></input></td>
+                <td><input type="button" value="View/Update job" class="bg-primary border w-100 text-white" id="bl" onClick={handleJobDetailsButtonClick}></input></td>
               </tr>
               <tr>
                 <td>6</td>
@@ -163,9 +163,9 @@ function Table() {
                 <td>1</td>
                 <td>1</td>
                 <td>
-                  <input type="button" value="Inspection" class="text-white" id="bl" onClick={() => handleInspectionButtonClick(navigate)}/>
+                  <input type="button" value="Inspection" class="bg-primary border w-100 text-white" id="bl" onClick={() => handleInspectionButtonClick(navigate)}/>
                 </td>
-                <td><input type="button" value="View/Update job" class="text-white" id="bl" onClick={handleJobDetailsButtonClick}></input></td>
+                <td><input type="button" value="View/Update job" class="bg-primary border w-100 text-white" id="bl" onClick={handleJobDetailsButtonClick}></input></td>
               </tr>
             </tbody>
           </table>

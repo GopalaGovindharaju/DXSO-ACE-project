@@ -15,7 +15,7 @@ function JobDetailsForm(props) {
        <div class="card w=-50" id="customcard">
   <h3 class="card-header custom-bg" >Job Details</h3>
   <div class="card-body custom-bg1">
-    <center>
+    <center> 
   <form class="needs-validation" novalidate> 
     <div class='row'>
       

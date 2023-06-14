@@ -1,6 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import CurrentTime from './time';
 import './time.css';
 import Banner3 from '../planner_chitra/banner3'
 
@@ -56,7 +55,7 @@ function Box()
             <div class='col'>
                 <div class="form-group"> 
                 <div className="col">                
-                <button type="button" className="btn btn-block subbtn text-white form-control" required style={{width:'100px',backgroundColor:'#5E7D7E'}}>Save </button>
+                <button type="button" className="btn btn-primary btn-sm btn-block subbtn text-white form-control" required style={{width:'100px'}}>Save </button>
             </div>
             </div>
             </div>
