@@ -12,7 +12,7 @@ function Tabs() {
   };
 
   return (
-    <div className="container-fluid" style={{marginTop:"80px"}}>
+    <div className="container-fluid" style={{marginTop:"80px", Color:' #a8d2fd'}}>
       <div className="bloc-tabs" id="tabsback">
         <button
           className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
