@@ -39,6 +39,7 @@
   
   #banner{
     background-color:dodgerblue;
+    background: linear-gradient(dodgerblue);
   }
 
   #cb{
@@ -125,6 +126,15 @@
   color: white;
 }
 
-#plancol1{
-  
+#talloc{
+  border-style:groove;
+}
+
+#tabsback{
+  border-color: #a8d2fd;
+  background-color:  #a8d2fd;
+}
+
+#comp3{
+  background-color:  #a8d2fd;
 }
