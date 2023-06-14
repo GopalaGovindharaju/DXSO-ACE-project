@@ -86,3 +86,12 @@
   .active-content {
     display: block;
   }
+  .allocation-table-container {
+    height: 300px; /* Set the desired height for the scrollbar container */
+    overflow: auto;
+  }
+  
+  .allocation-table-scrollbar {
+    padding-right: 16px; /* Add a bit of padding to avoid overlapping with the scrollbar */
+  }
+  

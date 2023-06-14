@@ -13,6 +13,11 @@ def get_mach(requests):
     serial = MachineSerializer(data,many=True)
     return Response(serial.data)
 
+@api_view(['GET'])
+def get_mach_name(request):
+    machines = Machine_asset.objects.filter(status='Working')
+    machine_names = [machine.machineName for machine in machines]
+    return Response(machine_names)
 
 @api_view(['POST'])
 def post_mach(request):
