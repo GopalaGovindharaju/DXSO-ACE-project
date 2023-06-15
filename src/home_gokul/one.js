@@ -8,7 +8,6 @@ import Leftbox from "../inspection/leftbox";
 import Table from "../operator/table2";
 import Lbox from "../inspector/lbox";
 import axios from "axios";
-import { Alert } from "react-bootstrap";
 
 function Disp() {
   const navigate = useNavigate();

@@ -321,8 +321,8 @@ const Calendar = () => {
                       />
                     </div>
                     
-                    <button type="button" class="btn btn-primary rounded custom-b1">submit Allocation</button>
-                    <button type="button" class="btn btn-primary rounded custom-b2">Edit Allocation</button>
+                    <button type="button" className="btn btn-primary rounded custom-b1">submit Allocation</button>
+                    <button type="button" className="btn btn-primary rounded custom-b2">Edit Allocation</button>
                     
                   </div>
                 </div>

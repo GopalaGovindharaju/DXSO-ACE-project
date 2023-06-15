@@ -17,7 +17,7 @@ function CurrentTime() {
 
   return (
     <div className="current-time-container" id="time">
-      <h5 className="current-time-text"> {currentTime}</h5>
+      <h5 className="current-time-text text-dark"> {currentTime}</h5>
     </div>
   );
 }

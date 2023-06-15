@@ -8,7 +8,6 @@ import MyComponent from "./format";
 function Browse({ handleLoadButtonClick }) {
   const [excelData, setExcelData] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
-  const [editCellValue, setEditCellValue] = useState("");
   const [displayedRows, setDisplayedRows] = useState(20);
   const fileInputRef = useRef(null);
 

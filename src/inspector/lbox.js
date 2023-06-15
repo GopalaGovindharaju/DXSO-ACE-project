@@ -19,7 +19,7 @@ function Lbox() {
 
   
     return (
-        <div class="container-fluid custom-cardbdy">
+        <div className="container-fluid custom-cardbdy">
             <Banner3 name="Inspector"/><br></br>
             <Box/><br></br>
             <Table/>

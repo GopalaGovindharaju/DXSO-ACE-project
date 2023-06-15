@@ -1,7 +1,6 @@
 import React from "react";
 import Banner3 from './banner3';
 import Data from "./data";
-import Alloc from "./workallocation";
 import Table from "./table";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";

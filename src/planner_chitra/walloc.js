@@ -5,8 +5,8 @@ function Walloc(){
     return(
         <>
         <div className="scrollable-column rounded border p-3" >
-                <table class="table table-border table-sm " >
-            <thead class="thead-light">
+                <table className="table table-border table-sm " >
+            <thead className="thead-light">
                 <tr>
                     <th scope="col">Material</th>
                     <th scope="col">Required</th>

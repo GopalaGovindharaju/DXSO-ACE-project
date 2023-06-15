@@ -37,7 +37,7 @@ function DataDisplay() {
 
   return (
     <div>
-      <button class="btn text-white btn-sm btn-block" style={{width: '80px', backgroundColor:'#5E7D7E'}} onClick={handleAddData}>ADD</button>
+      <button className="btn text-white btn-sm btn-block" style={{width: '80px', backgroundColor:'#5E7D7E'}} onClick={handleAddData}>ADD</button>
       {showSuccessMsg && <p>Data added successfully!</p>}
       {showErrorMsg && <p>Fill the required columns.</p>}
       <ul>

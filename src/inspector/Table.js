@@ -14,11 +14,11 @@ function Table() {
 
 
     return(
-        <div class="container-fluid">
+        <div className="container-fluid">
             <center>
           
-          <table class="table table-bordered table-sm" id="gg">
-                <thead class="custom-table text-dark">
+          <table className="table table-bordered table-sm" id="gg">
+                <thead className="custom-table text-dark">
                 <tr>
                     <th scope="col">Serial No</th>
                     <th scope="col">BOM Specification</th>
@@ -47,12 +47,12 @@ function Table() {
                         <option value="Option 3">protact</option>
                     </select>   
                     </td>
-                    <td rowSpan={5}><input type="time" class="tb1" id="tb"></input></td>
-                    <td rowSpan={5}><input type="time" class="tb1" id="tb"></input></td>
+                    <td rowSpan={5}><input type="time" className="tb1" id="tb"></input></td>
+                    <td rowSpan={5}><input type="time" className="tb1" id="tb"></input></td>
                     <td contentEditable="true">3</td>
                     <td contentEditable="true"><CheckboxExample/></td>
                     <td rowSpan={5}><ToggleButton/></td>
-                    <td rowSpan={5}><input type="text" class="tb2" id="commentstext"></input></td>
+                    <td rowSpan={5}><input type="text" className="tb2" id="commentstext"></input></td>
                     <td contentEditable="true"id="notes"></td>
                 </tr>
 
@@ -130,7 +130,7 @@ function Table() {
                 </table>  
                 </center>
         <br></br><center>
-        <button id="finalsubmit" class="btn btn-primary text-white rounded" onClick={handleSubmitButtonClick}>Submit</button>
+        <button id="finalsubmit" className="btn btn-primary text-white rounded" onClick={handleSubmitButtonClick}>Submit</button>
         {showAnotherTab ?  <Table onButtonClick={handleSubmitButtonClick} /> : null}
         <br></br></center>
     </div>

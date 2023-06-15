@@ -17,7 +17,7 @@ function Table(){
     setIsCollapsed(!isCollapsed);
   };
     return(
-        <div class="container-fluid border border-dark" style={{marginTop:'-50px'}}>
+        <div className="container-fluid border border-dark" style={{marginTop:'-50px'}}>
           <CollapsibleColumnsTable/>
       </div>
 

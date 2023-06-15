@@ -2,9 +2,9 @@ import React from "react";
 
 function Table(){
     return(
-        <div class="container-fluid">
+        <div className="container-fluid">
            <center>
-<table class="customtable table-bordered">
+<table className="customtable table-bordered">
         <thead>
             <tr>
                 <th>Serial Number</th>
@@ -95,7 +95,7 @@ function Table(){
         </tbody>
     </table><br></br>
     </center>
-    <center><button type="submit" class="btn btn-primary btn-sm submit-button rounded">Submit</button></center>
+    <center><button type="submit" className="btn btn-primary btn-sm submit-button rounded">Submit</button></center>
 
 
 </div>

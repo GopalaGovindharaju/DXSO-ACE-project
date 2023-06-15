@@ -3,8 +3,8 @@ import React from "react"
 function Col(){
     return(
         <div className="scrollable-column rounded  m-1" style={{ height: '380px'}}>
-                <table class="table table-bordered table-sm m-3" id="talloc">
-            <thead class="thead-light">
+                <table className="table table-bordered table-sm m-3" id="talloc">
+            <thead className="thead-light">
                 <tr>
                     <th scope="col">Parts</th>
                     <th scope="col">Req Quantity /piece</th>

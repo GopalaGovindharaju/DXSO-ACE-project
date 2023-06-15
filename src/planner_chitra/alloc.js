@@ -11,6 +11,8 @@ function Tabs() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
+
+  
   useEffect(() => {
     // Fetch machine names from the backend
     axios
@@ -41,10 +43,16 @@ function Tabs() {
     return `${day}/${month}/${year}`;
   };
 
+  const handleInput = (event) => {
+    const inputValue = event.target.textContent;
+    const validatedValue = inputValue.replace(/[^0-9-]/g, "");
+    event.target.textContent = validatedValue;
+  };
+
   const generateTables = () => {
     const tables = [];
     const currentDate = new Date(startDate);
-
+  
     while (currentDate <= new Date(endDate)) {
       const formattedDate = currentDate.toISOString().split("T")[0];
       const table = (
@@ -72,34 +80,35 @@ function Tabs() {
               <th scope="col">{formatDate(formattedDate)}</th>
               <th scope="col">morning</th>
               {machines.map((_, index) => (
-                <td key={index} scope="col"></td>
+                <td key={index} scope="col" contentEditable="true" onInput={handleInput}></td>
               ))}
             </tr>
             <tr>
               <th scope="col">{formatDate(formattedDate)}</th>
               <th scope="col">afternoon</th>
               {machines.map((_, index) => (
-                <td key={index} scope="col"></td>
+                <td key={index} scope="col" contentEditable="true" onInput={handleInput}></td>
               ))}
             </tr>
             <tr>
               <th scope="col">{formatDate(formattedDate)}</th>
               <th scope="col">evening</th>
               {machines.map((_, index) => (
-                <td key={index} scope="col"></td>
+                <td key={index} scope="col" contentEditable="true" onInput={handleInput}></td>
               ))}
             </tr>
           </tbody>
         </table>
       );
-
+  
       tables.push(table);
-
+  
       currentDate.setDate(currentDate.getDate() + 1);
     }
-
+  
     return tables;
   };
+  
 
   return (
     <div className="container-fluid" style={{ marginTop: "80px", color: "#a8d2fd" }}>
@@ -229,6 +238,7 @@ function Tabs() {
             {generateTables()}
           </div>
         </div>
+        <button type="button" className="btn btn-primary btn-sm">Submit Allocation</button>
         </div>
       </div>
     </div>
