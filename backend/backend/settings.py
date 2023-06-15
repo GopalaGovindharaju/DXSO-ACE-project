@@ -86,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'plannerdb',
         'USER': 'postgres',
-        'PASSWORD': 'yourDbPassword',
+        'PASSWORD': 'Gopala@789$link',
         'HOST': 'localhost',
         'PORT': '5432',
     }

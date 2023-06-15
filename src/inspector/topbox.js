@@ -50,25 +50,7 @@ function Box(){
 
     </div><br></br>
     <div className="row insrow2 ">
-
-
     <div className="col">
-        <div className="input-group input-group-sm">
-        <label className="col-sm-6 col-form-label custlabel">Start--Tool Setting Time</label>
-        <div className="col-sm-6">
-        <input type='time' className="form-control custom-textfield0" placeholder='AC-40'/>
-        </div>
-        </div>
-    </div>
-    <div className="col">
-<div className="input-group input-group-sm">
-<label className="col-sm-6 col-form-label custlabel">End--Tool Setting Time</label>
-<div className="col-sm-6">
-<input type='time' className="form-control custom-textfield0" placeholder='AC-40'/>
-</div>
-</div>
-</div>
-<div className="col">
 <div className="input-group input-group-sm">
 <label className="col-sm-6 col-form-label custlabel">Part Number</label>
 <div className="col-sm-6">
@@ -76,6 +58,22 @@ function Box(){
 </div>
 </div>
 </div>
+
+    <div className="col">
+        <div className="input-group input-group-sm">
+        
+        <div className="col-sm-6">
+        
+        </div>
+        </div>
+    </div>
+    <div className="col">
+<div className="input-group input-group-sm">
+<div className="col-sm-6">
+</div>
+</div>
+</div>
+
     
 
     <div className="col">

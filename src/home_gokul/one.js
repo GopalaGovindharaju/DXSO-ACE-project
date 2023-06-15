@@ -288,10 +288,10 @@ function Disp() {
   Customer
 </button>
 <button className="text-dark btn-2 rounded" onClick={handleNavigationInspection}>
-  Inspection
+  QA
 </button>
 <button className="text-dark btn-2 rounded" onClick={handleNavigationInspector}>
-  Inspector
+  QC
 </button>
 
           

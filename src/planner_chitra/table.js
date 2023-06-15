@@ -1,13 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import { Collapse } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './comp3.css'
-
-import Calendar from "./calendar";
-
-import Alloc from "./workallocation";
-import Walloc from "./walloc";
 import CollapsibleColumnsTable from "./alloc";
 
 function Table(){

@@ -4,6 +4,7 @@ import "./alloc.css";
 import Mat from "./material";
 import Col from "./column.js";
 import Mechreq from "./mechreq";
+import { event } from "jquery";
 
 function Tabs() {
   const [toggleState, setToggleState] = useState(1);
@@ -43,10 +44,16 @@ function Tabs() {
     return `${day}/${month}/${year}`;
   };
 
-  const handleInput = (event) => {
-    const inputValue = event.target.textContent;
-    const validatedValue = inputValue.replace(/[^0-9-]/g, "");
-    event.target.textContent = validatedValue;
+  const handleDropdownChange = (event) => {
+    // Handle the dropdown change event
+    const selectedValue = event.target.value;
+    // Perform necessary actions with the selected value
+  };
+  
+  const handleNumberChange = (event) => {
+    // Handle the number field change event
+    const enteredNumber = event.target.value;
+    // Perform necessary actions with the entered number
   };
 
   const generateTables = () => {
@@ -70,31 +77,54 @@ function Tabs() {
           </thead>
           <tbody>
             <tr>
-              <th scope="col"></th>
-              <th scope="col"></th>
-              {machines.map((_, index) => (
-                <td key={index} scope="col">part-num</td>
-              ))}
-            </tr>
-            <tr>
               <th scope="col">{formatDate(formattedDate)}</th>
               <th scope="col">morning</th>
               {machines.map((_, index) => (
-                <td key={index} scope="col" contentEditable="true" onInput={handleInput}></td>
+                <td key={index} scope="col">
+                  <div className="row">
+                  <div className="col-8">
+                  <select  onChange={handleDropdownChange} defaultValue=""style={{width:'150px'}}>
+                    <option value="" disabled>PartNo</option>
+                    <option value="Option 1">Option 1</option>
+                    <option value="Option 2">Option 2</option>
+                    <option value="Option 3">Option 3</option>
+                  </select></div><div className="col-4">
+                  <input type="number" style={{width:'60px'}} onChange={handleNumberChange} placeholder="Qty" /></div></div>
+                </td>
               ))}
             </tr>
             <tr>
-              <th scope="col">{formatDate(formattedDate)}</th>
+            <th scope="col">{formatDate(formattedDate)}</th>
               <th scope="col">afternoon</th>
               {machines.map((_, index) => (
-                <td key={index} scope="col" contentEditable="true" onInput={handleInput}></td>
+                <td key={index} scope="col">
+                  <div className="row">
+                  <div className="col-8">
+                  <select  onChange={handleDropdownChange} defaultValue=""style={{width:'150px'}}>
+                    <option value="" disabled>PartNo</option>
+                    <option value="Option 1">Option 1</option>
+                    <option value="Option 2">Option 2</option>
+                    <option value="Option 3">Option 3</option>
+                  </select></div><div className="col-4">
+                  <input type="number" style={{width:'60px'}} onChange={handleNumberChange} placeholder="Qty" /></div></div>
+                </td>
               ))}
             </tr>
             <tr>
-              <th scope="col">{formatDate(formattedDate)}</th>
+            <th scope="col">{formatDate(formattedDate)}</th>
               <th scope="col">evening</th>
               {machines.map((_, index) => (
-                <td key={index} scope="col" contentEditable="true" onInput={handleInput}></td>
+                <td key={index} scope="col">
+                  <div className="row">
+                  <div className="col-8">
+                  <select  onChange={handleDropdownChange} defaultValue=""style={{width:'150px'}}>
+                    <option value="" disabled>PartNo</option>
+                    <option value="Option 1">Option 1</option>
+                    <option value="Option 2">Option 2</option>
+                    <option value="Option 3">Option 3</option>
+                  </select></div><div className="col-4">
+                  <input type="number" style={{width:'60px'}} onChange={handleNumberChange} placeholder="Qty" /></div></div>
+                </td>
               ))}
             </tr>
           </tbody>

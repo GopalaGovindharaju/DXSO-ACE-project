@@ -19,7 +19,7 @@ function Leftcolumn(){
     
     return(
         <div className="container-fluid "id ="bgcolor">
-            <Banner3 name="Inspection"/>
+            <Banner3 name="QA"/>
        
             <form className="needs-validation" noValidate>
 
@@ -68,23 +68,6 @@ function Leftcolumn(){
     </div><br></br>
     <div className="row insrow2 ">
 
-
-    <div className="col">
-        <div className="input-group input-group-sm">
-        <label className="col-sm-6 col-form-label custlabel">Start--Tool Setting Time</label>
-        <div className="col-sm-6">
-        <input type='time' className="form-control custom-textfield0" placeholder='AC-40'/>
-        </div>
-        </div>
-    </div>
-    <div className="col">
-<div className="input-group input-group-sm">
-<label className="col-sm-6 col-form-label custlabel">End--Tool Setting Time</label>
-<div className="col-sm-6">
-<input type='time' className="form-control custom-textfield0" placeholder='AC-40'/>
-</div>
-</div>
-</div>
 <div className="col">
 <div className="input-group input-group-sm">
 <label className="col-sm-6 col-form-label custlabel">Part Number</label>
@@ -93,8 +76,18 @@ function Leftcolumn(){
 </div>
 </div>
 </div>
-    
-
+    <div className="col">
+        <div className="input-group input-group-sm">
+        <div className="col-sm-6">
+        </div>
+        </div>
+    </div>
+    <div className="col">
+<div className="input-group input-group-sm">
+<div className="col-sm-6">
+</div>
+</div>
+</div>
     <div className="col">
     <div className="col-sm-15"><center>
             <button type="submit" className="btn btn-primary btn-sm btn-block text-white form-control " required style={{width:'100px'}}>Submit </button>

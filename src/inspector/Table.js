@@ -25,8 +25,6 @@ function Table() {
                     <th scope="col">BOM value</th>
                     <th scope="col">Operator Entry</th>
                     <th scope="col">Insp method</th>
-                    <th scope="col">Process Start-time</th>
-                    <th scope="col">Process<br></br> End-Time</th>
                     <th scope="col">Inspector Entry</th>
                     <th scope="col">Approve/<br></br>Reject</th>
                     <th scope="col">Full part approved</th>
@@ -47,12 +45,10 @@ function Table() {
                         <option value="Option 3">protact</option>
                     </select>   
                     </td>
-                    <td rowSpan={5}><input type="time" className="tb1" id="tb"></input></td>
-                    <td rowSpan={5}><input type="time" className="tb1" id="tb"></input></td>
                     <td contentEditable="true">3</td>
                     <td contentEditable="true"><CheckboxExample/></td>
                     <td rowSpan={5}><ToggleButton/></td>
-                    <td rowSpan={5}><input type="text" className="tb2" id="commentstext"></input></td>
+                    <td rowSpan={5}><input type="text" className="tb2" id="commentstext" style={{width:"200px"}}></input></td>
                     <td contentEditable="true"id="notes"></td>
                 </tr>
 

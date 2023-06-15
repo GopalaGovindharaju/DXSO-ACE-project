@@ -4,7 +4,7 @@ function Table(){
     return(
         <div className="container-fluid">
            <center>
-<table className="customtable table-bordered">
+<table className="customtable table-bordered container-fluid">
         <thead>
             <tr>
                 <th>Serial Number</th>
@@ -12,8 +12,6 @@ function Table(){
                 <th>Actual form BOM</th>
                 <th>Ins method</th>
                 <th>Operator entry(manual entry)</th>
-                <th>process-time-start(manual entry)</th>
-                <th>process-time-end(manual entry)</th>
             </tr>
         </thead>
         <tbody>
@@ -29,8 +27,6 @@ function Table(){
                     </select>
                 </td>
                 <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
             </tr>
             <tr>
                 <td contenteditable="true">2</td>
@@ -43,8 +39,6 @@ function Table(){
                         <option value="Option 3">protact</option>
                     </select>
                 </td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
                 <td contenteditable="true"></td>
             </tr>
             <tr>
@@ -59,8 +53,6 @@ function Table(){
                     </select>
                 </td>
                 <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
             </tr>
             <tr>
                 <td contenteditable="true">4</td>
@@ -74,8 +66,6 @@ function Table(){
                     </select>
                 </td>
                 <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
             </tr>
             <tr>
                 <td contenteditable="true">5</td>
@@ -88,8 +78,6 @@ function Table(){
                         <option value="Option 3">protact</option>
                     </select>
                 </td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
                 <td contenteditable="true"></td>
             </tr>
         </tbody>
